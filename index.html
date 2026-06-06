@@ -1578,6 +1578,8 @@
         growthTests: new Map(),
         territoryProgress: new Map(),
         territoryAnimations: new Map(),
+        animationRenderQueued: false,
+        lastAnimationRenderAt: 0,
         slotFilters: {
           search: "",
           game: "all",
@@ -1677,6 +1679,8 @@
         state.growthTests = new Map();
         state.territoryProgress = new Map();
         state.territoryAnimations = new Map();
+        state.animationRenderQueued = false;
+        state.lastAnimationRenderAt = 0;
         state.mapLayout = new Map();
         state.mapSignature = "";
         state.dataPackages.clear();
@@ -1760,7 +1764,7 @@
             state.territoryProgress.set(key, active.to);
             return Math.round(active.to * 10) / 10;
           }
-          requestAnimationFrame(queueRender);
+          queueAnimatedRender();
           state.territoryProgress.set(key, value);
           return Math.round(value * 10) / 10;
         }
@@ -1768,7 +1772,7 @@
         if (Math.abs(target - current) > 0.1) {
           const duration = target > current ? 1800 : 520;
           state.territoryAnimations.set(key, { from: current, to: target, startedAt: now, duration });
-          requestAnimationFrame(queueRender);
+          queueAnimatedRender();
           return Math.round(current * 10) / 10;
         }
 
@@ -1861,7 +1865,7 @@
           }
         }
         if (active.some(slot => now < slot.growthEndsAt)) {
-          requestAnimationFrame(queueRender);
+          queueAnimatedRender();
         }
         return active.sort((a, b) => a.id - b.id);
       }
@@ -1954,6 +1958,18 @@
         });
       }
 
+      function queueAnimatedRender() {
+        if (state.animationRenderQueued) return;
+        const now = performance.now();
+        const delay = Math.max(0, 90 - (now - state.lastAnimationRenderAt));
+        state.animationRenderQueued = true;
+        window.setTimeout(() => {
+          state.animationRenderQueued = false;
+          state.lastAnimationRenderAt = performance.now();
+          queueRender();
+        }, delay);
+      }
+
       function render() {
         const slots = sortedSlots();
         const mapSlots = slots.concat(activeFakeSlots());
@@ -2027,13 +2043,16 @@
           const label = territoryLabel(slot, density);
           const labelSize = territoryLabelSize(region, label, density);
           const selected = slot.key === state.selectedKey ? " selected-region" : "";
+          const armyNode = shouldRenderArmy(slot, pct, density)
+            ? `<text class="territory-army" x="${growth.army.x.toFixed(1)}" y="${growth.army.y.toFixed(1)}">🪖</text>`
+            : "";
           return `<g class="region${selected}" data-key="${escapeHtml(slot.key)}" tabindex="0" role="button">
             <title>${escapeHtml(displayName(slot))} - ${escapeHtml(slot.game)} - ${pct}%</title>
             <path class="land-base" d="${region.d}"></path>
             <g clip-path="url(#${clipId})">
               <circle class="land-fill" cx="${growth.origin.x.toFixed(1)}" cy="${growth.origin.y.toFixed(1)}" r="${growth.radius.toFixed(1)}" fill="${color}"></circle>
             </g>
-            <text class="territory-army" x="${growth.army.x.toFixed(1)}" y="${growth.army.y.toFixed(1)}">🪖</text>
+            ${armyNode}
             <text class="land-label" x="${region.x}" y="${region.y - labelSize.offset.toFixed(1)}" font-size="${labelSize.font.toFixed(1)}">${escapeHtml(label)}</text>
             <text class="land-percent" x="${region.x}" y="${labelSize.percentY.toFixed(1)}" font-size="${labelSize.percentFont.toFixed(1)}">${pct}%</text>
           </g>`;
@@ -2360,7 +2379,7 @@
         const now = performance.now();
         const activeFlights = state.flights.filter(flight => now - flight.startedAt < flight.duration);
         if (activeFlights.length) {
-          requestAnimationFrame(queueRender);
+          queueAnimatedRender();
         }
 
         return activeFlights.map(flight => {
@@ -2415,6 +2434,12 @@
           percentFont,
           percentY
         };
+      }
+
+      function shouldRenderArmy(slot, percent, density) {
+        return Boolean(slot.fakeSlot) ||
+          state.territoryAnimations.has(slot.key) ||
+          (density === 0 && slot.key === state.selectedKey && percent > 0 && percent < 100);
       }
 
       function growthOrigin(region) {
