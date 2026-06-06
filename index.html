@@ -1,0 +1,3601 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Archipelago Slot Atlas</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #120d0d;
+      --panel: #201817;
+      --panel-2: #2a211d;
+      --ink: #fff4e8;
+      --muted: #d0b9a7;
+      --line: #4a302c;
+      --line-strong: #7e4a43;
+      --good: #8fc06c;
+      --warn: #e6b65b;
+      --bad: #d8584e;
+      --cyan: #6bb7ad;
+      --violet: #b99cff;
+      --flannel-red: #7f2425;
+      --flannel-red-deep: #351516;
+      --flannel-green: #274a32;
+      --flannel-cream: #f0d3ac;
+      --flannel-thread: rgba(240, 211, 172, 0.16);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      margin: 0;
+      min-height: 100vh;
+      background:
+        repeating-linear-gradient(0deg, rgba(127, 36, 37, 0.32) 0 22px, rgba(18, 13, 13, 0.48) 22px 44px, rgba(39, 74, 50, 0.22) 44px 58px, rgba(18, 13, 13, 0.48) 58px 88px),
+        repeating-linear-gradient(90deg, rgba(127, 36, 37, 0.36) 0 18px, rgba(18, 13, 13, 0.55) 18px 38px, rgba(240, 211, 172, 0.12) 38px 42px, rgba(39, 74, 50, 0.2) 42px 62px, rgba(18, 13, 13, 0.52) 62px 92px),
+        linear-gradient(145deg, #1a0f10 0%, #17110f 44%, #0e0d0b 100%);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -12%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      opacity: 0.42;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 19px, rgba(240, 211, 172, 0.16) 19px 23px, transparent 23px 48px, rgba(127, 36, 37, 0.18) 48px 66px, transparent 66px 112px),
+        repeating-linear-gradient(90deg, rgba(39, 74, 50, 0.12) 0 14px, transparent 14px 74px);
+      animation: flannelDriftDiagonalA 210s linear infinite;
+    }
+
+    body::after {
+      opacity: 0.34;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 24px, rgba(240, 211, 172, 0.12) 24px 27px, transparent 27px 56px, rgba(127, 36, 37, 0.16) 56px 78px, transparent 78px 130px),
+        repeating-linear-gradient(0deg, rgba(39, 74, 50, 0.1) 0 12px, transparent 12px 84px);
+      animation: flannelDriftDiagonalB 145s linear infinite;
+    }
+
+    @keyframes flannelDriftDiagonalA {
+      from {
+        background-position: 0 0, 0 0;
+      }
+      to {
+        background-position: 280px 180px, -190px 120px;
+      }
+    }
+
+    @keyframes flannelDriftDiagonalB {
+      from {
+        background-position: 0 0, 0 0;
+      }
+      to {
+        background-position: -180px 520px, 150px -380px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body::before,
+      body::after {
+        animation: none;
+      }
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      background: #33221f;
+      color: var(--ink);
+      border-radius: 7px;
+      cursor: pointer;
+      transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+    }
+
+    button:hover {
+      border-color: var(--line-strong);
+      background: #402824;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.56;
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(292px, 340px) minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 18px;
+      border-right: 1px solid var(--line);
+      background: #17100f;
+      backdrop-filter: blur(18px);
+      overflow: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .connection-dot {
+      width: 12px;
+      height: 12px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: var(--bad);
+      box-shadow: 0 0 0 5px rgba(239, 111, 100, 0.16);
+    }
+
+    .connection-dot.live {
+      background: var(--good);
+      box-shadow: 0 0 0 5px rgba(128, 211, 107, 0.15);
+    }
+
+    .connection-dot.waiting {
+      background: var(--warn);
+      box-shadow: 0 0 0 5px rgba(238, 184, 95, 0.15);
+    }
+
+    .control-block {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #201817;
+      box-shadow: var(--shadow);
+    }
+
+    .segmented {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #130d0c;
+    }
+
+    .segmented button {
+      min-height: 34px;
+      border-color: transparent;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .segmented button.active {
+      background: #4a2422;
+      color: var(--ink);
+      border-color: #8a4a40;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 38px;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #130d0c;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 140ms ease, box-shadow 140ms ease;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(100, 199, 195, 0.14);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 28px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .check-row input {
+      width: 17px;
+      min-height: 17px;
+      accent-color: var(--cyan);
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .primary-button {
+      min-height: 40px;
+      background: #6b2827;
+      border-color: #a84a42;
+    }
+
+    .primary-button:hover {
+      background: #83312f;
+    }
+
+    .ghost-button {
+      min-height: 40px;
+    }
+
+    .small-button {
+      min-height: 31px;
+      padding: 5px 9px;
+      font-size: 12px;
+    }
+
+    .settings-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .settings-title {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+      display: inline-grid;
+      place-items: center;
+      padding: 0;
+    }
+
+    .icon-button svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .settings-body {
+      display: grid;
+      gap: 10px;
+    }
+
+    .settings-body.collapsed {
+      display: none;
+    }
+
+    .status-box {
+      min-height: 70px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #130d0c;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .event-list {
+      display: grid;
+      gap: 8px;
+      max-height: 178px;
+      overflow: auto;
+      padding-right: 3px;
+    }
+
+    .event {
+      padding: 8px 9px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #17100f;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .main {
+      min-width: 0;
+      padding: 18px;
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 58px;
+    }
+
+    .topbar-title {
+      min-width: 0;
+    }
+
+    .topbar-title h2 {
+      margin: 0 0 4px;
+      font-size: clamp(20px, 2vw, 28px);
+      letter-spacing: 0;
+    }
+
+    .topbar-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .view-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #201817;
+    }
+
+    .view-tabs button {
+      min-width: 72px;
+      min-height: 34px;
+      padding: 6px 10px;
+      border-color: transparent;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .view-tabs button.active {
+      color: var(--ink);
+      background: #4a2422;
+      border-color: #8a4a40;
+    }
+
+    .content-grid {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.65fr);
+      gap: 8px;
+    }
+
+    .panel {
+      min-width: 0;
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #201817;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 46px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-header h3 {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+
+    .panel-header .subtle {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .map-panel {
+      display: grid;
+      grid-template-rows: auto minmax(380px, 1fr);
+    }
+
+    .map-wrap {
+      position: relative;
+      min-height: 380px;
+      background: #15100e;
+      overflow: hidden;
+    }
+
+    .atlas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .ocean-grid {
+      opacity: 0.28;
+    }
+
+    .land-base {
+      fill: #33251f;
+      stroke: #6d4a3d;
+      stroke-width: 1.4;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .land-fill {
+      stroke: none;
+      filter: saturate(1.06);
+    }
+
+    .territory-army {
+      pointer-events: none;
+      font-size: 17px;
+      dominant-baseline: middle;
+      text-anchor: middle;
+      paint-order: stroke;
+      stroke: rgba(0, 0, 0, 0.78);
+      stroke-width: 3px;
+    }
+
+    .land-label {
+      --label-stroke: 7px;
+      pointer-events: none;
+      fill: #f8f9ef;
+      paint-order: stroke;
+      stroke: rgba(0, 0, 0, 0.68);
+      stroke-width: var(--label-stroke);
+      font-weight: 800;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .land-percent {
+      --percent-stroke: 5px;
+      pointer-events: none;
+      fill: #d9decf;
+      paint-order: stroke;
+      stroke: rgba(0, 0, 0, 0.74);
+      stroke-width: var(--percent-stroke);
+      font-weight: 850;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+
+    .selected-region .land-base {
+      stroke: #f4f5ec;
+      stroke-width: 2.4;
+    }
+
+    .atlas.dense-map .land-label {
+      --label-stroke: 5px;
+    }
+
+    .atlas.dense-map .land-percent {
+      --percent-stroke: 4px;
+    }
+
+    .atlas.dense-map .territory-army {
+      font-size: 13px;
+      stroke-width: 2px;
+    }
+
+    .atlas.ultra-dense-map .land-base,
+    .atlas.ultra-dense-map .land-fill {
+      stroke-width: 1px;
+    }
+
+    .atlas.ultra-dense-map .land-label {
+      --label-stroke: 4px;
+    }
+
+    .atlas.ultra-dense-map .land-percent {
+      display: block;
+      --percent-stroke: 3px;
+    }
+
+    .atlas.ultra-dense-map .territory-army {
+      font-size: 10px;
+      stroke-width: 1.5px;
+    }
+
+    .atlas.mega-map .land-base,
+    .atlas.mega-map .land-fill {
+      stroke-width: 0.75px;
+    }
+
+    .atlas.mega-map .land-label {
+      display: block;
+      --label-stroke: 3px;
+    }
+
+    .atlas.mega-map .land-percent {
+      display: none;
+    }
+
+    .atlas.mega-map .territory-army {
+      display: none;
+    }
+
+    .flight-line {
+      fill: none;
+      stroke: var(--flight-color, rgba(240, 211, 172, 0.66));
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 6 7;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .flight-plane {
+      font-size: 22px;
+      dominant-baseline: middle;
+      text-anchor: middle;
+      paint-order: stroke;
+      stroke: rgba(74, 48, 44, 0.86);
+      stroke-width: 3px;
+    }
+
+    .flight-label {
+      pointer-events: none;
+      fill: var(--flight-color, #fff4e8);
+      paint-order: stroke;
+      stroke: rgba(0, 0, 0, 0.72);
+      stroke-width: 3px;
+      font-size: 11px;
+      font-weight: 850;
+      text-anchor: middle;
+    }
+
+    .empty-map {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      padding: 28px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 230px);
+      justify-content: center;
+      justify-self: center;
+      width: 100%;
+      max-width: 980px;
+      gap: 10px;
+    }
+
+    .stat {
+      width: 230px;
+      height: 170px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #231917;
+      position: relative;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      width: 100%;
+      font-size: 60px;
+      line-height: 1.1;
+      font-weight: 850;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .stat strong.compact-value {
+      font-size: 48px;
+    }
+
+    .stat strong.tiny-value {
+      font-size: 38px;
+    }
+
+    .stat span {
+      display: block;
+      position: absolute;
+      top: 16px;
+      left: 10px;
+      right: 10px;
+      margin-top: 0;
+      color: var(--muted);
+      font-size: 30px;
+      font-weight: 760;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .side-stack {
+      min-height: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .slot-list {
+      min-height: 0;
+      overflow: auto;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .slot-toolbar {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      justify-content: stretch;
+      align-items: center;
+      gap: 5px;
+      min-height: 50px;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line);
+      background: #18100f;
+      overflow: hidden;
+    }
+
+    .slot-toolbar.three {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .slot-toolbar input,
+    .slot-toolbar select {
+      appearance: none;
+      width: 100%;
+      min-height: 45px;
+      height: 45px;
+      padding: 0 10px;
+      border-radius: 5px;
+      font-size: 10.5px;
+      line-height: 45px;
+    }
+
+    .slot-toolbar select {
+      font-size: 18.9px;
+      line-height: 45px;
+    }
+
+    .table-panel > .panel-header {
+      min-height: 28px;
+      padding: 4px 10px;
+    }
+
+    .slot-card {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      min-height: 82px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #17100f;
+      cursor: pointer;
+      transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+    }
+
+    .slot-list.room-small {
+      gap: 14px;
+    }
+
+    .slot-list.room-small .slot-card {
+      grid-template-columns: 78px minmax(0, 1fr);
+      min-height: 118px;
+      padding: 14px;
+      gap: 14px;
+    }
+
+    .slot-list.room-small .ring {
+      width: 72px;
+      height: 72px;
+      font-size: 17px;
+    }
+
+    .slot-list.room-small .slot-name {
+      font-size: 19px;
+    }
+
+    .slot-list.room-small .slot-state {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+
+    .slot-list.room-small .slot-meta {
+      font-size: 15px;
+    }
+
+    .slot-list.room-small .bar {
+      height: 12px;
+      margin-top: 12px;
+    }
+
+    .slot-list.room-medium .slot-card {
+      grid-template-columns: 62px minmax(0, 1fr);
+      min-height: 96px;
+      padding: 12px;
+      gap: 12px;
+    }
+
+    .slot-list.room-medium .ring {
+      width: 58px;
+      height: 58px;
+      font-size: 14px;
+    }
+
+    .slot-list.room-medium .slot-name {
+      font-size: 16px;
+    }
+
+    .slot-list.room-medium .slot-meta {
+      font-size: 13px;
+    }
+
+    .slot-list.room-medium .bar {
+      height: 9px;
+    }
+
+    .slot-list.room-large .slot-card {
+      min-height: 72px;
+      padding: 9px;
+    }
+
+    .slot-list.room-large .slot-name {
+      font-size: 13px;
+    }
+
+    .slot-list.room-large .slot-meta {
+      font-size: 11px;
+    }
+
+    .slot-list.room-large .bar {
+      height: 6px;
+    }
+
+    .slot-card:hover {
+      border-color: var(--line-strong);
+      background: #221714;
+    }
+
+    .slot-card.selected {
+      border-color: var(--flannel-cream);
+      background: #2f1c19;
+    }
+
+    .ring {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      background:
+        conic-gradient(var(--ring-color) var(--pct), #3c2a25 0),
+        #3c2a25;
+    }
+
+    .ring::after {
+      content: "";
+      position: absolute;
+    }
+
+    .slot-body {
+      min-width: 0;
+    }
+
+    .slot-name-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    .slot-name {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: 760;
+    }
+
+    .slot-state {
+      flex: 0 0 auto;
+      padding: 3px 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.1;
+    }
+
+    .slot-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      min-width: 0;
+    }
+
+    .slot-game {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .bar {
+      height: 7px;
+      margin-top: 9px;
+      border-radius: 999px;
+      background: #3c2a25;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: var(--pct);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--bar-color), #f0dc7a);
+      transition: width var(--bar-speed, 520ms) ease;
+    }
+
+    .table-panel {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    .data-table-wrap {
+      min-height: 0;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+
+    th,
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: 13px;
+      vertical-align: middle;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #1c1e19;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 680;
+    }
+
+    td {
+      color: #dfe3d6;
+    }
+
+    tr:hover td {
+      background: rgba(100, 199, 195, 0.045);
+    }
+
+    #slotTableBody.room-small td {
+      padding: 14px 12px;
+      font-size: 16px;
+    }
+
+    #slotTableBody.room-small .mini-progress {
+      grid-template-columns: minmax(130px, 1fr) 60px;
+    }
+
+    #slotTableBody.room-small .bar {
+      height: 12px;
+    }
+
+    #slotTableBody.room-medium td {
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    #slotTableBody.room-medium .bar {
+      height: 9px;
+    }
+
+    #slotTableBody.room-large td {
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    #slotTableBody.room-large .bar {
+      height: 6px;
+    }
+
+    .mini-progress {
+      display: grid;
+      grid-template-columns: minmax(90px, 1fr) 48px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .checks-panel {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    .main.checks-active {
+      gap: 8px;
+    }
+
+    .main.checks-active .topbar {
+      min-height: 44px;
+    }
+
+    .main.checks-active .topbar-title h2 {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+
+    .main.checks-active .topbar-title p {
+      display: none;
+    }
+
+    .main.checks-active .stat-grid {
+      gap: 8px;
+    }
+
+    .main.checks-active .stat {
+      padding: 8px;
+    }
+
+    .main.checks-active .stat strong {
+      font-size: 60px;
+    }
+
+    .main.checks-active .stat strong.compact-value {
+      font-size: 48px;
+    }
+
+    .main.checks-active .stat strong.tiny-value {
+      font-size: 38px;
+    }
+
+    .main.checks-active .stat span {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .checks-toolbar {
+      display: grid;
+      grid-template-columns: minmax(160px, 1fr) 132px 122px;
+      gap: 8px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #18100f;
+    }
+
+    .check-list {
+      min-height: 0;
+      overflow: auto;
+      padding: 12px;
+      display: grid;
+      align-content: start;
+      gap: 7px;
+    }
+
+    .check-item {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 10px;
+      min-height: 38px;
+      align-items: center;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #17100f;
+      color: #dfe3d6;
+      font-size: 13px;
+    }
+
+    .check-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .check-badge.done {
+      color: #c9f5bf;
+      border-color: rgba(128, 211, 107, 0.42);
+      background: rgba(128, 211, 107, 0.1);
+    }
+
+    .check-badge.missing {
+      color: #f6d18b;
+      border-color: rgba(238, 184, 95, 0.44);
+      background: rgba(238, 184, 95, 0.08);
+    }
+
+    .check-name {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 1120px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-stack {
+        grid-template-rows: auto auto;
+      }
+
+      .slot-list {
+        max-height: 420px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: relative;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .view-tabs {
+        width: 100%;
+      }
+
+      .view-tabs button {
+        flex: 1 1 0;
+        min-width: 0;
+      }
+
+      .stat-grid {
+        grid-template-columns: repeat(2, 230px);
+      }
+
+      .checks-toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .slot-toolbar,
+      .slot-toolbar.three {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .main,
+      .sidebar {
+        padding: 12px;
+      }
+
+      .field-row,
+      .button-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: minmax(0, 230px);
+      }
+
+      .map-panel {
+        grid-template-rows: auto minmax(300px, 1fr);
+      }
+
+      .map-wrap {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>Archipelago Slot Atlas</h1>
+        <span id="connectionDot" class="connection-dot" title="Connection state"></span>
+      </div>
+
+      <section class="control-block">
+        <div class="segmented" aria-label="Connection mode">
+          <button id="webhostModeButton" class="active" type="button">WebHost</button>
+          <button id="serverModeButton" type="button">Server</button>
+        </div>
+
+        <div id="webhostFields" class="field">
+          <label for="trackerInput">Room or tracker URL</label>
+          <input id="trackerInput" autocomplete="off" placeholder="https://archipelago.gg/tracker/...">
+        </div>
+
+        <div id="serverFields" class="hidden">
+          <div class="field">
+            <label for="serverInput">Server address</label>
+            <input id="serverInput" autocomplete="off" placeholder="archipelago.gg:38281">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="slotInput">Observer slot</label>
+              <input id="slotInput" autocomplete="off" placeholder="Player name">
+            </div>
+            <div class="field">
+              <label for="passwordInput">Password</label>
+              <input id="passwordInput" type="password" autocomplete="off" placeholder="Optional">
+            </div>
+          </div>
+          <div class="check-row">
+            <input id="secureSocketInput" type="checkbox">
+            <label for="secureSocketInput">Use wss://</label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="pollInput">Refresh seconds</label>
+            <input id="pollInput" type="number" min="5" max="120" step="1" value="10">
+          </div>
+          <div class="field">
+            <label for="themeInput">Reveal pace</label>
+            <select id="themeInput">
+              <option value="smooth">Smooth</option>
+              <option value="snappy">Snappy</option>
+              <option value="quiet">Quiet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="check-row">
+          <input id="namesInput" type="checkbox" checked>
+          <label for="namesInput">Load location names</label>
+        </div>
+
+        <div class="button-row">
+          <button id="connectButton" class="primary-button" type="button">Connect</button>
+          <button id="disconnectButton" class="ghost-button" type="button" disabled>Disconnect</button>
+        </div>
+      </section>
+
+      <section class="control-block">
+        <div class="settings-head">
+          <h3 class="settings-title">Settings</h3>
+          <button id="settingsToggleButton" class="icon-button" type="button" title="Toggle settings" aria-label="Toggle settings" aria-expanded="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+              <path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.06.06a2.1 2.1 0 0 1-2.97 2.97l-.06-.06A1.8 1.8 0 0 0 14.82 19a1.8 1.8 0 0 0-1.08 1.65V21a2.1 2.1 0 0 1-4.2 0v-.09A1.8 1.8 0 0 0 8.46 19a1.8 1.8 0 0 0-1.98.36l-.06.06a2.1 2.1 0 1 1-2.97-2.97l.06-.06A1.8 1.8 0 0 0 3 14.82a1.8 1.8 0 0 0-1.65-1.08H1.2a2.1 2.1 0 1 1 0-4.2h.15A1.8 1.8 0 0 0 3 8.46a1.8 1.8 0 0 0-.36-1.98l-.06-.06a2.1 2.1 0 1 1 2.97-2.97l.06.06A1.8 1.8 0 0 0 8.46 3a1.8 1.8 0 0 0 1.08-1.65V1.2a2.1 2.1 0 1 1 4.2 0v.15A1.8 1.8 0 0 0 14.82 3a1.8 1.8 0 0 0 1.98-.36l.06-.06a2.1 2.1 0 1 1 2.97 2.97l-.06.06A1.8 1.8 0 0 0 19 8.46a1.8 1.8 0 0 0 1.65 1.08h.15a2.1 2.1 0 1 1 0 4.2h-.15A1.8 1.8 0 0 0 19.4 15Z"></path>
+            </svg>
+          </button>
+        </div>
+        <div id="settingsBody" class="settings-body">
+          <button id="testFlightButton" class="ghost-button" type="button">Test airplane check</button>
+          <button id="testGrowthButton" class="ghost-button" type="button">Test territory growth</button>
+        </div>
+      </section>
+
+      <section class="control-block">
+        <div class="status-box" id="statusBox">Idle.</div>
+      </section>
+
+      <section class="control-block">
+        <div class="panel-header" style="padding:0;border:0;min-height:unset;">
+          <h3>Events</h3>
+          <button id="clearEventsButton" class="small-button" type="button">Clear</button>
+        </div>
+        <div id="eventList" class="event-list"></div>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title">
+          <h2 id="roomTitle">No Room Connected</h2>
+          <p id="roomSubtitle">Waiting for a tracker or server.</p>
+        </div>
+        <nav class="view-tabs" aria-label="Display view">
+          <button id="mapViewButton" class="active" type="button">Map</button>
+          <button id="slotsViewButton" type="button">Slots</button>
+          <button id="checksViewButton" type="button">Checks</button>
+        </nav>
+      </header>
+
+      <section class="stat-grid">
+        <div class="stat"><strong id="statSlots">0</strong><span>Slots</span></div>
+        <div class="stat"><strong id="statChecks">0/0</strong><span>Checks</span></div>
+        <div class="stat"><strong id="statPercent">0%</strong><span>Room</span></div>
+        <div class="stat"><strong id="statGoals">0</strong><span>Goals</span></div>
+      </section>
+
+      <section id="mapView" class="content-grid">
+        <article class="panel map-panel">
+          <div class="panel-header">
+            <h3>World Map</h3>
+            <span id="mapSummary" class="subtle">0 territories</span>
+          </div>
+          <div class="map-wrap">
+            <svg id="atlasSvg" class="atlas" viewBox="0 0 1000 560" role="img" aria-label="Slot progress world map"></svg>
+            <div id="emptyMap" class="empty-map">Connect to a room to reveal territories.</div>
+          </div>
+        </article>
+
+        <aside class="side-stack">
+          <article class="panel">
+            <div class="panel-header">
+              <h3>Slots</h3>
+              <span id="slotCountLabel" class="subtle">0 shown</span>
+            </div>
+            <div class="slot-toolbar">
+              <input id="slotSearchInput" autocomplete="off" placeholder="Filter slots">
+              <select id="slotGameFilter" aria-label="Platform filter"></select>
+              <select id="slotSortSelect" aria-label="Sort slots">
+                <option value="slot">Slot</option>
+                <option value="percent">Percent</option>
+                <option value="name">Name</option>
+                <option value="game">Console</option>
+              </select>
+              <select id="slotSortDirSelect" aria-label="Sort direction">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </div>
+            <div id="slotList" class="slot-list"></div>
+          </article>
+        </aside>
+      </section>
+
+      <section id="slotsView" class="panel table-panel hidden">
+        <div class="panel-header">
+          <h3>Slot Data</h3>
+          <span id="tableSummary" class="subtle">0 rows</span>
+        </div>
+        <div class="slot-toolbar three">
+          <input id="tableSlotSearchInput" autocomplete="off" placeholder="Filter slots">
+          <select id="tableSlotGameFilter" aria-label="Platform filter"></select>
+          <select id="tableSlotSortSelect" aria-label="Sort slots">
+            <option value="slot">Slot</option>
+            <option value="percent">Percent</option>
+            <option value="name">Name</option>
+            <option value="game">Console</option>
+          </select>
+          <select id="tableSlotSortDirSelect" aria-label="Sort direction">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+        <div class="data-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Slot</th>
+                <th>Game</th>
+                <th>Platform</th>
+                <th>Progress</th>
+                <th>State</th>
+                <th>Elapsed</th>
+                <th>Items</th>
+                <th>Hints</th>
+                <th>Activity</th>
+              </tr>
+            </thead>
+            <tbody id="slotTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="checksView" class="panel checks-panel hidden">
+        <div class="panel-header">
+          <h3 id="checksTitle">Checks</h3>
+          <span id="checksSummary" class="subtle">0 checks</span>
+        </div>
+        <div class="checks-toolbar">
+          <input id="checkSearchInput" autocomplete="off" placeholder="Filter checks">
+          <select id="checkSlotSelect" aria-label="Slot"></select>
+          <select id="checkStateSelect" aria-label="Check state">
+            <option value="all">All</option>
+            <option value="checked">Checked</option>
+            <option value="missing">Missing</option>
+          </select>
+        </div>
+        <div id="checkList" class="check-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const AP_VERSION = { class: "Version", major: 0, minor: 6, build: 7 };
+      const PRIMARY_TRACKER_TAGS = ["Tracker"];
+      const SLOT_TRACKER_TAGS = ["Tracker", "NoText"];
+      const ITEM_HANDLING_NONE = 0;
+      const SLOT_TYPE_PLAYER = 1;
+      const CLIENT_STATUS = new Map([
+        [0, "Unknown"],
+        [5, "Connected"],
+        [10, "Ready"],
+        [20, "Playing"],
+        [30, "Goal"]
+      ]);
+      const PALETTE = [
+        "#b7473f", "#8fc06c", "#e6b65b", "#6bb7ad", "#d88466",
+        "#9e6fb5", "#caa46a", "#6d9f74", "#d8584e", "#8ab1d6",
+        "#b98254", "#a6c96b", "#d0a3ff", "#cf8a88", "#f0d3ac"
+      ];
+      const REGION_TEMPLATES = [
+        { d: "M104 142 C146 85 240 78 294 125 C340 164 316 227 250 246 C197 262 141 242 108 201 C87 174 88 157 104 142 Z", x: 206, y: 172 },
+        { d: "M365 98 C427 60 527 79 570 136 C607 186 571 243 502 251 C430 259 354 232 337 178 C325 140 338 114 365 98 Z", x: 459, y: 166 },
+        { d: "M664 111 C735 71 844 98 884 166 C918 224 878 292 790 303 C713 312 638 273 625 210 C616 165 632 129 664 111 Z", x: 765, y: 194 },
+        { d: "M160 314 C225 278 302 307 327 370 C351 431 310 489 238 493 C175 497 121 451 116 391 C112 357 130 331 160 314 Z", x: 221, y: 393 },
+        { d: "M430 315 C486 278 582 294 625 348 C670 405 632 475 553 490 C483 503 407 469 391 409 C381 368 396 336 430 315 Z", x: 512, y: 397 },
+        { d: "M724 337 C780 303 859 316 897 369 C930 414 901 474 833 492 C761 511 696 477 677 417 C664 379 682 353 724 337 Z", x: 793, y: 409 },
+        { d: "M74 250 C110 229 166 242 187 277 C208 314 181 352 132 354 C88 356 55 330 54 292 C54 273 62 257 74 250 Z", x: 122, y: 296 },
+        { d: "M848 42 C899 30 958 57 974 102 C989 144 950 181 891 176 C840 172 807 138 815 95 C819 66 831 47 848 42 Z", x: 895, y: 108 },
+        { d: "M329 260 C359 238 416 247 438 282 C459 316 438 354 392 359 C348 364 311 337 306 300 C303 282 312 268 329 260 Z", x: 372, y: 307 },
+        { d: "M573 252 C610 226 676 240 699 283 C720 324 690 365 634 365 C584 365 545 334 548 293 C549 275 559 260 573 252 Z", x: 624, y: 303 }
+      ];
+      const PLATFORM_BY_GAME = new Map(Object.entries({
+        "yacht dice": "Phone",
+        "doom 2": "PC",
+        "doom ii": "PC",
+        "doom": "PC",
+        "heretic": "PC",
+        "quake": "PC",
+        "duke nukem 3d": "PC",
+        "minecraft": "PC",
+        "factorio": "PC",
+        "stardew valley": "PC",
+        "terraria": "PC",
+        "subnautica": "PC",
+        "raft": "PC",
+        "noita": "PC",
+        "risk of rain 2": "PC",
+        "slay the spire": "PC",
+        "celeste": "PC",
+        "hollow knight": "PC",
+        "a short hike": "PC",
+        "muse dash": "PC",
+        "vvvvvv": "PC",
+        "dlc quest": "PC",
+        "timespinner": "PC",
+        "lingo": "PC",
+        "shivers": "PC",
+        "rogue legacy": "PC",
+        "manual": "Custom",
+        "a link to the past": "SNES",
+        "the legend of zelda": "NES",
+        "zelda ii": "NES",
+        "ocarina of time": "N64",
+        "majora's mask": "N64",
+        "majoras mask": "N64",
+        "the wind waker": "GameCube",
+        "twilight princess": "GameCube",
+        "link's awakening dx": "Game Boy Color",
+        "links awakening dx": "Game Boy Color",
+        "oracle of ages": "Game Boy Color",
+        "oracle of seasons": "Game Boy Color",
+        "the minish cap": "Game Boy Advance",
+        "super metroid": "SNES",
+        "metroid fusion": "Game Boy Advance",
+        "metroid zero mission": "Game Boy Advance",
+        "metroid prime": "GameCube",
+        "super mario world": "SNES",
+        "super mario 64": "N64",
+        "super mario bros. 3": "NES",
+        "super mario bros 3": "NES",
+        "yoshi's island": "SNES",
+        "yoshis island": "SNES",
+        "pokemon red and blue": "Game Boy",
+        "pokemon red/blue": "Game Boy",
+        "pokemon crystal": "Game Boy Color",
+        "pokemon emerald": "Game Boy Advance",
+        "pokemon fire red": "Game Boy Advance",
+        "pokemon firered": "Game Boy Advance",
+        "pokemon leaf green": "Game Boy Advance",
+        "pokemon leafgreen": "Game Boy Advance",
+        "kirby's dream land 3": "SNES",
+        "kirbys dream land 3": "SNES",
+        "landstalker": "Genesis",
+        "sonic the hedgehog": "Genesis",
+        "sonic adventure 2 battle": "GameCube",
+        "sonic adventure dx": "GameCube",
+        "final fantasy": "NES",
+        "final fantasy mystic quest": "SNES",
+        "secret of evermore": "SNES",
+        "chrono trigger": "SNES",
+        "donkey kong country 3": "SNES",
+        "kingdom hearts": "PS2",
+        "dark souls iii": "PC",
+        "dark souls 3": "PC",
+        "undertale": "PC"
+      }));
+
+      const els = {
+        connectionDot: document.getElementById("connectionDot"),
+        webhostModeButton: document.getElementById("webhostModeButton"),
+        serverModeButton: document.getElementById("serverModeButton"),
+        webhostFields: document.getElementById("webhostFields"),
+        serverFields: document.getElementById("serverFields"),
+        trackerInput: document.getElementById("trackerInput"),
+        serverInput: document.getElementById("serverInput"),
+        slotInput: document.getElementById("slotInput"),
+        passwordInput: document.getElementById("passwordInput"),
+        secureSocketInput: document.getElementById("secureSocketInput"),
+        pollInput: document.getElementById("pollInput"),
+        themeInput: document.getElementById("themeInput"),
+        namesInput: document.getElementById("namesInput"),
+        connectButton: document.getElementById("connectButton"),
+        disconnectButton: document.getElementById("disconnectButton"),
+        settingsToggleButton: document.getElementById("settingsToggleButton"),
+        settingsBody: document.getElementById("settingsBody"),
+        testFlightButton: document.getElementById("testFlightButton"),
+        testGrowthButton: document.getElementById("testGrowthButton"),
+        statusBox: document.getElementById("statusBox"),
+        eventList: document.getElementById("eventList"),
+        clearEventsButton: document.getElementById("clearEventsButton"),
+        roomTitle: document.getElementById("roomTitle"),
+        roomSubtitle: document.getElementById("roomSubtitle"),
+        mapViewButton: document.getElementById("mapViewButton"),
+        slotsViewButton: document.getElementById("slotsViewButton"),
+        checksViewButton: document.getElementById("checksViewButton"),
+        mapView: document.getElementById("mapView"),
+        slotsView: document.getElementById("slotsView"),
+        checksView: document.getElementById("checksView"),
+        statSlots: document.getElementById("statSlots"),
+        statChecks: document.getElementById("statChecks"),
+        statPercent: document.getElementById("statPercent"),
+        statGoals: document.getElementById("statGoals"),
+        mapSummary: document.getElementById("mapSummary"),
+        atlasSvg: document.getElementById("atlasSvg"),
+        emptyMap: document.getElementById("emptyMap"),
+        slotCountLabel: document.getElementById("slotCountLabel"),
+        slotSearchInput: document.getElementById("slotSearchInput"),
+        slotGameFilter: document.getElementById("slotGameFilter"),
+        slotSortSelect: document.getElementById("slotSortSelect"),
+        slotSortDirSelect: document.getElementById("slotSortDirSelect"),
+        slotList: document.getElementById("slotList"),
+        tableSummary: document.getElementById("tableSummary"),
+        tableSlotSearchInput: document.getElementById("tableSlotSearchInput"),
+        tableSlotGameFilter: document.getElementById("tableSlotGameFilter"),
+        tableSlotSortSelect: document.getElementById("tableSlotSortSelect"),
+        tableSlotSortDirSelect: document.getElementById("tableSlotSortDirSelect"),
+        slotTableBody: document.getElementById("slotTableBody"),
+        checksTitle: document.getElementById("checksTitle"),
+        checksSummary: document.getElementById("checksSummary"),
+        checkSearchInput: document.getElementById("checkSearchInput"),
+        checkSlotSelect: document.getElementById("checkSlotSelect"),
+        checkStateSelect: document.getElementById("checkStateSelect")
+      };
+
+      const state = {
+        mode: "webhost",
+        status: "idle",
+        title: "No Room Connected",
+        subtitle: "Waiting for a tracker or server.",
+        sourceLabel: "",
+        slots: new Map(),
+        selectedKey: null,
+        events: [],
+        flights: [],
+        nextFlightId: 1,
+        fakeSlots: new Map(),
+        nextFakeSlotId: 1,
+        growthTests: new Map(),
+        territoryProgress: new Map(),
+        territoryAnimations: new Map(),
+        slotFilters: {
+          search: "",
+          game: "all",
+          sort: "slot",
+          dir: "asc"
+        },
+        sockets: new Map(),
+        primarySocket: null,
+        pollTimer: null,
+        dataPackages: new Map(),
+        mapLayout: new Map(),
+        mapSignature: "",
+        webhost: null,
+        direct: null,
+        renderQueued: false
+      };
+
+      function loadPrefs() {
+        try {
+          const prefs = JSON.parse(localStorage.getItem("ap-slot-atlas") || "{}");
+          if (prefs.mode === "webhost" || prefs.mode === "server") setMode(prefs.mode);
+          if (typeof prefs.tracker === "string") els.trackerInput.value = prefs.tracker;
+          if (typeof prefs.server === "string") els.serverInput.value = prefs.server;
+          if (typeof prefs.slot === "string") els.slotInput.value = prefs.slot;
+          if (typeof prefs.poll === "number") els.pollInput.value = String(prefs.poll);
+          if (typeof prefs.secure === "boolean") els.secureSocketInput.checked = prefs.secure;
+        } catch (error) {
+          addEvent("Preferences were reset.");
+        }
+      }
+
+      function savePrefs() {
+        const prefs = {
+          mode: state.mode,
+          tracker: els.trackerInput.value.trim(),
+          server: els.serverInput.value.trim(),
+          slot: els.slotInput.value.trim(),
+          poll: Number(els.pollInput.value) || 10,
+          secure: els.secureSocketInput.checked
+        };
+        localStorage.setItem("ap-slot-atlas", JSON.stringify(prefs));
+      }
+
+      function setMode(mode) {
+        state.mode = mode;
+        els.webhostModeButton.classList.toggle("active", mode === "webhost");
+        els.serverModeButton.classList.toggle("active", mode === "server");
+        els.webhostFields.classList.toggle("hidden", mode !== "webhost");
+        els.serverFields.classList.toggle("hidden", mode !== "server");
+      }
+
+      function setView(view) {
+        const active = {
+          map: els.mapViewButton,
+          slots: els.slotsViewButton,
+          checks: els.checksViewButton
+        };
+        for (const button of Object.values(active)) button.classList.remove("active");
+        active[view].classList.add("active");
+        els.mapView.classList.toggle("hidden", view !== "map");
+        els.slotsView.classList.toggle("hidden", view !== "slots");
+        els.checksView.classList.toggle("hidden", view !== "checks");
+        document.querySelector(".main").classList.toggle("checks-active", view === "checks");
+      }
+
+      function setStatus(status, text) {
+        state.status = status;
+        if (text) els.statusBox.textContent = text;
+        els.connectionDot.classList.toggle("live", status === "live");
+        els.connectionDot.classList.toggle("waiting", status === "waiting");
+        els.connectButton.disabled = status === "waiting";
+        els.disconnectButton.disabled = status === "idle";
+      }
+
+      function addEvent(text) {
+        const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+        state.events.unshift({ time, text });
+        state.events = state.events.slice(0, 18);
+        els.eventList.innerHTML = state.events.map(event =>
+          `<div class="event"><strong>${escapeHtml(event.time)}</strong> ${escapeHtml(event.text)}</div>`
+        ).join("");
+      }
+
+      function resetRoom() {
+        for (const socket of state.sockets.values()) closeSocket(socket);
+        if (state.primarySocket) closeSocket(state.primarySocket);
+        state.sockets.clear();
+        state.primarySocket = null;
+        if (state.pollTimer) window.clearInterval(state.pollTimer);
+        state.pollTimer = null;
+        state.slots.clear();
+        state.selectedKey = null;
+        state.flights = [];
+        state.nextFlightId = 1;
+        state.fakeSlots = new Map();
+        state.nextFakeSlotId = 1;
+        state.growthTests = new Map();
+        state.territoryProgress = new Map();
+        state.territoryAnimations = new Map();
+        state.mapLayout = new Map();
+        state.mapSignature = "";
+        state.dataPackages.clear();
+        state.webhost = null;
+        state.direct = null;
+        state.title = "No Room Connected";
+        state.subtitle = "Waiting for a tracker or server.";
+      }
+
+      function closeSocket(socket) {
+        try {
+          socket.onclose = null;
+          socket.onerror = null;
+          socket.onmessage = null;
+          socket.close();
+        } catch (error) {
+          /* no-op */
+        }
+      }
+
+      function slotKey(team, slot) {
+        return `${Number(team)}:${Number(slot)}`;
+      }
+
+      function ensureSlot(team, slot) {
+        const key = slotKey(team, slot);
+        if (!state.slots.has(key)) {
+          state.slots.set(key, {
+            key,
+            team: Number(team),
+            id: Number(slot),
+            name: `Slot ${slot}`,
+            alias: "",
+            game: "Unknown",
+            total: 0,
+            checked: new Set(),
+            missing: null,
+            items: [],
+            itemsInitialized: false,
+            hints: [],
+            status: 0,
+            firstSeenAt: new Date().toISOString(),
+            startedAt: null,
+            finishedAt: null,
+            lastActivity: null,
+            lastConnection: null,
+            socketState: "idle",
+            color: PALETTE[state.slots.size % PALETTE.length]
+          });
+        }
+        return state.slots.get(key);
+      }
+
+      function progressOf(slot) {
+        const total = Number(slot.total) || slot.checked.size + (slot.missing ? slot.missing.size : 0);
+        if (!total) return 0;
+        return Math.max(0, Math.min(100, Math.round((slot.checked.size / total) * 1000) / 10));
+      }
+
+      function visualProgressOf(slot) {
+        if (slot.fakeSlot) {
+          const now = performance.now();
+          const elapsed = Math.max(0, Math.min(slot.growthDuration, now - slot.growthStartedAt));
+          const t = elapsed / slot.growthDuration;
+          return Math.round(easeInOutCubic(t) * 1000) / 10;
+        }
+        const target = targetProgressOf(slot);
+        return animatedTerritoryProgress(slot.key, target);
+      }
+
+      function animatedTerritoryProgress(key, target) {
+        const now = performance.now();
+        const current = state.territoryProgress.has(key) ? state.territoryProgress.get(key) : target;
+        const active = state.territoryAnimations.get(key);
+
+        if (active) {
+          const t = Math.max(0, Math.min(1, (now - active.startedAt) / active.duration));
+          const value = active.from + (active.to - active.from) * easeInOutCubic(t);
+          if (t >= 1) {
+            state.territoryAnimations.delete(key);
+            state.territoryProgress.set(key, active.to);
+            return Math.round(active.to * 10) / 10;
+          }
+          requestAnimationFrame(queueRender);
+          state.territoryProgress.set(key, value);
+          return Math.round(value * 10) / 10;
+        }
+
+        if (Math.abs(target - current) > 0.1) {
+          const duration = target > current ? 1800 : 520;
+          state.territoryAnimations.set(key, { from: current, to: target, startedAt: now, duration });
+          requestAnimationFrame(queueRender);
+          return Math.round(current * 10) / 10;
+        }
+
+        state.territoryProgress.set(key, target);
+        return Math.round(target * 10) / 10;
+      }
+
+      function targetProgressOf(slot) {
+        const override = state.growthTests.get(slot.key);
+        if (override && performance.now() < override.expiresAt) {
+          return override.percent;
+        }
+        if (override) state.growthTests.delete(slot.key);
+        return progressOf(slot);
+      }
+
+      function totalOf(slot) {
+        return Number(slot.total) || slot.checked.size + (slot.missing ? slot.missing.size : 0);
+      }
+
+      function stateLabel(status) {
+        return CLIENT_STATUS.get(Number(status)) || String(status || "Unknown");
+      }
+
+      function setSlotStatus(slot, status, timestamp = null) {
+        const nextStatus = Number(status) || 0;
+        const previous = Number(slot.status) || 0;
+        slot.status = nextStatus;
+        if (nextStatus === 30 && previous !== 30 && !slot.finishedAt) {
+          slot.finishedAt = timestamp || slot.lastActivity || new Date().toISOString();
+        }
+      }
+
+      function setSlotStart(slot, timestamp) {
+        if (!timestamp) return;
+        const incoming = new Date(timestamp);
+        if (Number.isNaN(incoming.getTime())) return;
+        const existing = slot.startedAt ? new Date(slot.startedAt) : null;
+        if (!existing || Number.isNaN(existing.getTime()) || incoming < existing) {
+          slot.startedAt = incoming.toISOString();
+        }
+      }
+
+      function slotStartTime(slot) {
+        return slot.startedAt || slot.firstSeenAt || null;
+      }
+
+      function slotEndTime(slot) {
+        if (slot.finishedAt) return slot.finishedAt;
+        if (Number(slot.status) === 30) return slot.lastActivity || new Date().toISOString();
+        return new Date().toISOString();
+      }
+
+      function elapsedLabel(slot) {
+        const start = slotStartTime(slot);
+        if (!start) return "Unknown";
+        const startDate = new Date(start);
+        const endDate = new Date(slotEndTime(slot));
+        if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) return "Unknown";
+        const prefix = Number(slot.status) === 30 ? "" : "In progress ";
+        return prefix + formatDuration(Math.max(0, endDate - startDate));
+      }
+
+      function formatDuration(ms) {
+        const totalHours = Math.floor(ms / 3600000);
+        const months = Math.floor(totalHours / (24 * 30));
+        const days = Math.floor((totalHours - months * 24 * 30) / 24);
+        const hours = totalHours % 24;
+        const parts = [];
+        if (months) parts.push(`${months}mo`);
+        if (days || months) parts.push(`${days}d`);
+        parts.push(`${hours}h`);
+        return parts.join(" ");
+      }
+
+      function sortedSlots() {
+        return Array.from(state.slots.values()).sort((a, b) => a.team - b.team || a.id - b.id);
+      }
+
+      function activeFakeSlots() {
+        const now = performance.now();
+        const active = [];
+        for (const [key, slot] of state.fakeSlots.entries()) {
+          if (now > slot.removeAt) {
+            state.fakeSlots.delete(key);
+            state.growthTests.delete(key);
+            state.mapSignature = "";
+          } else {
+            active.push(slot);
+          }
+        }
+        if (active.some(slot => now < slot.growthEndsAt)) {
+          requestAnimationFrame(queueRender);
+        }
+        return active.sort((a, b) => a.id - b.id);
+      }
+
+      function filteredSortedSlots(slots) {
+        const search = state.slotFilters.search.trim().toLowerCase();
+        const game = state.slotFilters.game;
+        const dir = state.slotFilters.dir === "desc" ? -1 : 1;
+        const sort = state.slotFilters.sort;
+
+        return slots.filter(slot => {
+          const platform = platformForGame(slot.game);
+          const matchesSearch = !search ||
+            displayName(slot).toLowerCase().includes(search) ||
+            slot.game.toLowerCase().includes(search) ||
+            platform.toLowerCase().includes(search) ||
+            String(slot.id).includes(search);
+          const matchesGame = game === "all" || platform === game;
+          return matchesSearch && matchesGame;
+        }).sort((a, b) => {
+          let result = 0;
+          if (sort === "percent") {
+            result = progressOf(a) - progressOf(b);
+          } else if (sort === "name") {
+            result = displayName(a).localeCompare(displayName(b), undefined, { sensitivity: "base" });
+          } else if (sort === "game") {
+            result = platformForGame(a.game).localeCompare(platformForGame(b.game), undefined, { sensitivity: "base" }) ||
+              a.game.localeCompare(b.game, undefined, { sensitivity: "base" }) ||
+              displayName(a).localeCompare(displayName(b), undefined, { sensitivity: "base" });
+          } else {
+            result = (a.team - b.team) || (a.id - b.id);
+          }
+          return result * dir;
+        });
+      }
+
+      function refreshSlotFilterControls(slots) {
+        const platforms = Array.from(new Set(slots.map(slot => platformForGame(slot.game)).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+        const options = `<option value="all">All platforms</option>` + platforms.map(platform =>
+          `<option value="${escapeHtml(platform)}">${escapeHtml(platform)}</option>`
+        ).join("");
+
+        syncSelectOptions(els.slotGameFilter, options, state.slotFilters.game);
+        syncSelectOptions(els.tableSlotGameFilter, options, state.slotFilters.game);
+        syncControlValues();
+      }
+
+      function syncSelectOptions(select, options, value) {
+        if (select.innerHTML !== options) select.innerHTML = options;
+        if (Array.from(select.options).some(option => option.value === value)) {
+          select.value = value;
+        } else {
+          select.value = "all";
+          state.slotFilters.game = "all";
+        }
+      }
+
+      function syncControlValues() {
+        els.slotSearchInput.value = state.slotFilters.search;
+        els.tableSlotSearchInput.value = state.slotFilters.search;
+        els.slotGameFilter.value = state.slotFilters.game;
+        els.tableSlotGameFilter.value = state.slotFilters.game;
+        els.slotSortSelect.value = state.slotFilters.sort;
+        els.tableSlotSortSelect.value = state.slotFilters.sort;
+        els.slotSortDirSelect.value = state.slotFilters.dir;
+        els.tableSlotSortDirSelect.value = state.slotFilters.dir;
+      }
+
+      function updateSlotFilters(partial) {
+        state.slotFilters = { ...state.slotFilters, ...partial };
+        syncControlValues();
+        queueRender();
+      }
+
+      function applySlotDensity(totalSlots) {
+        const classes = ["room-small", "room-medium", "room-large"];
+        const density = totalSlots <= 8 ? "room-small" : totalSlots <= 24 ? "room-medium" : totalSlots >= 80 ? "room-large" : "";
+        for (const element of [els.slotList, els.slotTableBody]) {
+          element.classList.remove(...classes);
+          if (density) element.classList.add(density);
+        }
+      }
+
+      function queueRender() {
+        if (state.renderQueued) return;
+        state.renderQueued = true;
+        requestAnimationFrame(() => {
+          state.renderQueued = false;
+          render();
+        });
+      }
+
+      function render() {
+        const slots = sortedSlots();
+        const mapSlots = slots.concat(activeFakeSlots());
+        if (!state.selectedKey && slots[0]) state.selectedKey = slots[0].key;
+        const checked = slots.reduce((sum, slot) => sum + slot.checked.size, 0);
+        const total = slots.reduce((sum, slot) => sum + totalOf(slot), 0);
+        const percent = total ? Math.round((checked / total) * 1000) / 10 : 0;
+        const goals = slots.filter(slot => Number(slot.status) === 30 || progressOf(slot) >= 100).length;
+
+        els.roomTitle.textContent = state.title;
+        els.roomSubtitle.textContent = state.subtitle;
+        setStatValue(els.statSlots, String(slots.length));
+        setStatValue(els.statChecks, `${checked}/${total}`);
+        setStatValue(els.statPercent, `${percent}%`);
+        setStatValue(els.statGoals, String(goals));
+        els.mapSummary.textContent = `${mapSlots.length} ${mapSlots.length === 1 ? "territory" : "territories"}`;
+        els.emptyMap.classList.toggle("hidden", mapSlots.length > 0);
+
+        refreshSlotFilterControls(slots);
+        const visibleSlots = filteredSortedSlots(slots);
+        applySlotDensity(slots.length);
+        els.slotCountLabel.textContent = `${visibleSlots.length}/${slots.length} shown`;
+        els.tableSummary.textContent = `${visibleSlots.length}/${slots.length} rows`;
+
+        renderMap(mapSlots);
+        renderSlotCards(visibleSlots);
+        renderSlotTable(visibleSlots);
+        renderCheckSelectors(slots);
+        renderChecks();
+      }
+
+      function setStatValue(element, value) {
+        element.textContent = value;
+        element.classList.toggle("compact-value", String(value).length > 5);
+        element.classList.toggle("tiny-value", String(value).length > 8);
+      }
+
+      function renderMap(slots) {
+        ensureMapLayout(slots);
+        pruneFlights();
+        const density = densityFor(slots.length);
+        els.atlasSvg.classList.toggle("dense-map", density >= 1);
+        els.atlasSvg.classList.toggle("ultra-dense-map", density >= 2);
+        els.atlasSvg.classList.toggle("mega-map", density >= 3);
+        const defs = [
+          `<defs>`,
+          `<pattern id="atlasGrid" width="40" height="40" patternUnits="userSpaceOnUse">`,
+          `<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#374033" stroke-width="0.7"/>`,
+          `</pattern>`,
+          ...slots.map(slot => {
+            const region = state.mapLayout.get(slot.key);
+            if (!region) return "";
+            return `<clipPath id="${svgId("clip", slot.key)}"><path d="${region.d}"></path></clipPath>`;
+          }),
+          `</defs>`
+        ].join("");
+
+        const ocean = [
+          `<rect width="1000" height="560" fill="#15100e"/>`,
+          `<rect class="ocean-grid" width="1000" height="560" fill="url(#atlasGrid)"/>`,
+          `<path d="M0 106 C120 130 230 82 354 113 C490 147 601 92 726 124 C834 151 914 132 1000 104 L1000 0 L0 0 Z" fill="rgba(127,36,37,0.05)"/>`,
+          `<path d="M0 474 C113 443 247 485 371 452 C503 418 638 498 772 463 C870 438 936 458 1000 477 L1000 560 L0 560 Z" fill="rgba(240,211,172,0.045)"/>`
+        ].join("");
+
+        const regions = slots.map((slot, index) => {
+          const region = state.mapLayout.get(slot.key) || regionForIndex(index, slots.length);
+          const pct = visualProgressOf(slot);
+          const color = slot.color || PALETTE[index % PALETTE.length];
+          const growth = territoryGrowthGeometry(region, pct);
+          const clipId = svgId("clip", slot.key);
+          const label = territoryLabel(slot, density);
+          const labelSize = territoryLabelSize(region, label, density);
+          const selected = slot.key === state.selectedKey ? " selected-region" : "";
+          return `<g class="region${selected}" data-key="${escapeHtml(slot.key)}" tabindex="0" role="button">
+            <title>${escapeHtml(displayName(slot))} - ${escapeHtml(slot.game)} - ${pct}%</title>
+            <path class="land-base" d="${region.d}"></path>
+            <g clip-path="url(#${clipId})">
+              <circle class="land-fill" cx="${growth.origin.x.toFixed(1)}" cy="${growth.origin.y.toFixed(1)}" r="${growth.radius.toFixed(1)}" fill="${color}"></circle>
+            </g>
+            <text class="territory-army" x="${growth.army.x.toFixed(1)}" y="${growth.army.y.toFixed(1)}">🪖</text>
+            <text class="land-label" x="${region.x}" y="${region.y - labelSize.offset.toFixed(1)}" font-size="${labelSize.font.toFixed(1)}">${escapeHtml(label)}</text>
+            <text class="land-percent" x="${region.x}" y="${labelSize.percentY.toFixed(1)}" font-size="${labelSize.percentFont.toFixed(1)}">${pct}%</text>
+          </g>`;
+        }).join("");
+
+        const flights = renderFlights();
+
+        els.atlasSvg.innerHTML = defs + ocean + regions + flights;
+        els.atlasSvg.querySelectorAll(".region").forEach(group => {
+          group.addEventListener("click", () => {
+            state.selectedKey = group.dataset.key;
+            setView("checks");
+            queueRender();
+          });
+          group.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              state.selectedKey = group.dataset.key;
+              setView("checks");
+              queueRender();
+            }
+          });
+        });
+      }
+
+      function ensureMapLayout(slots) {
+        const signature = slots.map(slot => slot.key).join("|");
+        if (state.mapSignature === signature && state.mapLayout.size === slots.length) return;
+        state.mapSignature = signature;
+        state.mapLayout = generateInterlockedLayout(slots);
+      }
+
+      function generateInterlockedLayout(slots) {
+        const layout = new Map();
+        if (!slots.length) return layout;
+
+        const n = slots.length;
+        if (n <= 48) return generateGeographicPuzzleLayout(slots);
+        const clusters = clusterSlots(slots);
+        const clusterGrid = chooseGrid(clusters.length, 1.85);
+        const gutter = n > 96 ? 14 : n > 48 ? 18 : 0;
+        const left = n > 48 ? 38 : 64;
+        const top = n > 48 ? 34 : 58;
+        const width = n > 48 ? 924 : 872;
+        const height = n > 48 ? 476 : 430;
+        const clusterW = (width - gutter * (clusterGrid.cols - 1)) / clusterGrid.cols;
+        const clusterH = (height - gutter * (clusterGrid.rows - 1)) / clusterGrid.rows;
+
+        clusters.forEach((cluster, clusterIndex) => {
+          const row = Math.floor(clusterIndex / clusterGrid.cols);
+          const col = clusterIndex % clusterGrid.cols;
+          const box = {
+            x: left + col * (clusterW + gutter),
+            y: top + row * (clusterH + gutter),
+            w: clusterW,
+            h: clusterH
+          };
+          layoutCluster(cluster, box, clusterIndex);
+        });
+
+        return layout;
+
+        function layoutCluster(cluster, box, clusterIndex) {
+          const best = chooseGrid(cluster.length, box.w / Math.max(1, box.h));
+          const cols = best.cols;
+          const rows = best.rows;
+          const cellW = box.w / cols;
+          const cellH = box.h / rows;
+          const horizontalEdges = new Map();
+          const verticalEdges = new Map();
+
+          for (let index = 0; index < cluster.length; index += 1) {
+            const row = Math.floor(index / cols);
+            const col = index % cols;
+            const topEdge = getHorizontalEdge(row, col);
+            const rightEdge = getVerticalEdge(col + 1, row);
+            const bottomEdge = getHorizontalEdge(row + 1, col).slice().reverse();
+            const leftEdge = getVerticalEdge(col, row).slice().reverse();
+            const points = mergeEdges([topEdge, rightEdge, bottomEdge, leftEdge]);
+            const d = points.map((point, pointIndex) =>
+              `${pointIndex === 0 ? "M" : "L"}${point.x.toFixed(1)} ${point.y.toFixed(1)}`
+            ).join(" ") + " Z";
+
+            const x0 = box.x + col * cellW;
+            const y0 = box.y + row * cellH;
+            layout.set(cluster[index].key, {
+              d,
+              x: x0 + cellW / 2,
+              y: y0 + cellH / 2,
+              bounds: { x0, y0, x1: x0 + cellW, y1: y0 + cellH }
+            });
+          }
+
+          function getHorizontalEdge(row, col) {
+          const key = `${row}:${col}`;
+          if (horizontalEdges.has(key)) return horizontalEdges.get(key);
+            const x0 = box.x + col * cellW;
+            const x1 = box.x + (col + 1) * cellW;
+            const y = box.y + row * cellH;
+            const edge = makeEdgePoints(x0, y, x1, y, row === 0 || row === rows, clusterIndex * 1009 + row * 101 + col * 17, "h");
+          horizontalEdges.set(key, edge);
+          return edge;
+        }
+
+        function getVerticalEdge(col, row) {
+          const key = `${col}:${row}`;
+          if (verticalEdges.has(key)) return verticalEdges.get(key);
+            const x = box.x + col * cellW;
+            const y0 = box.y + row * cellH;
+            const y1 = box.y + (row + 1) * cellH;
+            const edge = makeEdgePoints(x, y0, x, y1, col === 0 || col === cols, clusterIndex * 1009 + col * 113 + row * 19, "v");
+          verticalEdges.set(key, edge);
+          return edge;
+        }
+
+        function makeEdgePoints(x0, y0, x1, y1, outer, seed, orientation) {
+          const points = [];
+          const segments = 6;
+          const ampBase = Math.min(cellW, cellH) * (outer ? 0.045 : 0.13);
+          for (let i = 0; i <= segments; i += 1) {
+            const t = i / segments;
+            const falloff = Math.sin(Math.PI * t);
+            const wobble = (pseudo(seed + i * 31) - 0.5) * 2 * ampBase * falloff;
+            const x = x0 + (x1 - x0) * t + (orientation === "v" ? wobble : 0);
+            const y = y0 + (y1 - y0) * t + (orientation === "h" ? wobble : 0);
+            points.push({ x, y });
+          }
+          return points;
+        }
+        }
+      }
+
+      function clusterSlots(slots) {
+        const total = slots.length;
+        if (total <= 48) return [slots];
+        const target = total > 180 ? 30 : total > 120 ? 34 : total > 80 ? 38 : 42;
+        const clusterCount = Math.ceil(total / target);
+        const perCluster = Math.ceil(total / clusterCount);
+        const clusters = [];
+        for (let index = 0; index < slots.length; index += perCluster) {
+          clusters.push(slots.slice(index, index + perCluster));
+        }
+        return clusters;
+      }
+
+      function densityFor(total) {
+        if (total > 160) return 3;
+        if (total > 72) return 2;
+        if (total > 32) return 1;
+        return 0;
+      }
+
+      function chooseGrid(total, targetAspect = 1.75) {
+        let best = { cols: 1, rows: total, score: Infinity };
+        for (let cols = 1; cols <= total; cols += 1) {
+          const rows = Math.ceil(total / cols);
+          const blanks = rows * cols - total;
+          const aspect = Math.abs(cols / rows - targetAspect);
+          const score = blanks * 2.25 + aspect;
+          if (score < best.score) best = { cols, rows, score };
+        }
+        return best;
+      }
+
+      function generateGeographicPuzzleLayout(slots) {
+        const layout = new Map();
+        const total = slots.length;
+        const roomSeed = hashString(slots.map(slot => `${slot.team}:${slot.id}:${slot.name}:${slot.game}`).join("|"));
+        const rawCols = Math.max(3, Math.ceil(Math.sqrt(total * 1.8)) + 2);
+        const rawRows = Math.max(3, Math.ceil(total / Math.max(1, rawCols - 2)) + 2);
+        const cells = chooseContinentalCells(total, rawCols, rawRows, roomSeed);
+        const minCol = Math.min(...cells.map(cell => cell.col));
+        const maxCol = Math.max(...cells.map(cell => cell.col));
+        const minRow = Math.min(...cells.map(cell => cell.row));
+        const maxRow = Math.max(...cells.map(cell => cell.row));
+        const cols = maxCol - minCol + 1;
+        const rows = maxRow - minRow + 1;
+        const left = 72;
+        const top = 54;
+        const width = 856;
+        const height = 438;
+        const cellW = Math.min(width / cols, height * 1.34 / rows);
+        const cellH = Math.min(height / rows, width / 1.34 / cols);
+        const usedW = cellW * cols;
+        const usedH = cellH * rows;
+        const originX = left + (width - usedW) / 2;
+        const originY = top + (height - usedH) / 2;
+        const occupied = new Set(cells.map(cell => `${cell.col}:${cell.row}`));
+        const horizontalEdges = new Map();
+        const verticalEdges = new Map();
+
+        cells.forEach((cell, index) => {
+          const slot = slots[index];
+          const localCol = cell.col - minCol;
+          const localRow = cell.row - minRow;
+          const topEdge = getHorizontalEdge(cell.row, cell.col);
+          const rightEdge = getVerticalEdge(cell.col + 1, cell.row);
+          const bottomEdge = getHorizontalEdge(cell.row + 1, cell.col).slice().reverse();
+          const leftEdge = getVerticalEdge(cell.col, cell.row).slice().reverse();
+          const points = mergeEdges([topEdge, rightEdge, bottomEdge, leftEdge]);
+          const d = points.map((point, pointIndex) =>
+            `${pointIndex === 0 ? "M" : "L"}${point.x.toFixed(1)} ${point.y.toFixed(1)}`
+          ).join(" ") + " Z";
+          const x0 = originX + localCol * cellW;
+          const y0 = originY + localRow * cellH;
+          layout.set(slot.key, {
+            d,
+            x: x0 + cellW / 2,
+            y: y0 + cellH / 2,
+            bounds: { x0, y0, x1: x0 + cellW, y1: y0 + cellH }
+          });
+        });
+
+        return layout;
+
+        function getHorizontalEdge(row, col) {
+          const key = `${row}:${col}`;
+          if (horizontalEdges.has(key)) return horizontalEdges.get(key);
+          const localCol = col - minCol;
+          const localRow = row - minRow;
+          const x0 = originX + localCol * cellW;
+          const x1 = originX + (localCol + 1) * cellW;
+          const y = originY + localRow * cellH;
+          const outer = !occupied.has(`${col}:${row - 1}`) || !occupied.has(`${col}:${row}`);
+          const edge = makeGeoEdge(x0, y, x1, y, outer, roomSeed + row * 131 + col * 29, "h");
+          horizontalEdges.set(key, edge);
+          return edge;
+        }
+
+        function getVerticalEdge(col, row) {
+          const key = `${col}:${row}`;
+          if (verticalEdges.has(key)) return verticalEdges.get(key);
+          const localCol = col - minCol;
+          const localRow = row - minRow;
+          const x = originX + localCol * cellW;
+          const y0 = originY + localRow * cellH;
+          const y1 = originY + (localRow + 1) * cellH;
+          const outer = !occupied.has(`${col - 1}:${row}`) || !occupied.has(`${col}:${row}`);
+          const edge = makeGeoEdge(x, y0, x, y1, outer, roomSeed + col * 137 + row * 31, "v");
+          verticalEdges.set(key, edge);
+          return edge;
+        }
+
+        function makeGeoEdge(x0, y0, x1, y1, outer, seed, orientation) {
+          const points = [];
+          const segments = outer ? 7 : 6;
+          const ampBase = Math.min(cellW, cellH) * (outer ? 0.18 : 0.12);
+          for (let index = 0; index <= segments; index += 1) {
+            const t = index / segments;
+            const falloff = Math.sin(Math.PI * t);
+            const coastBias = outer ? (pseudo(seed + 211) - 0.5) * ampBase * 0.65 : 0;
+            const wobble = ((pseudo(seed + index * 37) - 0.5) * 2 * ampBase + coastBias) * falloff;
+            const x = x0 + (x1 - x0) * t + (orientation === "v" ? wobble : 0);
+            const y = y0 + (y1 - y0) * t + (orientation === "h" ? wobble : 0);
+            points.push({ x, y });
+          }
+          return points;
+        }
+      }
+
+      function chooseContinentalCells(total, cols, rows, seed = 0) {
+        const candidates = [];
+        const cx = (cols - 1) / 2;
+        const cy = (rows - 1) / 2;
+        const rx = Math.max(1, cols * 0.48);
+        const ry = Math.max(1, rows * 0.48);
+
+        for (let row = 0; row < rows; row += 1) {
+          for (let col = 0; col < cols; col += 1) {
+            const dx = (col - cx) / rx;
+            const dy = (row - cy) / ry;
+            const angle = Math.atan2(dy, dx);
+            const radialNoise = Math.sin(angle * 3.1 + total * 0.19 + seed * 0.001) * 0.18 +
+              Math.cos(angle * 5.3 + total * 0.11 + seed * 0.0007) * 0.12;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const jitter = (pseudo(seed + row * 97 + col * 53 + total * 17) - 0.5) * 0.26;
+            candidates.push({ row, col, score: distance - radialNoise + jitter });
+          }
+        }
+
+        candidates.sort((a, b) => a.score - b.score);
+        const chosen = [];
+        const chosenSet = new Set();
+
+        for (const cell of candidates) {
+          if (chosen.length >= total) break;
+          if (!chosen.length || hasNeighbor(cell, chosenSet)) {
+            chosen.push(cell);
+            chosenSet.add(`${cell.col}:${cell.row}`);
+          }
+        }
+
+        for (const cell of candidates) {
+          if (chosen.length >= total) break;
+          const key = `${cell.col}:${cell.row}`;
+          if (!chosenSet.has(key)) {
+            chosen.push(cell);
+            chosenSet.add(key);
+          }
+        }
+
+        return chosen.sort((a, b) => a.row - b.row || a.col - b.col);
+
+        function hasNeighbor(cell, set) {
+          return set.has(`${cell.col - 1}:${cell.row}`) ||
+            set.has(`${cell.col + 1}:${cell.row}`) ||
+            set.has(`${cell.col}:${cell.row - 1}`) ||
+            set.has(`${cell.col}:${cell.row + 1}`);
+        }
+      }
+
+      function mergeEdges(edges) {
+        const points = [];
+        for (const edge of edges) {
+          for (let index = 0; index < edge.length; index += 1) {
+            if (points.length && index === 0) continue;
+            points.push(edge[index]);
+          }
+        }
+        return points;
+      }
+
+      function renderFlights() {
+        const now = performance.now();
+        const activeFlights = state.flights.filter(flight => now - flight.startedAt < flight.duration);
+        if (activeFlights.length) {
+          requestAnimationFrame(queueRender);
+        }
+
+        return activeFlights.map(flight => {
+          const from = state.mapLayout.get(flight.fromKey);
+          const to = state.mapLayout.get(flight.toKey);
+          if (!from || !to) return "";
+          const age = Math.max(0, Math.min(1, (now - flight.startedAt) / flight.duration));
+          const eased = easeInOutCubic(age);
+          const curve = curvedFlight(from, to);
+          const current = cubicPoint(curve, eased);
+          const previous = cubicPoint(curve, Math.max(0, eased - 0.02));
+          const angle = Math.atan2(current.y - previous.y, current.x - previous.x) * 180 / Math.PI;
+          const trail = flightTrailPath(curve, eased);
+          const opacity = age < 0.82 ? 1 : Math.max(0, 1 - (age - 0.82) / 0.18);
+
+          const planeAngle = angle + 45;
+          const color = flight.color || "#f0d3ac";
+          return `<g class="flight" style="opacity:${opacity.toFixed(3)};--flight-color:${escapeHtml(color)};">
+            <path class="flight-line" d="${trail}"/>
+            <text class="flight-plane" x="${current.x.toFixed(1)}" y="${current.y.toFixed(1)}" transform="rotate(${planeAngle.toFixed(1)} ${current.x.toFixed(1)} ${current.y.toFixed(1)})">✈️</text>
+            <text class="flight-label" x="${current.x.toFixed(1)}" y="${(current.y - 14).toFixed(1)}">${escapeHtml(flight.label || "")}</text>
+          </g>`;
+        }).join("");
+      }
+
+      function territoryGrowthGeometry(region, percent) {
+        const pct = Math.max(0, Math.min(100, Number(percent) || 0));
+        const origin = growthOrigin(region);
+        const maxRadius = growthMaxRadius(region, origin);
+        const radius = maxRadius * (0.08 + 0.92 * Math.sqrt(pct / 100));
+        const army = armyFrontierPoint(region, origin, radius);
+        return { origin, radius, army };
+      }
+
+      function territoryLabelSize(region, label, density) {
+        const bounds = region.bounds || { x0: region.x - 40, y0: region.y - 40, x1: region.x + 40, y1: region.y + 40 };
+        const width = Math.max(20, bounds.x1 - bounds.x0);
+        const height = Math.max(20, bounds.y1 - bounds.y0);
+        const chars = Math.max(1, String(label || "").length);
+        const maxByWidth = width * 0.78 / (chars * 0.58);
+        const maxByHeight = height * 0.34;
+        const caps = density >= 3 ? { min: 8, max: 18 } :
+          density >= 2 ? { min: 11, max: 26 } :
+          density >= 1 ? { min: 15, max: 36 } :
+          { min: 20, max: 58 };
+        const font = clamp(Math.min(maxByWidth, maxByHeight), caps.min, caps.max);
+        const percentFont = clamp(font * 0.62, density >= 2 ? 9 : 14, density >= 1 ? 24 : 34);
+        const percentY = clamp(region.y + font * 0.72, bounds.y0 + percentFont * 0.8, bounds.y1 - percentFont * 0.5);
+        return {
+          font,
+          offset: font * 0.42,
+          percentFont,
+          percentY
+        };
+      }
+
+      function growthOrigin(region) {
+        const bounds = region.bounds || { x0: region.x - 40, y0: region.y - 40, x1: region.x + 40, y1: region.y + 40 };
+        const atlasCenter = { x: 500, y: 280 };
+        const x = region.x + (atlasCenter.x - region.x) * 0.34;
+        const y = region.y + (atlasCenter.y - region.y) * 0.34;
+        return {
+          x: clamp(x, bounds.x0 + 6, bounds.x1 - 6),
+          y: clamp(y, bounds.y0 + 6, bounds.y1 - 6)
+        };
+      }
+
+      function growthMaxRadius(region, origin) {
+        const bounds = region.bounds || { x0: region.x - 40, y0: region.y - 40, x1: region.x + 40, y1: region.y + 40 };
+        const corners = [
+          { x: bounds.x0, y: bounds.y0 },
+          { x: bounds.x1, y: bounds.y0 },
+          { x: bounds.x1, y: bounds.y1 },
+          { x: bounds.x0, y: bounds.y1 }
+        ];
+        return Math.max(...corners.map(corner => Math.hypot(corner.x - origin.x, corner.y - origin.y))) + 10;
+      }
+
+      function armyFrontierPoint(region, origin, radius) {
+        const bounds = region.bounds || { x0: region.x - 40, y0: region.y - 40, x1: region.x + 40, y1: region.y + 40 };
+        let dx = region.x - origin.x;
+        let dy = region.y - origin.y;
+        const length = Math.hypot(dx, dy) || 1;
+        dx /= length;
+        dy /= length;
+        const boundaryDistance = distanceToBounds(origin, dx, dy, bounds) * 0.94;
+        const distance = Math.min(radius, Math.max(4, boundaryDistance));
+        return {
+          x: clamp(origin.x + dx * distance, bounds.x0 + 5, bounds.x1 - 5),
+          y: clamp(origin.y + dy * distance, bounds.y0 + 5, bounds.y1 - 5)
+        };
+      }
+
+      function distanceToBounds(point, dx, dy, bounds) {
+        const distances = [];
+        if (dx > 0) distances.push((bounds.x1 - point.x) / dx);
+        if (dx < 0) distances.push((bounds.x0 - point.x) / dx);
+        if (dy > 0) distances.push((bounds.y1 - point.y) / dy);
+        if (dy < 0) distances.push((bounds.y0 - point.y) / dy);
+        const positive = distances.filter(value => Number.isFinite(value) && value > 0);
+        return positive.length ? Math.min(...positive) : 0;
+      }
+
+      function clamp(value, min, max) {
+        return Math.min(max, Math.max(min, value));
+      }
+
+      function svgId(prefix, key) {
+        return `${prefix}-${String(key).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+      }
+
+      function flightTrailPath(curve, progress) {
+        const clamped = Math.max(0, Math.min(1, progress));
+        const steps = Math.max(2, Math.ceil(clamped * 24));
+        const points = [];
+        for (let index = 0; index <= steps; index += 1) {
+          const t = clamped * (index / steps);
+          points.push(cubicPoint(curve, t));
+        }
+        return points.map((point, index) =>
+          `${index === 0 ? "M" : "L"}${point.x.toFixed(1)} ${point.y.toFixed(1)}`
+        ).join(" ");
+      }
+
+      function curvedFlight(from, to) {
+        const dx = to.x - from.x;
+        const dy = to.y - from.y;
+        const distance = Math.max(1, Math.hypot(dx, dy));
+        const lift = Math.min(120, Math.max(44, distance * 0.22));
+        const nx = -dy / distance;
+        const ny = dx / distance;
+        return {
+          p0: { x: from.x, y: from.y },
+          c1: { x: from.x + dx * 0.33 + nx * lift, y: from.y + dy * 0.33 + ny * lift },
+          c2: { x: from.x + dx * 0.67 + nx * lift, y: from.y + dy * 0.67 + ny * lift },
+          p3: { x: to.x, y: to.y }
+        };
+      }
+
+      function cubicPoint(curve, t) {
+        return bezierPoint(curve.p0, curve.c1, curve.c2, curve.p3, t);
+      }
+
+      function bezierPoint(p0, p1, p2, p3, t) {
+        const inv = 1 - t;
+        const a = inv * inv * inv;
+        const b = 3 * inv * inv * t;
+        const c = 3 * inv * t * t;
+        const d = t * t * t;
+        return {
+          x: a * p0.x + b * p1.x + c * p2.x + d * p3.x,
+          y: a * p0.y + b * p1.y + c * p2.y + d * p3.y
+        };
+      }
+
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function pruneFlights() {
+        const now = performance.now();
+        state.flights = state.flights.filter(flight => now - flight.startedAt < flight.duration);
+      }
+
+      function renderSlotCards(slots) {
+        els.slotList.innerHTML = slots.map(slot => {
+          const pct = progressOf(slot);
+          const total = totalOf(slot);
+          const platform = platformForGame(slot.game);
+          const selected = slot.key === state.selectedKey ? " selected" : "";
+          const socketState = slot.socketState && slot.socketState !== "idle" ? slot.socketState : stateLabel(slot.status);
+          return `<article class="slot-card${selected}" data-key="${escapeHtml(slot.key)}" style="--pct:${pct}%;--ring-color:${slot.color};--bar-color:${slot.color};">
+            <div class="ring">${Math.round(pct)}%</div>
+            <div class="slot-body">
+              <div class="slot-name-row">
+                <div class="slot-name" title="${escapeHtml(displayName(slot))}">${escapeHtml(displayName(slot))}</div>
+                <div class="slot-state">${escapeHtml(socketState)}</div>
+              </div>
+              <div class="slot-meta">
+                <span class="slot-game" title="${escapeHtml(slot.game)}">${escapeHtml(platform)} · ${escapeHtml(slot.game)}</span>
+                <span>${slot.checked.size}/${total}</span>
+              </div>
+              <div class="bar"><div class="bar-fill"></div></div>
+            </div>
+          </article>`;
+        }).join("");
+
+        els.slotList.querySelectorAll(".slot-card").forEach(card => {
+          card.addEventListener("click", () => {
+            state.selectedKey = card.dataset.key;
+            queueRender();
+          });
+        });
+      }
+
+      function renderSlotTable(slots) {
+        els.slotTableBody.innerHTML = slots.map(slot => {
+          const pct = progressOf(slot);
+          const total = totalOf(slot);
+          const platform = platformForGame(slot.game);
+          return `<tr data-key="${escapeHtml(slot.key)}">
+            <td><strong>${escapeHtml(displayName(slot))}</strong><br><span style="color:var(--muted);font-size:12px;">Team ${slot.team}, Slot ${slot.id}</span></td>
+            <td>${escapeHtml(slot.game)}</td>
+            <td>${escapeHtml(platform)}</td>
+            <td>
+              <div class="mini-progress" style="--pct:${pct}%;--bar-color:${slot.color};">
+                <div class="bar"><div class="bar-fill"></div></div>
+                <span>${slot.checked.size}/${total}</span>
+              </div>
+            </td>
+            <td>${escapeHtml(stateLabel(slot.status))}</td>
+            <td>${escapeHtml(elapsedLabel(slot))}</td>
+            <td>${slot.items.length}</td>
+            <td>${slot.hints.length}</td>
+            <td>${escapeHtml(formatTime(slot.lastActivity || slot.lastConnection))}</td>
+          </tr>`;
+        }).join("");
+
+        els.slotTableBody.querySelectorAll("tr").forEach(row => {
+          row.addEventListener("click", () => {
+            state.selectedKey = row.dataset.key;
+            setView("checks");
+            queueRender();
+          });
+        });
+      }
+
+      function renderCheckSelectors(slots) {
+        const previous = els.checkSlotSelect.value || state.selectedKey || "";
+        els.checkSlotSelect.innerHTML = slots.map(slot =>
+          `<option value="${escapeHtml(slot.key)}">${escapeHtml(displayName(slot))}</option>`
+        ).join("");
+        if (slots.some(slot => slot.key === previous)) {
+          els.checkSlotSelect.value = previous;
+        } else if (slots[0]) {
+          els.checkSlotSelect.value = slots[0].key;
+        }
+        if (els.checkSlotSelect.value) state.selectedKey = els.checkSlotSelect.value;
+      }
+
+      function renderChecks() {
+        const slot = state.slots.get(state.selectedKey || "");
+        if (!slot) {
+          els.checksTitle.textContent = "Checks";
+          els.checksSummary.textContent = "0 checks";
+          els.checkList.innerHTML = "";
+          return;
+        }
+
+        const filter = els.checkSearchInput.value.trim().toLowerCase();
+        const stateFilter = els.checkStateSelect.value;
+        const checked = Array.from(slot.checked).map(id => ({ id, checked: true }));
+        const missing = slot.missing ? Array.from(slot.missing).map(id => ({ id, checked: false })) : [];
+        let checks = checked.concat(missing);
+
+        if (stateFilter === "checked") checks = checks.filter(check => check.checked);
+        if (stateFilter === "missing") checks = checks.filter(check => !check.checked);
+        if (filter) {
+          checks = checks.filter(check => {
+            const name = locationName(slot.game, check.id).toLowerCase();
+            return name.includes(filter) || String(check.id).includes(filter);
+          });
+        }
+
+        checks.sort((a, b) => Number(a.checked) - Number(b.checked) || String(locationName(slot.game, a.id)).localeCompare(String(locationName(slot.game, b.id))));
+        els.checksTitle.textContent = `${displayName(slot)} Checks`;
+        els.checksSummary.textContent = `${checks.length} of ${slot.checked.size + (slot.missing ? slot.missing.size : 0)} checks`;
+
+        if (!slot.missing && state.mode === "webhost") {
+          const note = `<div class="event">WebHost API mode exposes checked IDs and totals. Direct server mode can list unchecked IDs too.</div>`;
+          els.checkList.innerHTML = note + checks.map(checkRow).join("");
+          return;
+        }
+
+        els.checkList.innerHTML = checks.map(checkRow).join("");
+
+        function checkRow(check) {
+          const label = check.checked ? "Checked" : "Missing";
+          const badgeClass = check.checked ? "done" : "missing";
+          const name = locationName(slot.game, check.id);
+          return `<div class="check-item">
+            <span class="check-badge ${badgeClass}">${label}</span>
+            <span class="check-name" title="${escapeHtml(name)}">${escapeHtml(name)}</span>
+          </div>`;
+        }
+      }
+
+      function regionForIndex(index, total) {
+        if (index < REGION_TEMPLATES.length) return REGION_TEMPLATES[index];
+        const extra = index - REGION_TEMPLATES.length;
+        const cols = Math.ceil(Math.sqrt(Math.max(1, total - REGION_TEMPLATES.length)));
+        const row = Math.floor(extra / cols);
+        const col = extra % cols;
+        const rows = Math.ceil((total - REGION_TEMPLATES.length) / cols);
+        const x = 90 + col * (820 / Math.max(1, cols - 1 || 1));
+        const y = 82 + row * (396 / Math.max(1, rows - 1 || 1));
+        const radius = Math.max(22, Math.min(44, 72 - total));
+        return { d: blobPath(x, y, radius, index), x, y };
+      }
+
+      function blobPath(cx, cy, radius, seed) {
+        const points = [];
+        const count = 9;
+        for (let i = 0; i < count; i += 1) {
+          const angle = (Math.PI * 2 * i) / count;
+          const wobble = 0.78 + pseudo(seed * 31 + i * 17) * 0.42;
+          points.push({
+            x: cx + Math.cos(angle) * radius * wobble,
+            y: cy + Math.sin(angle) * radius * wobble
+          });
+        }
+        return points.map((point, i) => `${i === 0 ? "M" : "L"}${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(" ") + " Z";
+      }
+
+      function pseudo(value) {
+        const x = Math.sin(value) * 10000;
+        return x - Math.floor(x);
+      }
+
+      function hashString(value) {
+        let hash = 2166136261;
+        for (let index = 0; index < value.length; index += 1) {
+          hash ^= value.charCodeAt(index);
+          hash = Math.imul(hash, 16777619);
+        }
+        return Math.abs(hash);
+      }
+
+      async function start() {
+        savePrefs();
+        resetRoom();
+        state.title = "Connecting";
+        state.subtitle = state.mode === "webhost" ? "Reading WebHost tracker data." : "Opening Archipelago tracker sockets.";
+        setStatus("waiting", "Connecting...");
+        addEvent(`Starting ${state.mode === "webhost" ? "WebHost" : "server"} tracker.`);
+        queueRender();
+
+        try {
+          if (state.mode === "webhost") {
+            await startWebHostMode();
+          } else {
+            await startServerMode();
+          }
+          setStatus("live", "Connected.");
+        } catch (error) {
+          setStatus("idle", error.message || "Connection failed.");
+          addEvent(error.message || "Connection failed.");
+          queueRender();
+        }
+      }
+
+      async function startWebHostMode() {
+        const source = els.trackerInput.value.trim();
+        if (!source) throw new Error("Enter a room or tracker URL.");
+
+        const parsed = parseWebHostSource(source);
+        let trackerId = parsed.id;
+        let roomInfo = null;
+        let players = [];
+
+        if (!trackerId) throw new Error("No tracker id was found in the WebHost input.");
+
+        if (parsed.kind === "room") {
+          roomInfo = await fetchJson(`${parsed.origin}/api/room_status/${trackerId}`);
+          players = Array.isArray(roomInfo.players) ? roomInfo.players : [];
+          trackerId = extractWebHostId(String(roomInfo.tracker || "")) || String(roomInfo.tracker || trackerId);
+        }
+
+        state.webhost = { origin: parsed.origin, trackerId, players };
+        state.sourceLabel = `${parsed.origin}/tracker/${trackerId}`;
+        state.title = "WebHost Tracker";
+        state.subtitle = state.sourceLabel;
+
+        await refreshWebHostStatic();
+        await refreshWebHostDynamic();
+        if (els.namesInput.checked) await loadWebHostDataPackages();
+
+        const seconds = Math.max(5, Math.min(120, Number(els.pollInput.value) || 10));
+        state.pollTimer = window.setInterval(() => {
+          refreshWebHostDynamic().catch(error => {
+            addEvent(error.message || "WebHost refresh failed.");
+            setStatus("waiting", "Refresh failed. Retrying...");
+          });
+        }, seconds * 1000);
+
+        addEvent(`Tracking ${state.slots.size} slots from WebHost.`);
+        queueRender();
+      }
+
+      async function refreshWebHostStatic() {
+        const data = await fetchJson(`${state.webhost.origin}/api/static_tracker/${state.webhost.trackerId}`);
+        const playerGames = Array.isArray(data.player_game) ? data.player_game : [];
+        const totals = new Map((Array.isArray(data.player_locations_total) ? data.player_locations_total : [])
+          .map(entry => [slotKey(entry.team, entry.player), Number(entry.total_locations) || 0]));
+
+        for (const entry of playerGames) {
+          const slot = ensureSlot(entry.team, entry.player);
+          const playerInfo = state.webhost.players[Number(entry.player) - 1];
+          if (Array.isArray(playerInfo)) {
+            slot.name = playerInfo[0] || slot.name;
+            slot.game = playerInfo[1] || entry.game || slot.game;
+          } else {
+            slot.game = entry.game || slot.game;
+          }
+          slot.total = totals.get(slot.key) || slot.total;
+          slot.socketState = "api";
+        }
+
+        state.webhost.static = data;
+        queueRender();
+      }
+
+      async function refreshWebHostDynamic() {
+        const data = await fetchJson(`${state.webhost.origin}/api/tracker/${state.webhost.trackerId}`);
+
+        for (const entry of arrayOrEmpty(data.aliases)) {
+          const slot = ensureSlot(entry.team, entry.player);
+          slot.alias = entry.alias || "";
+        }
+
+        for (const entry of arrayOrEmpty(data.player_checks_done)) {
+          const slot = ensureSlot(entry.team, entry.player);
+          slot.checked = new Set(arrayOrEmpty(entry.locations));
+        }
+
+        for (const entry of arrayOrEmpty(data.player_items_received)) {
+          const slot = ensureSlot(entry.team, entry.player);
+          const incomingItems = arrayOrEmpty(entry.items);
+          if (slot.itemsInitialized && incomingItems.length > slot.items.length) {
+            const newItems = incomingItems.slice(slot.items.length);
+            for (const networkItem of newItems) {
+              const fromSlot = Number(networkItem.player);
+              if (fromSlot && fromSlot !== Number(entry.player)) {
+                createFlight(Number(entry.team), fromSlot, Number(entry.team), Number(entry.player), itemName(slot.game, networkItem.item), networkItem.flags);
+              }
+            }
+          }
+          slot.items = incomingItems;
+          slot.itemsInitialized = true;
+        }
+
+        for (const entry of arrayOrEmpty(data.hints)) {
+          const slot = ensureSlot(entry.team, entry.player);
+          slot.hints = arrayOrEmpty(entry.hints);
+        }
+
+        for (const entry of arrayOrEmpty(data.player_status)) {
+          const slot = ensureSlot(entry.team, entry.player);
+          setSlotStatus(slot, entry.status);
+        }
+
+        for (const entry of arrayOrEmpty(data.activity_timers)) {
+          const slot = ensureSlot(entry.team, entry.player);
+          slot.lastActivity = entry.time || null;
+          if (Number(slot.status) === 30 && entry.time) {
+            slot.finishedAt = entry.time;
+          }
+        }
+
+        for (const entry of arrayOrEmpty(data.connection_timers)) {
+          const slot = ensureSlot(entry.team, entry.player);
+          slot.lastConnection = entry.time || null;
+          setSlotStart(slot, entry.time);
+        }
+
+        setStatus("live", `Last WebHost refresh: ${new Date().toLocaleTimeString()}`);
+        queueRender();
+      }
+
+      async function loadWebHostDataPackages() {
+        const staticData = state.webhost.static;
+        const packages = staticData && staticData.datapackage ? staticData.datapackage : {};
+        const entries = Object.entries(packages);
+        for (const [game, meta] of entries) {
+          if (state.dataPackages.has(game)) continue;
+          const checksum = meta && typeof meta === "object" ? meta.checksum : meta;
+          if (!checksum) continue;
+          try {
+            const gamePackage = await fetchJson(`${state.webhost.origin}/api/datapackage/${checksum}`);
+            storeGamePackage(game, gamePackage);
+          } catch (error) {
+            addEvent(`Could not load names for ${game}.`);
+          }
+        }
+      }
+
+      async function startServerMode() {
+        const address = els.serverInput.value.trim();
+        const observerName = els.slotInput.value.trim();
+        const password = els.passwordInput.value;
+        if (!address) throw new Error("Enter an Archipelago server address.");
+        if (!observerName) throw new Error("Enter one slot name for discovery.");
+
+        const url = normalizeWsUrl(address, els.secureSocketInput.checked);
+        state.direct = { url, password, observerName, discovered: false };
+        state.sourceLabel = url;
+        state.title = "Archipelago Server";
+        state.subtitle = url;
+
+        const primary = openTrackerSocket({
+          url,
+          name: observerName,
+          password,
+          tags: PRIMARY_TRACKER_TAGS,
+          label: "observer",
+          onPacket: packet => handlePrimaryPacket(packet)
+        });
+        state.primarySocket = primary;
+
+        await waitFor(() => state.direct && state.direct.discovered, 12000, "Server discovery timed out.");
+        addEvent(`Discovered ${state.slots.size} slots.`);
+        queueRender();
+      }
+
+      function handlePrimaryPacket(packet) {
+        handleCommonPacket(packet);
+
+        if (packet.cmd === "RoomInfo") {
+          state.direct.roomInfo = packet;
+          state.title = packet.seed_name || "Archipelago Server";
+          state.subtitle = `${state.direct.url} ${packet.password ? "(passworded)" : ""}`;
+          if (els.namesInput.checked && Array.isArray(packet.games) && packet.games.length) {
+            sendPackets(state.primarySocket, [{ cmd: "GetDataPackage", games: packet.games }]);
+          }
+        }
+
+        if (packet.cmd === "DataPackage" && packet.data && packet.data.games) {
+          for (const [game, gamePackage] of Object.entries(packet.data.games)) {
+            storeGamePackage(game, gamePackage);
+          }
+          addEvent("Loaded location name data.");
+          queueRender();
+        }
+
+        if (packet.cmd === "Connected") {
+          applyConnectedPacket(packet);
+          discoverSlotsFromConnected(packet);
+          state.direct.discovered = true;
+          pollClientStatuses();
+          const seconds = Math.max(5, Math.min(120, Number(els.pollInput.value) || 10));
+          state.pollTimer = window.setInterval(pollClientStatuses, seconds * 1000);
+        }
+
+        if (packet.cmd === "Retrieved" && packet.keys) {
+          for (const [key, value] of Object.entries(packet.keys)) {
+            const match = key.match(/^_read_client_status_(\d+)_(\d+)$/);
+            if (!match) continue;
+            const slot = ensureSlot(Number(match[1]), Number(match[2]));
+            setSlotStatus(slot, value);
+          }
+          queueRender();
+        }
+      }
+
+      function handleSlotPacket(packet, expectedKey) {
+        handleCommonPacket(packet);
+        if (packet.cmd === "Connected") {
+          applyConnectedPacket(packet);
+          const key = slotKey(packet.team, packet.slot);
+          const slot = state.slots.get(key) || state.slots.get(expectedKey);
+          if (slot) slot.socketState = "live";
+          queueRender();
+        }
+        if (packet.cmd === "RoomUpdate") {
+          applyRoomUpdate(packet, expectedKey);
+        }
+      }
+
+      function handleCommonPacket(packet) {
+        if (!packet || !packet.cmd) return;
+        if (packet.cmd === "ConnectionRefused") {
+          const errors = arrayOrEmpty(packet.errors).join(", ") || "Connection refused";
+          addEvent(errors);
+        }
+        if (packet.cmd === "InvalidPacket") {
+          addEvent(packet.text || "Invalid packet.");
+        }
+        if (packet.cmd === "PrintJSON") {
+          if (packet.type === "ItemSend" && packet.item && packet.receiving !== undefined) {
+            const team = Number(packet.team) || 0;
+            const fromSlot = Number(packet.item.player);
+            const toSlot = Number(packet.receiving);
+            const receiver = state.slots.get(slotKey(team, toSlot));
+            const label = receiver ? itemName(receiver.game, packet.item.item) : "Item";
+            createFlight(team, fromSlot, team, toSlot, label, packet.item.flags);
+          }
+          if (packet.type === "Goal" && packet.slot !== undefined) {
+            const slot = ensureSlot(Number(packet.team || 0), Number(packet.slot));
+            setSlotStatus(slot, 30);
+            addEvent(`${displayName(slot)} reached goal.`);
+            queueRender();
+          }
+        }
+      }
+
+      function discoverSlotsFromConnected(packet) {
+        const team = Number(packet.team) || 0;
+        const slotInfo = packet.slot_info || {};
+        const discovered = [];
+
+        for (const [rawId, rawInfo] of Object.entries(slotInfo)) {
+          const id = Number(rawId);
+          const info = normalizeSlotInfo(rawInfo);
+          const type = Number(info.type) || 0;
+          if ((type & SLOT_TYPE_PLAYER) !== SLOT_TYPE_PLAYER) continue;
+          const slot = ensureSlot(team, id);
+          slot.name = info.name || slot.name;
+          slot.game = info.game || slot.game;
+          discovered.push(slot);
+        }
+
+        for (const slot of discovered) {
+          if (slot.id === Number(packet.slot) && slot.team === Number(packet.team)) {
+            slot.socketState = "live";
+            continue;
+          }
+          if (state.sockets.has(slot.key)) continue;
+          const socket = openTrackerSocket({
+            url: state.direct.url,
+            name: slot.name,
+            password: state.direct.password,
+            tags: SLOT_TRACKER_TAGS,
+            label: displayName(slot),
+            onPacket: incoming => handleSlotPacket(incoming, slot.key)
+          });
+          state.sockets.set(slot.key, socket);
+          slot.socketState = "connecting";
+        }
+      }
+
+      function applyConnectedPacket(packet) {
+        const slot = ensureSlot(packet.team, packet.slot);
+        const checked = new Set(arrayOrEmpty(packet.checked_locations));
+        const missing = new Set(arrayOrEmpty(packet.missing_locations));
+        slot.checked = checked;
+        slot.missing = missing;
+        slot.total = checked.size + missing.size;
+        setSlotStatus(slot, Math.max(Number(slot.status) || 0, 5));
+        slot.socketState = "live";
+        if (!state.selectedKey) state.selectedKey = slot.key;
+        queueRender();
+      }
+
+      function applyRoomUpdate(packet, expectedKey) {
+        const slot = state.slots.get(expectedKey);
+        if (!slot) return;
+
+        if (Array.isArray(packet.checked_locations)) {
+          for (const id of packet.checked_locations) {
+            slot.checked.add(id);
+            if (slot.missing) slot.missing.delete(id);
+          }
+          slot.total = Math.max(slot.total, slot.checked.size + (slot.missing ? slot.missing.size : 0));
+        }
+
+        if (Array.isArray(packet.players)) {
+          for (const raw of packet.players) {
+            const player = normalizeNetworkPlayer(raw);
+            const existing = state.slots.get(slotKey(player.team, player.slot));
+            if (existing) {
+              existing.alias = player.alias || "";
+              existing.name = player.name || existing.name;
+            }
+          }
+        }
+
+        queueRender();
+      }
+
+      function pollClientStatuses() {
+        if (!state.primarySocket || state.primarySocket.readyState !== WebSocket.OPEN) return;
+        const keys = sortedSlots().map(slot => `_read_client_status_${slot.team}_${slot.id}`);
+        if (!keys.length) return;
+        sendPackets(state.primarySocket, [{ cmd: "Get", keys }]);
+      }
+
+      function openTrackerSocket({ url, name, password, tags, label, onPacket }) {
+        const socket = new WebSocket(url);
+        socket.addEventListener("open", () => {
+          sendPackets(socket, [{
+            cmd: "Connect",
+            password: password || "",
+            name,
+            game: null,
+            uuid: trackerUuidFor(name),
+            version: AP_VERSION,
+            items_handling: ITEM_HANDLING_NONE,
+            tags: tags || SLOT_TRACKER_TAGS,
+            slot_data: false
+          }]);
+          addEvent(`Socket opened for ${label}.`);
+        });
+        socket.addEventListener("message", event => {
+          let packets;
+          try {
+            packets = JSON.parse(event.data);
+          } catch (error) {
+            addEvent(`Unreadable packet from ${label}.`);
+            return;
+          }
+          for (const packet of arrayOrEmpty(packets)) onPacket(packet);
+        });
+        socket.addEventListener("error", () => {
+          addEvent(`Socket error for ${label}.`);
+        });
+        socket.addEventListener("close", () => {
+          const slot = sortedSlots().find(item => displayName(item) === label || item.name === name);
+          if (slot && state.status !== "idle") slot.socketState = "closed";
+          if (state.status !== "idle") {
+            setStatus("waiting", `A socket closed: ${label}`);
+            queueRender();
+          }
+        });
+        return socket;
+      }
+
+      function sendPackets(socket, packets) {
+        if (!socket || socket.readyState !== WebSocket.OPEN) return;
+        socket.send(JSON.stringify(packets));
+      }
+
+      function trackerUuidFor(name) {
+        const stable = `${location.href}|${state.direct ? state.direct.url : ""}|${name}`;
+        let hash = 0;
+        for (let i = 0; i < stable.length; i += 1) {
+          hash = ((hash << 5) - hash + stable.charCodeAt(i)) | 0;
+        }
+        return `slot-atlas-${Math.abs(hash)}`;
+      }
+
+      function parseWebHostSource(source) {
+        let url = null;
+        try {
+          url = new URL(source);
+        } catch (error) {
+          try {
+            url = new URL(`https://archipelago.gg/${source.replace(/^\/+/, "")}`);
+          } catch (inner) {
+            url = null;
+          }
+        }
+
+        const origin = url ? url.origin : "https://archipelago.gg";
+        const id = extractWebHostId(source, url);
+        const path = url ? url.pathname.toLowerCase() : "";
+        const kind = path.includes("/room/") || path.includes("/rooms/") || path.includes("/server/") || path.includes("/room_status/") ? "room" : "tracker";
+        return { origin, id, kind };
+      }
+
+      function normalizeWsUrl(address, secure) {
+        if (/^wss?:\/\//i.test(address)) return address;
+        const cleaned = address.replace(/^https?:\/\//i, "").replace(/\/+$/, "");
+        return `${secure ? "wss" : "ws"}://${cleaned}`;
+      }
+
+      async function fetchJson(url) {
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) throw new Error(`${response.status} ${response.statusText} from ${url}`);
+        return response.json();
+      }
+
+      function storeGamePackage(game, gamePackage) {
+        if (!game || !gamePackage) return;
+        const locationIdToName = {};
+        const itemIdToName = {};
+        for (const [name, id] of Object.entries(gamePackage.location_name_to_id || {})) {
+          locationIdToName[String(id)] = name;
+        }
+        for (const [name, id] of Object.entries(gamePackage.item_name_to_id || {})) {
+          itemIdToName[String(id)] = name;
+        }
+        state.dataPackages.set(game, { locationIdToName, itemIdToName, raw: gamePackage });
+      }
+
+      function locationName(game, id) {
+        const gamePackage = state.dataPackages.get(game);
+        if (!gamePackage) return `Location ${id}`;
+        return gamePackage.locationIdToName[String(id)] || `Location ${id}`;
+      }
+
+      function platformForGame(game) {
+        const name = String(game || "").trim();
+        const key = normalizeGameName(name);
+        if (!key) return "Unknown Platform";
+        if (PLATFORM_BY_GAME.has(key)) return PLATFORM_BY_GAME.get(key);
+        for (const [knownGame, platform] of PLATFORM_BY_GAME.entries()) {
+          if (key.includes(knownGame) || knownGame.includes(key)) return platform;
+        }
+        if (key.includes("pokemon")) {
+          if (key.includes("emerald") || key.includes("fire") || key.includes("leaf") || key.includes("ruby") || key.includes("sapphire")) return "Game Boy Advance";
+          if (key.includes("crystal") || key.includes("gold") || key.includes("silver")) return "Game Boy Color";
+          return "Game Boy";
+        }
+        if (key.includes("zelda") || key.includes("link")) {
+          if (key.includes("ocarina") || key.includes("majora")) return "N64";
+          if (key.includes("awakening") || key.includes("oracle")) return "Game Boy Color";
+          if (key.includes("minish")) return "Game Boy Advance";
+          if (key.includes("past")) return "SNES";
+          return "NES";
+        }
+        if (key.includes("metroid")) {
+          if (key.includes("fusion") || key.includes("zero")) return "Game Boy Advance";
+          if (key.includes("prime")) return "GameCube";
+          return "SNES";
+        }
+        if (key.includes("mario")) {
+          if (key.includes("64")) return "N64";
+          if (key.includes("world") || key.includes("yoshi")) return "SNES";
+          return "NES";
+        }
+        if (key.includes("sonic")) return key.includes("adventure") ? "GameCube" : "Genesis";
+        if (key.includes("doom") || key.includes("quake") || key.includes("factorio") || key.includes("minecraft")) return "PC";
+        if (key.includes("dice")) return "Phone";
+        return "Unknown Platform";
+      }
+
+      function normalizeGameName(game) {
+        return String(game || "")
+          .toLowerCase()
+          .replace(/[_-]/g, " ")
+          .replace(/[^a-z0-9 ]+/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function itemName(game, id) {
+        const gamePackage = state.dataPackages.get(game);
+        if (!gamePackage) return `Item ${id}`;
+        return gamePackage.itemIdToName[String(id)] || `Item ${id}`;
+      }
+
+      function createFlight(fromTeam, fromSlot, toTeam, toSlot, label, flags = 0) {
+        const fromKey = slotKey(fromTeam, fromSlot);
+        const toKey = slotKey(toTeam, toSlot);
+        if (fromKey === toKey) return;
+        if (!state.slots.has(fromKey) || !state.slots.has(toKey)) return;
+
+        const from = state.slots.get(fromKey);
+        const to = state.slots.get(toKey);
+        const meta = itemDeliveryMeta(label || "Item", flags);
+        state.flights.push({
+          id: state.nextFlightId++,
+          fromKey,
+          toKey,
+          label: deliveryLabel(meta.label),
+          color: meta.color,
+          itemType: meta.type,
+          startedAt: performance.now(),
+          duration: 4200
+        });
+        state.flights = state.flights.slice(-28);
+        addEvent(`${displayName(from)} is delivering ${meta.label} to ${displayName(to)}.`);
+        queueRender();
+      }
+
+      function deliveryLabel(label) {
+        const text = String(label || "Item");
+        return text.length > 24 ? `${text.slice(0, 21)}...` : text;
+      }
+
+      function itemDeliveryMeta(label, flags = 0) {
+        const raw = String(label || "Item");
+        const parsed = raw.match(/^\s*([^:]+):\s*(.+)$/);
+        let type = parsed ? parsed[1].trim() : itemTypeFromFlags(flags);
+        let item = parsed ? parsed[2].trim() : raw;
+        type = normalizeItemType(type);
+        const color = itemTypeColor(type);
+        return {
+          type,
+          color,
+          label: type === "Unknown" ? item : `${type}: ${item}`
+        };
+      }
+
+      function itemTypeFromFlags(flags) {
+        const value = Number(flags) || 0;
+        if (value & 4) return "Trap";
+        if (value & 1) return "Progression";
+        if (value & 2) return "Useful";
+        return "Filler";
+      }
+
+      function normalizeItemType(type) {
+        const lower = String(type || "").toLowerCase();
+        if (lower.includes("trap")) return "Trap";
+        if (lower.includes("progression")) return lower.includes("skip") ? "Progression Skip" : "Progression";
+        if (lower.includes("useful")) return "Useful";
+        if (lower.includes("filler")) return "Filler";
+        return type ? type.charAt(0).toUpperCase() + type.slice(1).toLowerCase() : "Unknown";
+      }
+
+      function itemTypeColor(type) {
+        const lower = String(type || "").toLowerCase();
+        if (lower.includes("trap")) return "#ff4f5e";
+        if (lower.includes("progression skip")) return "#ffb347";
+        if (lower.includes("progression")) return "#c77dff";
+        if (lower.includes("useful")) return "#4da3ff";
+        if (lower.includes("filler")) return "#d8d8d8";
+        return "#f0d3ac";
+      }
+
+      function testAirplaneCheck() {
+        const slots = sortedSlots();
+        if (slots.length < 2) {
+          addEvent("Connect to a room with at least two slots to test an airplane check.");
+          setStatus(state.status, "Need at least two slots for a test flight.");
+          return;
+        }
+
+        ensureMapLayout(slots);
+        const selected = state.slots.get(state.selectedKey || "");
+        const from = selected || slots[Math.floor(Math.random() * slots.length)];
+        const candidates = slots.filter(slot => slot.key !== from.key);
+        const to = candidates[Math.floor(Math.random() * candidates.length)];
+        createFlight(from.team, from.id, to.team, to.id, randomTestItem());
+      }
+
+      function randomTestItem() {
+        const types = ["Progression", "Useful", "Filler", "Trap", "Progression Skip", "Useful Toggle"];
+        const items = [
+          "Ancient Key", "Moon Boots", "Bridge Permit", "Lantern Upgrade",
+          "Silver Compass", "Rocket Pass", "Council Seal", "Victory Coupon",
+          "Map Fragment", "Rusty Gear", "Warp Battery", "Golden Dice"
+        ];
+        const type = types[Math.floor(Math.random() * types.length)];
+        const item = items[Math.floor(Math.random() * items.length)];
+        return `${type}: ${item}`;
+      }
+
+      function testTerritoryGrowth() {
+        const slots = sortedSlots();
+        const now = performance.now();
+        const id = state.nextFakeSlotId++;
+        const key = slotKey(9999, id);
+        const fakeSlot = {
+          key,
+          team: 9999,
+          id,
+          name: `Growth Test ${id}`,
+          alias: "",
+          game: "Test Territory",
+          total: 100,
+          checked: new Set(),
+          missing: new Set(Array.from({ length: 100 }, (_, index) => index + 1)),
+          items: [],
+          itemsInitialized: true,
+          hints: [],
+          status: 20,
+          firstSeenAt: new Date().toISOString(),
+          startedAt: new Date().toISOString(),
+          finishedAt: null,
+          lastActivity: null,
+          lastConnection: null,
+          socketState: "test",
+          color: PALETTE[(slots.length + state.fakeSlots.size) % PALETTE.length],
+          fakeSlot: true,
+          growthStartedAt: now,
+          growthDuration: 5000,
+          growthEndsAt: now + 5000,
+          removeAt: now + 7200
+        };
+
+        state.fakeSlots.set(key, fakeSlot);
+        state.mapSignature = "";
+        addEvent(`${fakeSlot.name} is growing over 5 seconds.`);
+        queueRender();
+        window.setTimeout(() => queueRender(), 5000);
+        window.setTimeout(() => {
+          state.fakeSlots.delete(key);
+          state.mapSignature = "";
+          queueRender();
+        }, 7200);
+      }
+
+      function normalizeSlotInfo(raw) {
+        if (Array.isArray(raw)) {
+          return {
+            name: raw[0],
+            game: raw[1],
+            type: raw[2],
+            group_members: raw[3] || []
+          };
+        }
+        return {
+          name: raw && raw.name,
+          game: raw && raw.game,
+          type: raw && raw.type,
+          group_members: raw && raw.group_members || []
+        };
+      }
+
+      function normalizeNetworkPlayer(raw) {
+        if (Array.isArray(raw)) {
+          return { team: raw[0], slot: raw[1], alias: raw[2], name: raw[3] };
+        }
+        return {
+          team: raw && raw.team,
+          slot: raw && raw.slot,
+          alias: raw && raw.alias,
+          name: raw && raw.name
+        };
+      }
+
+      function extractWebHostId(value, parsedUrl = null) {
+        const text = String(value || "").trim();
+        const uuid = extractUuid(text);
+        if (uuid) return uuid;
+
+        const url = parsedUrl || tryParseUrl(text);
+        if (url) {
+          const segments = url.pathname.split("/").filter(Boolean).map(segment => decodeURIComponent(segment));
+          const markers = new Set([
+            "tracker",
+            "generic_tracker",
+            "sphere_tracker",
+            "static_tracker",
+            "slot_data_tracker",
+            "room",
+            "rooms",
+            "server",
+            "servers",
+            "room_status"
+          ]);
+
+          for (let index = 0; index < segments.length; index += 1) {
+            const lower = segments[index].toLowerCase();
+            if (lower === "api" && segments[index + 2] && markers.has(segments[index + 1].toLowerCase())) {
+              return segments[index + 2];
+            }
+            if (markers.has(lower) && segments[index + 1]) {
+              return segments[index + 1];
+            }
+          }
+
+          for (const segment of segments) {
+            if (looksLikeWebHostId(segment)) return segment;
+          }
+        }
+
+        const tokens = text.match(/[A-Za-z0-9_-]{16,64}/g) || [];
+        return tokens.find(looksLikeWebHostId) || "";
+      }
+
+      function tryParseUrl(value) {
+        try {
+          return new URL(value);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function looksLikeWebHostId(token) {
+        const lower = String(token || "").toLowerCase();
+        if (!/^[A-Za-z0-9_-]{16,64}$/.test(token)) return false;
+        return !new Set([
+          "archipelago",
+          "archipelagogg",
+          "tracker",
+          "generic_tracker",
+          "sphere_tracker",
+          "static_tracker",
+          "slot_data_tracker",
+          "room",
+          "rooms",
+          "server",
+          "servers",
+          "room_status"
+        ]).has(lower);
+      }
+
+      function extractUuid(value) {
+        const match = String(value || "").match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+        return match ? match[0] : "";
+      }
+
+      function arrayOrEmpty(value) {
+        return Array.isArray(value) ? value : [];
+      }
+
+      function displayName(slot) {
+        return slot.alias ? `${slot.alias} (${slot.name})` : slot.name;
+      }
+
+      function territoryLabel(slot, density) {
+        const country = fakeCountryName(slot.game, slot.id);
+        if (density >= 3) return countryCode(country);
+        if (density >= 2) return countryCode(country);
+        if (density >= 1) return shortCountryName(country);
+        return country;
+      }
+
+      function fakeCountryName(game, slotId = 0) {
+        const words = meaningfulWords(game);
+        const base = words.length ? words[0] : "Atlas";
+        const second = words.find(word => word !== base) || "";
+        const suffixes = [
+          "ia", "land", "mark", "reach", "gard", "mere",
+          "vale", "hold", "oria", "stan", "fell", "march"
+        ];
+        const seed = hashString(`${game}:${slotId}`);
+        const suffix = suffixes[seed % suffixes.length];
+        const root = countryRoot(base);
+        if (second && seed % 5 === 0) return `${root} ${countryRoot(second)}`;
+        if (suffix === "land" || suffix === "stan") return `${root}${suffix}`;
+        if (root.endsWith("a") && suffix === "ia") return `${root}nia`;
+        return `${root}${suffix}`;
+      }
+
+      function meaningfulWords(value) {
+        const stop = new Set(["the", "of", "and", "a", "an", "to", "for", "in", "dx", "ii", "iii"]);
+        return String(value || "")
+          .replace(/[_/-]/g, " ")
+          .replace(/[^a-zA-Z0-9 ]+/g, "")
+          .split(/\s+/)
+          .filter(word => word && !stop.has(word.toLowerCase()))
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+      }
+
+      function countryRoot(word) {
+        const cleaned = String(word || "Atlas").replace(/[^a-zA-Z0-9]/g, "");
+        if (!cleaned) return "Atlas";
+        if (cleaned.length <= 4) return cleaned;
+        return cleaned.replace(/[aeiouy]+$/i, "").slice(0, 8);
+      }
+
+      function shortCountryName(name) {
+        if (name.length <= 8) return name;
+        const words = name.split(/\s+/);
+        if (words.length > 1) return words.map(word => word[0]).join("").toUpperCase();
+        return name.slice(0, 7);
+      }
+
+      function countryCode(name) {
+        const letters = name.replace(/[^a-zA-Z]/g, "").toUpperCase();
+        return (letters.slice(0, 3) || "CTR");
+      }
+
+      function initials(name) {
+        const parts = String(name || "?").replace(/\([^)]*\)/g, "").trim().split(/\s+/).filter(Boolean);
+        const text = parts.length > 1 ? `${parts[0][0]}${parts[parts.length - 1][0]}` : (parts[0] || "?").slice(0, 2);
+        return text.toUpperCase();
+      }
+
+      function formatTime(value) {
+        if (!value) return "Never";
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return String(value);
+        return date.toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+      }
+
+      function escapeHtml(value) {
+        return String(value ?? "").replace(/[&<>"']/g, char => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[char]);
+      }
+
+      function waitFor(predicate, timeoutMs, timeoutMessage) {
+        const started = Date.now();
+        return new Promise((resolve, reject) => {
+          const tick = () => {
+            if (predicate()) {
+              resolve();
+              return;
+            }
+            if (Date.now() - started > timeoutMs) {
+              reject(new Error(timeoutMessage));
+              return;
+            }
+            window.setTimeout(tick, 80);
+          };
+          tick();
+        });
+      }
+
+      els.webhostModeButton.addEventListener("click", () => {
+        setMode("webhost");
+        savePrefs();
+      });
+      els.serverModeButton.addEventListener("click", () => {
+        setMode("server");
+        savePrefs();
+      });
+      els.connectButton.addEventListener("click", start);
+      els.disconnectButton.addEventListener("click", () => {
+        resetRoom();
+        setStatus("idle", "Disconnected.");
+        addEvent("Disconnected.");
+        queueRender();
+      });
+      els.settingsToggleButton.addEventListener("click", () => {
+        const collapsed = els.settingsBody.classList.toggle("collapsed");
+        els.settingsToggleButton.setAttribute("aria-expanded", String(!collapsed));
+      });
+      els.testFlightButton.addEventListener("click", testAirplaneCheck);
+      els.testGrowthButton.addEventListener("click", testTerritoryGrowth);
+      els.clearEventsButton.addEventListener("click", () => {
+        state.events = [];
+        els.eventList.innerHTML = "";
+      });
+      els.mapViewButton.addEventListener("click", () => setView("map"));
+      els.slotsViewButton.addEventListener("click", () => setView("slots"));
+      els.checksViewButton.addEventListener("click", () => setView("checks"));
+      els.checkSlotSelect.addEventListener("change", () => {
+        state.selectedKey = els.checkSlotSelect.value;
+        queueRender();
+      });
+      for (const input of [els.slotSearchInput, els.tableSlotSearchInput]) {
+        input.addEventListener("input", () => updateSlotFilters({ search: input.value }));
+      }
+      for (const select of [els.slotGameFilter, els.tableSlotGameFilter]) {
+        select.addEventListener("change", () => updateSlotFilters({ game: select.value }));
+      }
+      for (const select of [els.slotSortSelect, els.tableSlotSortSelect]) {
+        select.addEventListener("change", () => updateSlotFilters({ sort: select.value }));
+      }
+      for (const select of [els.slotSortDirSelect, els.tableSlotSortDirSelect]) {
+        select.addEventListener("change", () => updateSlotFilters({ dir: select.value }));
+      }
+      els.checkSearchInput.addEventListener("input", queueRender);
+      els.checkStateSelect.addEventListener("change", queueRender);
+      els.pollInput.addEventListener("change", savePrefs);
+      els.secureSocketInput.addEventListener("change", savePrefs);
+      els.themeInput.addEventListener("change", () => {
+        const value = els.themeInput.value;
+        const duration = value === "snappy" ? "220ms" : value === "quiet" ? "900ms" : "520ms";
+        document.documentElement.style.setProperty("--bar-speed", duration);
+      });
+
+      loadPrefs();
+      render();
+    })();
+  </script>
+</body>
+</html>
