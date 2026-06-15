@@ -49,9 +49,10 @@
     body::after {
       content: "";
       position: fixed;
-      inset: -12%;
+      inset: -24%;
       z-index: 0;
       pointer-events: none;
+      transform: translate3d(0, 0, 0);
     }
 
     body::before {
@@ -59,7 +60,7 @@
       background:
         repeating-linear-gradient(90deg, transparent 0 19px, rgba(240, 211, 172, 0.16) 19px 23px, transparent 23px 48px, rgba(127, 36, 37, 0.18) 48px 66px, transparent 66px 112px),
         repeating-linear-gradient(90deg, rgba(39, 74, 50, 0.12) 0 14px, transparent 14px 74px);
-      animation: flannelDriftDiagonalA 210s linear infinite;
+      animation: flannelDriftDiagonalA 480s steps(180, end) infinite;
     }
 
     body::after {
@@ -67,25 +68,22 @@
       background:
         repeating-linear-gradient(0deg, transparent 0 24px, rgba(240, 211, 172, 0.12) 24px 27px, transparent 27px 56px, rgba(127, 36, 37, 0.16) 56px 78px, transparent 78px 130px),
         repeating-linear-gradient(0deg, rgba(39, 74, 50, 0.1) 0 12px, transparent 12px 84px);
-      animation: flannelDriftDiagonalB 145s linear infinite;
+      animation: flannelDriftDiagonalB 360s steps(180, end) infinite;
+    }
+
+    body.motion-paused::before,
+    body.motion-paused::after {
+      animation-play-state: paused;
     }
 
     @keyframes flannelDriftDiagonalA {
-      from {
-        background-position: 0 0, 0 0;
-      }
-      to {
-        background-position: 280px 180px, -190px 120px;
-      }
+      from { transform: translate3d(-64px, -44px, 0); }
+      to { transform: translate3d(116px, 72px, 0); }
     }
 
     @keyframes flannelDriftDiagonalB {
-      from {
-        background-position: 0 0, 0 0;
-      }
-      to {
-        background-position: -180px 520px, 150px -380px;
-      }
+      from { transform: translate3d(58px, -96px, 0); }
+      to { transform: translate3d(-72px, 184px, 0); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1204,7 +1202,7 @@
 
         <div id="webhostFields" class="field">
           <label for="trackerInput">Room or tracker URL</label>
-          <input id="trackerInput" autocomplete="off" placeholder="https://archipelago.gg/tracker/...">
+          <input id="trackerInput" autocomplete="off" placeholder="https://archipelago.gg/tracker/... or randomfuzzy.games/tracker/...">
         </div>
 
         <div id="serverFields" class="hidden">
@@ -1403,6 +1401,7 @@
       const AP_VERSION = { class: "Version", major: 0, minor: 6, build: 7 };
       const PRIMARY_TRACKER_TAGS = ["Tracker"];
       const SLOT_TRACKER_TAGS = ["Tracker", "NoText"];
+      const ANIMATED_RENDER_INTERVAL_MS = 140;
       const ITEM_HANDLING_NONE = 0;
       const SLOT_TYPE_PLAYER = 1;
       const CLIENT_STATUS = new Map([
@@ -1594,7 +1593,8 @@
         mapSignature: "",
         webhost: null,
         direct: null,
-        renderQueued: false
+        renderQueued: false,
+        renderWhenVisible: false
       };
 
       function loadPrefs() {
@@ -1681,6 +1681,8 @@
         state.territoryAnimations = new Map();
         state.animationRenderQueued = false;
         state.lastAnimationRenderAt = 0;
+        state.renderQueued = false;
+        state.renderWhenVisible = false;
         state.mapLayout = new Map();
         state.mapSignature = "";
         state.dataPackages.clear();
@@ -1950,6 +1952,11 @@
       }
 
       function queueRender() {
+        if (document.hidden) {
+          state.renderWhenVisible = true;
+          return;
+        }
+        state.renderWhenVisible = false;
         if (state.renderQueued) return;
         state.renderQueued = true;
         requestAnimationFrame(() => {
@@ -1959,12 +1966,20 @@
       }
 
       function queueAnimatedRender() {
+        if (document.hidden) {
+          state.renderWhenVisible = true;
+          return;
+        }
         if (state.animationRenderQueued) return;
         const now = performance.now();
-        const delay = Math.max(0, 90 - (now - state.lastAnimationRenderAt));
+        const delay = Math.max(0, ANIMATED_RENDER_INTERVAL_MS - (now - state.lastAnimationRenderAt));
         state.animationRenderQueued = true;
         window.setTimeout(() => {
           state.animationRenderQueued = false;
+          if (document.hidden) {
+            state.renderWhenVisible = true;
+            return;
+          }
           state.lastAnimationRenderAt = performance.now();
           queueRender();
         }, delay);
@@ -3117,22 +3132,25 @@
       }
 
       function parseWebHostSource(source) {
-        let url = null;
-        try {
-          url = new URL(source);
-        } catch (error) {
-          try {
-            url = new URL(`https://archipelago.gg/${source.replace(/^\/+/, "")}`);
-          } catch (inner) {
-            url = null;
-          }
-        }
-
+        const url = parseWebHostUrl(source);
         const origin = url ? url.origin : "https://archipelago.gg";
         const id = extractWebHostId(source, url);
         const path = url ? url.pathname.toLowerCase() : "";
         const kind = path.includes("/room/") || path.includes("/rooms/") || path.includes("/server/") || path.includes("/room_status/") ? "room" : "tracker";
         return { origin, id, kind };
+      }
+
+      function parseWebHostUrl(value) {
+        const text = String(value || "").trim();
+        if (!text) return null;
+        if (/^[a-z][a-z0-9+.-]*:\/\//i.test(text)) return tryParseUrl(text);
+        if (text.startsWith("//")) return tryParseUrl(`https:${text}`);
+        if (text.startsWith("/")) return tryParseUrl(`https://archipelago.gg${text}`);
+
+        const cleaned = text.replace(/^\/+/, "");
+        const firstSegment = cleaned.split(/[/?#]/, 1)[0].toLowerCase();
+        const looksLikeHost = firstSegment.includes(".") || firstSegment.includes(":") || firstSegment === "localhost";
+        return tryParseUrl(looksLikeHost ? `https://${cleaned}` : `https://archipelago.gg/${cleaned}`);
       }
 
       function normalizeWsUrl(address, secure) {
@@ -3394,7 +3412,7 @@
         const uuid = extractUuid(text);
         if (uuid) return uuid;
 
-        const url = parsedUrl || tryParseUrl(text);
+        const url = parsedUrl || parseWebHostUrl(text);
         if (url) {
           const segments = url.pathname.split("/").filter(Boolean).map(segment => decodeURIComponent(segment));
           const markers = new Set([
@@ -3564,6 +3582,19 @@
         });
       }
 
+      function handleVisibilityChange() {
+        document.body.classList.toggle("motion-paused", document.hidden);
+        if (document.hidden) {
+          state.renderWhenVisible = true;
+          return;
+        }
+        state.animationRenderQueued = false;
+        state.lastAnimationRenderAt = performance.now();
+        if (state.renderWhenVisible || state.slots.size || state.fakeSlots.size || state.flights.length) {
+          queueRender();
+        }
+      }
+
       els.webhostModeButton.addEventListener("click", () => {
         setMode("webhost");
         savePrefs();
@@ -3617,7 +3648,9 @@
         const duration = value === "snappy" ? "220ms" : value === "quiet" ? "900ms" : "520ms";
         document.documentElement.style.setProperty("--bar-speed", duration);
       });
+      document.addEventListener("visibilitychange", handleVisibilityChange);
 
+      handleVisibilityChange();
       loadPrefs();
       render();
     })();
