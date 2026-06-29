@@ -1,6 +1,8 @@
 const DATA_URL = new URL("./data/comics.json", import.meta.url);
 const BATCH_SIZE = 14;
-const STORAGE_KEY = "doa-reader-current-index";
+const LAST_VIEWED_STORAGE_KEY = "doa-reader-current-index";
+const BOOKMARK_SLUG_KEY = "doa-reader-bookmark-slug";
+const BOOKMARK_INDEX_KEY = "doa-reader-bookmark-index";
 
 const els = {
   feed: document.querySelector("#comicFeed"),
@@ -58,6 +60,7 @@ async function boot() {
     renderTimelineTicks();
     populateYearSelect();
     bindEvents();
+    updateBookmarkUi();
 
     const requestedIndex = getRequestedIndex();
     startAt(requestedIndex, { scrollToTop: true, replaceUrl: false });
@@ -92,8 +95,10 @@ function bindEvents() {
   els.firstButton.addEventListener("click", () => startAt(0, { scrollToTop: true }));
   els.latestButton.addEventListener("click", () => startAt(archive.length - 1, { scrollToTop: true }));
   els.resumeButton.addEventListener("click", () => {
-    const saved = Number(localStorage.getItem(STORAGE_KEY));
-    startAt(Number.isFinite(saved) ? saved : currentIndex, { scrollToTop: true });
+    const bookmarkedIndex = getBookmarkedIndex();
+    if (bookmarkedIndex !== null) {
+      startAt(bookmarkedIndex, { scrollToTop: true });
+    }
   });
 
   els.jumpButton.addEventListener("click", () => jumpToSelectedDate());
@@ -125,7 +130,7 @@ function startAt(index, options = {}) {
   appendNextBatch();
   updateTimelineForIndex(currentIndex);
   updateDateSelects(archive[currentIndex]);
-  localStorage.setItem(STORAGE_KEY, String(currentIndex));
+  localStorage.setItem(LAST_VIEWED_STORAGE_KEY, String(currentIndex));
 
   if (options.scrollToTop) {
     requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
@@ -178,6 +183,9 @@ function createComicCard(comic, index) {
   const sourceLink = node.querySelector(".source-link");
   sourceLink.href = comic.link;
 
+  const bookmarkButton = node.querySelector(".bookmark-button");
+  bookmarkButton.addEventListener("click", () => setBookmark(index));
+
   image.referrerPolicy = "no-referrer";
   image.src = comic.image;
   image.alt = comic.hoverText || comic.title;
@@ -197,7 +205,57 @@ function createComicCard(comic, index) {
 
   toggle.addEventListener("click", expand);
   image.addEventListener("click", expand);
+  updateBookmarkButton(bookmarkButton, index);
   return node;
+}
+
+function setBookmark(index) {
+  const comic = archive[clampIndex(index)];
+  localStorage.setItem(BOOKMARK_SLUG_KEY, comic.slug);
+  localStorage.setItem(BOOKMARK_INDEX_KEY, String(comic.index));
+  updateBookmarkUi();
+}
+
+function getBookmarkedIndex() {
+  const slug = localStorage.getItem(BOOKMARK_SLUG_KEY);
+  if (slug) {
+    const bySlug = archive.findIndex((comic) => comic.slug === slug);
+    if (bySlug >= 0) return bySlug;
+  }
+
+  const savedValue = localStorage.getItem(BOOKMARK_INDEX_KEY);
+  if (savedValue === null) return null;
+
+  const savedIndex = Number(savedValue);
+  return Number.isFinite(savedIndex) ? clampIndex(savedIndex) : null;
+}
+
+function updateBookmarkUi() {
+  const bookmarkedIndex = getBookmarkedIndex();
+  if (bookmarkedIndex === null) {
+    els.resumeButton.disabled = true;
+    els.resumeButton.textContent = "No Bookmark";
+    els.resumeButton.title = "Bookmark a comic first";
+  } else {
+    const comic = archive[bookmarkedIndex];
+    els.resumeButton.disabled = false;
+    els.resumeButton.textContent = "Resume Bookmark";
+    els.resumeButton.title = `${comic.title} - ${formatComicDate(comic)}`;
+  }
+
+  document.querySelectorAll(".bookmark-button").forEach((button) => {
+    const card = button.closest(".comic-card");
+    updateBookmarkButton(button, Number(card?.dataset.index));
+  });
+}
+
+function updateBookmarkButton(button, index) {
+  const bookmarkedIndex = getBookmarkedIndex();
+  const isBookmarked = bookmarkedIndex !== null && index === bookmarkedIndex;
+  button.classList.toggle("is-bookmarked", isBookmarked);
+  button.setAttribute("aria-pressed", String(isBookmarked));
+  button.textContent = isBookmarked ? "Bookmarked" : "Bookmark";
+  button.title = isBookmarked ? "This is your saved bookmark" : "Save this comic as your bookmark";
 }
 
 function requestVisibleUpdate() {
@@ -208,7 +266,7 @@ function requestVisibleUpdate() {
     const nextIndex = getVisibleCardIndex();
     if (nextIndex !== null && nextIndex !== currentIndex) {
       currentIndex = nextIndex;
-      localStorage.setItem(STORAGE_KEY, String(currentIndex));
+      localStorage.setItem(LAST_VIEWED_STORAGE_KEY, String(currentIndex));
       updateTimelineForIndex(currentIndex);
       updateDateSelects(archive[currentIndex]);
     }
@@ -392,7 +450,7 @@ function getRequestedIndex() {
     if (byDate >= 0) return byDate;
   }
 
-  const saved = Number(localStorage.getItem(STORAGE_KEY));
+  const saved = Number(localStorage.getItem(LAST_VIEWED_STORAGE_KEY));
   return Number.isFinite(saved) ? clampIndex(saved) : 0;
 }
 

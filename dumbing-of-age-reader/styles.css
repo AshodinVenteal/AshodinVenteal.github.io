@@ -131,19 +131,36 @@ select:focus-visible {
   box-shadow: var(--shadow);
 }
 
-.comic-toggle {
+.comic-header {
   display: flex;
   width: 100%;
   min-height: 52px;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.comic-toggle {
+  display: flex;
+  min-width: 0;
+  min-height: 52px;
+  flex: 1 1 auto;
+  align-items: center;
   padding: 10px 14px;
   border: 0;
-  border-bottom: 1px solid var(--line);
   border-radius: 0;
   background: #fff;
   text-align: left;
+}
+
+.comic-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  padding-right: 14px;
 }
 
 .comic-meta {
@@ -169,6 +186,24 @@ select:focus-visible {
 
 .comment-count {
   flex: 0 0 auto;
+}
+
+.bookmark-button {
+  min-height: 32px;
+  padding: 0 10px;
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.bookmark-button.is-bookmarked {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
+.top-actions button:disabled {
+  cursor: default;
+  opacity: 0.58;
 }
 
 .comic-image {
@@ -418,6 +453,32 @@ select:focus-visible {
     min-height: 32px;
     padding: 0 8px;
     font-size: 0.8rem;
+  }
+
+  .comic-header {
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .comic-toggle {
+    padding: 9px 10px;
+  }
+
+  .comic-actions {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 8px 6px 0;
+  }
+
+  .comment-count,
+  .bookmark-button {
+    font-size: 0.72rem;
+  }
+
+  .bookmark-button {
+    min-height: 28px;
+    padding: 0 7px;
   }
 
   .reader-shell {

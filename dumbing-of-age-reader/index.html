@@ -18,7 +18,7 @@
     </div>
     <div class="top-actions" aria-label="Reader controls">
       <button id="firstButton" type="button">First</button>
-      <button id="resumeButton" type="button">Resume</button>
+      <button id="resumeButton" type="button">Resume Bookmark</button>
       <button id="latestButton" type="button">Latest</button>
     </div>
   </header>
@@ -61,13 +61,18 @@
 
   <template id="comicTemplate">
     <article class="comic-card">
-      <button class="comic-toggle" type="button" aria-expanded="false">
-        <span class="comic-meta">
-          <strong class="comic-title"></strong>
-          <span class="comic-date"></span>
-        </span>
-        <span class="comment-count"></span>
-      </button>
+      <div class="comic-header">
+        <button class="comic-toggle" type="button" aria-expanded="false">
+          <span class="comic-meta">
+            <strong class="comic-title"></strong>
+            <span class="comic-date"></span>
+          </span>
+        </button>
+        <div class="comic-actions">
+          <span class="comment-count"></span>
+          <button class="bookmark-button" type="button" aria-pressed="false">Bookmark</button>
+        </div>
+      </div>
       <img class="comic-image" loading="lazy" decoding="async" alt="">
       <div class="comic-details" hidden>
         <div class="detail-row">
