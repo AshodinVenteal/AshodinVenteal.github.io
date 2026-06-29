@@ -546,3 +546,138 @@ select:focus-visible {
     height: 520px;
   }
 }
+
+@media (max-width: 980px) and (orientation: landscape) and (max-height: 560px) {
+  .topbar {
+    min-height: 50px;
+    padding: 6px 154px 6px 10px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 0.78rem;
+  }
+
+  h1 {
+    font-size: 0.88rem;
+  }
+
+  .brand p {
+    margin-top: 2px;
+    max-width: 34vw;
+    font-size: 0.72rem;
+  }
+
+  .top-actions {
+    gap: 4px;
+  }
+
+  .top-actions button {
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 0.76rem;
+  }
+
+  .reader-shell {
+    width: calc(100vw - 158px);
+    margin-left: 8px;
+    padding-top: 10px;
+  }
+
+  .comic-feed {
+    gap: 12px;
+  }
+
+  .comic-header {
+    min-height: 44px;
+  }
+
+  .comic-toggle {
+    min-height: 44px;
+    padding: 7px 10px;
+  }
+
+  .comic-title {
+    font-size: 0.92rem;
+  }
+
+  .comic-date,
+  .comment-count {
+    font-size: 0.72rem;
+  }
+
+  .comic-actions {
+    flex-direction: row;
+    gap: 8px;
+    padding-right: 10px;
+  }
+
+  .timeline-panel {
+    right: 8px;
+    width: 132px;
+    grid-template-rows: auto minmax(132px, 1fr) auto;
+    gap: 7px;
+    padding: 8px;
+  }
+
+  .timeline-readout {
+    min-height: 44px;
+    gap: 1px;
+    padding-bottom: 5px;
+  }
+
+  #currentYear {
+    font-size: 0.76rem;
+  }
+
+  #currentDate {
+    font-size: 0.78rem;
+  }
+
+  #currentTitle,
+  .timeline-tick,
+  .date-jump label span {
+    display: none;
+  }
+
+  .timeline-track {
+    min-height: 132px;
+    background: linear-gradient(90deg, transparent 0 42%, #c7ced5 42% 58%, transparent 58% 100%);
+  }
+
+  .timeline-progress {
+    left: calc(50% - 4px);
+    width: 8px;
+  }
+
+  .timeline-thumb {
+    width: 34px;
+    height: 24px;
+    border-radius: 7px;
+  }
+
+  .timeline-bubble {
+    right: 2px;
+    min-width: 116px;
+    max-width: 116px;
+    font-size: 0.68rem;
+  }
+
+  .date-jump {
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    padding-top: 6px;
+  }
+
+  .date-jump select,
+  .date-jump button {
+    min-height: 28px;
+    padding: 0 3px;
+    font-size: 0.7rem;
+  }
+}
