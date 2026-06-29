@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dumbing of Age Infinite Reader</title>
+  <meta name="description" content="A timeline-based infinite reader for Dumbing of Age comics.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">DoA</span>
+      <div>
+        <h1>Dumbing of Age Reader</h1>
+        <p id="archiveStatus">Loading archive</p>
+      </div>
+    </div>
+    <div class="top-actions" aria-label="Reader controls">
+      <button id="firstButton" type="button">First</button>
+      <button id="resumeButton" type="button">Resume</button>
+      <button id="latestButton" type="button">Latest</button>
+    </div>
+  </header>
+
+  <main class="reader-shell">
+    <section id="comicFeed" class="comic-feed" aria-live="polite"></section>
+    <div id="sentinel" class="sentinel" aria-hidden="true"></div>
+  </main>
+
+  <aside class="timeline-panel" aria-label="Comic timeline">
+    <div class="timeline-readout">
+      <span id="currentYear">----</span>
+      <strong id="currentDate">--</strong>
+      <span id="currentTitle">--</span>
+    </div>
+
+    <div id="timelineTrack" class="timeline-track" role="slider" tabindex="0" aria-label="Timeline" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+      <div id="timelineTicks" class="timeline-ticks" aria-hidden="true"></div>
+      <div id="timelineProgress" class="timeline-progress" aria-hidden="true"></div>
+      <div id="timelineThumb" class="timeline-thumb" aria-hidden="true"></div>
+      <div id="timelineBubble" class="timeline-bubble" aria-hidden="true"></div>
+    </div>
+
+    <div class="date-jump" aria-label="Jump by date">
+      <label>
+        <span>Year</span>
+        <select id="yearSelect"></select>
+      </label>
+      <label>
+        <span>Month</span>
+        <select id="monthSelect"></select>
+      </label>
+      <label>
+        <span>Day</span>
+        <select id="daySelect"></select>
+      </label>
+      <button id="jumpButton" type="button">Jump</button>
+    </div>
+  </aside>
+
+  <template id="comicTemplate">
+    <article class="comic-card">
+      <button class="comic-toggle" type="button" aria-expanded="false">
+        <span class="comic-meta">
+          <strong class="comic-title"></strong>
+          <span class="comic-date"></span>
+        </span>
+        <span class="comment-count"></span>
+      </button>
+      <img class="comic-image" loading="lazy" decoding="async" alt="">
+      <div class="comic-details" hidden>
+        <div class="detail-row">
+          <div>
+            <span class="detail-label">Posted</span>
+            <strong class="detail-posted"></strong>
+          </div>
+          <div>
+            <span class="detail-label">Comments</span>
+            <strong class="detail-comments"></strong>
+          </div>
+          <a class="source-link" target="_blank" rel="noopener noreferrer">Original</a>
+        </div>
+        <iframe class="comments-frame" title="" loading="lazy"></iframe>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

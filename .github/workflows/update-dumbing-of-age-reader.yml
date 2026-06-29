@@ -1,0 +1,33 @@
+name: Update Dumbing of Age Reader
+
+on:
+  schedule:
+    - cron: "19 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: dumbing-of-age-reader
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: node build-archive.mjs
+      - name: Commit archive changes
+        run: |
+          if git diff --quiet -- data/comics.json; then
+            echo "Archive unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/comics.json
+          git commit -m "Update Dumbing of Age archive"
+          git push
