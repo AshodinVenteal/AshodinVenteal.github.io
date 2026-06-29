@@ -254,7 +254,7 @@ function updateBookmarkButton(button, index) {
   const isBookmarked = bookmarkedIndex !== null && index === bookmarkedIndex;
   button.classList.toggle("is-bookmarked", isBookmarked);
   button.setAttribute("aria-pressed", String(isBookmarked));
-  button.textContent = isBookmarked ? "Bookmarked" : "Bookmark";
+  button.setAttribute("aria-label", isBookmarked ? "Saved bookmark" : "Bookmark this comic");
   button.title = isBookmarked ? "This is your saved bookmark" : "Save this comic as your bookmark";
 }
 

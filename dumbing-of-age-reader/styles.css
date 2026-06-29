@@ -189,10 +189,23 @@ select:focus-visible {
 }
 
 .bookmark-button {
-  min-height: 32px;
-  padding: 0 10px;
+  display: grid;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  place-items: center;
+  padding: 0;
   border-color: var(--teal);
   color: var(--teal);
+}
+
+.bookmark-button::before {
+  width: 14px;
+  height: 18px;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+  content: "";
 }
 
 .bookmark-button.is-bookmarked {
@@ -477,8 +490,15 @@ select:focus-visible {
   }
 
   .bookmark-button {
-    min-height: 28px;
-    padding: 0 7px;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    min-height: 30px;
+  }
+
+  .bookmark-button::before {
+    width: 12px;
+    height: 16px;
   }
 
   .reader-shell {
