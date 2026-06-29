@@ -196,6 +196,10 @@ select:focus-visible {
   padding: 14px;
 }
 
+.detail-row.has-hover {
+  grid-template-columns: minmax(120px, 0.7fr) minmax(220px, 1.6fr) minmax(90px, 0.5fr) auto;
+}
+
 .detail-row > div {
   min-width: 0;
 }
@@ -204,6 +208,11 @@ select:focus-visible {
   display: block;
   margin-top: 2px;
   overflow-wrap: anywhere;
+}
+
+.hover-detail strong {
+  font-style: italic;
+  font-weight: 600;
 }
 
 .source-link {

@@ -83,6 +83,7 @@ function normalizeComic(comic, index) {
     day: date.getUTCDate(),
     imageWidth: Number(comic.imageWidth) || 1000,
     imageHeight: Number(comic.imageHeight) || 333,
+    hoverText: String(comic.hoverText || "").trim(),
     comments: Number(comic.comments) || 0,
   };
 }
@@ -157,6 +158,7 @@ function createComicCard(comic, index) {
   const toggle = node.querySelector(".comic-toggle");
   const image = node.querySelector(".comic-image");
   const details = node.querySelector(".comic-details");
+  const detailRow = node.querySelector(".detail-row");
   const iframe = node.querySelector(".comments-frame");
 
   node.querySelector(".comic-title").textContent = comic.title;
@@ -164,13 +166,22 @@ function createComicCard(comic, index) {
   node.querySelector(".comment-count").textContent = `${comic.comments.toLocaleString()} comments`;
   node.querySelector(".detail-posted").textContent = formatComicDate(comic);
   node.querySelector(".detail-comments").textContent = comic.comments.toLocaleString();
+  const hoverDetail = node.querySelector(".hover-detail");
+  const hoverText = node.querySelector(".detail-hover");
+  if (comic.hoverText) {
+    detailRow.classList.add("has-hover");
+    hoverDetail.hidden = false;
+    hoverText.textContent = comic.hoverText;
+    toggle.title = comic.hoverText;
+  }
 
   const sourceLink = node.querySelector(".source-link");
   sourceLink.href = comic.link;
 
   image.referrerPolicy = "no-referrer";
   image.src = comic.image;
-  image.alt = comic.title;
+  image.alt = comic.hoverText || comic.title;
+  if (comic.hoverText) image.title = comic.hoverText;
   image.width = comic.imageWidth;
   image.height = comic.imageHeight;
 
