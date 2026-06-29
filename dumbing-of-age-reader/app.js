@@ -127,7 +127,7 @@ function startAt(index, options = {}) {
   localStorage.setItem(STORAGE_KEY, String(currentIndex));
 
   if (options.scrollToTop) {
-    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "auto" }));
   }
 
   if (options.replaceUrl !== false) {
