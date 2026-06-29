@@ -5,18 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dumbing of Age Infinite Reader</title>
   <meta name="description" content="A timeline-based infinite reader for Dumbing of Age comics.">
+  <link rel="icon" href="https://www.dumbingofage.com/wp-content/uploads/2026/01/faviconlarge-150x150.png" sizes="32x32">
+  <link rel="icon" href="https://www.dumbingofage.com/wp-content/uploads/2026/01/faviconlarge-300x300.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="https://www.dumbingofage.com/wp-content/uploads/2026/01/faviconlarge-300x300.png">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("doa-reader-theme");
+        const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = savedTheme === "dark" || savedTheme === "light"
+          ? savedTheme
+          : prefersDark ? "dark" : "light";
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
-      <span class="brand-mark" aria-hidden="true">DoA</span>
-      <div>
-        <h1>Dumbing of Age Reader</h1>
-        <p id="archiveStatus">Loading archive</p>
+      <a class="brand-logo" href="https://www.dumbingofage.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Dumbing of Age">
+        <img src="https://www.dumbingofage.com/wp-content/uploads/2026/01/doa-mobile-banner-2-1200.png" alt="Dumbing of Age" width="1200" height="211" referrerpolicy="no-referrer">
+      </a>
+      <div class="brand-copy">
+        <h1>Infinite Reader</h1>
+        <p class="brand-meta">
+          <span class="brand-byline">by David M Willis</span>
+          <span id="archiveStatus">Loading archive</span>
+        </p>
       </div>
     </div>
     <div class="top-actions" aria-label="Reader controls">
+      <button id="themeButton" class="theme-toggle" type="button" aria-pressed="false" aria-label="Use dark mode" title="Use dark mode">
+        <span class="theme-toggle-track" aria-hidden="true">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
       <button id="firstButton" type="button">First</button>
       <button id="resumeButton" type="button">Resume Bookmark</button>
       <button id="latestButton" type="button">Latest</button>

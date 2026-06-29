@@ -1,5 +1,6 @@
 const DATA_URL = new URL("./data/comics.json", import.meta.url);
 const BATCH_SIZE = 14;
+const THEME_STORAGE_KEY = "doa-reader-theme";
 const LAST_VIEWED_STORAGE_KEY = "doa-reader-current-index";
 const BOOKMARK_SLUG_KEY = "doa-reader-bookmark-slug";
 const BOOKMARK_INDEX_KEY = "doa-reader-bookmark-index";
@@ -9,6 +10,7 @@ const els = {
   sentinel: document.querySelector("#sentinel"),
   archiveStatus: document.querySelector("#archiveStatus"),
   template: document.querySelector("#comicTemplate"),
+  themeButton: document.querySelector("#themeButton"),
   firstButton: document.querySelector("#firstButton"),
   resumeButton: document.querySelector("#resumeButton"),
   latestButton: document.querySelector("#latestButton"),
@@ -45,6 +47,8 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 boot();
 
 async function boot() {
+  initThemeToggle();
+
   try {
     const response = await fetch(DATA_URL, { cache: "no-store" });
     if (!response.ok) throw new Error(`Archive request failed: ${response.status}`);
@@ -69,6 +73,33 @@ async function boot() {
     els.archiveStatus.textContent = "Archive unavailable";
     els.feed.innerHTML = `<div class="error-state"><strong>Could not load the archive.</strong><br>${escapeHtml(error.message)}</div>`;
     console.error(error);
+  }
+}
+
+function initThemeToggle() {
+  setTheme(getTheme(), { persist: false });
+  els.themeButton.addEventListener("click", () => {
+    setTheme(getTheme() === "dark" ? "light" : "dark");
+  });
+}
+
+function getTheme() {
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+}
+
+function setTheme(theme, options = {}) {
+  const nextTheme = theme === "dark" ? "dark" : "light";
+  const isDark = nextTheme === "dark";
+  document.documentElement.dataset.theme = nextTheme;
+  els.themeButton.setAttribute("aria-pressed", String(isDark));
+  els.themeButton.setAttribute("aria-label", isDark ? "Use light mode" : "Use dark mode");
+  els.themeButton.title = isDark ? "Use light mode" : "Use dark mode";
+
+  if (options.persist === false) return;
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  } catch {
+    // Theme persistence is a convenience; the toggle should still work without storage.
   }
 }
 

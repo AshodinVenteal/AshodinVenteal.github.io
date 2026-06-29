@@ -1,6 +1,13 @@
 :root {
   --bg: #f6f7f8;
   --paper: #ffffff;
+  --chrome: rgba(255, 255, 255, 0.92);
+  --button-bg: #ffffff;
+  --detail-bg: #fbfbfc;
+  --image-bg: #edf0f2;
+  --track: #c7ced5;
+  --bubble-bg: #171717;
+  --bubble-ink: #ffffff;
   --ink: #171717;
   --muted: #686d73;
   --line: #d8dde2;
@@ -11,6 +18,27 @@
   --shadow: 0 12px 30px rgba(18, 26, 33, 0.12);
   color-scheme: light;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html[data-theme="dark"] {
+  --bg: #101417;
+  --paper: #181e23;
+  --chrome: rgba(17, 22, 26, 0.94);
+  --button-bg: #1f272d;
+  --detail-bg: #14191e;
+  --image-bg: #202930;
+  --track: #47525e;
+  --bubble-bg: #f3f5f7;
+  --bubble-ink: #121619;
+  --ink: #f3f5f7;
+  --muted: #aab3bc;
+  --line: #303942;
+  --line-strong: #65717c;
+  --red: #e05a4d;
+  --teal: #54b9bd;
+  --gold: #d6a43a;
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.34);
+  color-scheme: dark;
 }
 
 * {
@@ -41,10 +69,10 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 68px;
+  min-height: 74px;
   padding: 10px 154px 10px 22px;
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--chrome);
   backdrop-filter: blur(12px);
 }
 
@@ -52,20 +80,44 @@ select {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
-.brand-mark {
+.brand-logo {
+  display: block;
+  width: clamp(210px, 28vw, 360px);
+  flex: 0 1 auto;
+  min-width: 180px;
+}
+
+.brand-logo img {
+  display: block;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.brand-copy {
   display: grid;
-  width: 44px;
-  height: 44px;
-  place-items: center;
-  flex: 0 0 auto;
-  border: 2px solid var(--ink);
-  border-radius: 6px;
-  background: var(--red);
-  color: #fff;
-  font-weight: 800;
+  gap: 3px;
+  min-width: 130px;
+}
+
+.brand-meta {
+  display: grid;
+  gap: 2px;
+}
+
+.brand-byline {
+  overflow: hidden;
+  color: var(--ink);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 h1 {
@@ -93,7 +145,7 @@ button {
   min-height: 36px;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
-  background: #fff;
+  background: var(--button-bg);
   color: var(--ink);
   cursor: pointer;
 }
@@ -109,6 +161,60 @@ select:focus-visible {
 .top-actions button,
 .date-jump button {
   padding: 0 12px;
+}
+
+.theme-toggle {
+  display: grid;
+  width: 48px;
+  min-width: 48px;
+  padding: 0;
+  place-items: center;
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 2px var(--paper), 0 2px 5px rgba(0, 0, 0, 0.22);
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.theme-toggle-thumb::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--paper);
+  content: "";
+}
+
+html[data-theme="dark"] .theme-toggle-thumb {
+  background: var(--teal);
+  transform: translateX(14px);
+}
+
+html[data-theme="dark"] .theme-toggle-thumb::after {
+  top: 0;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  background: var(--button-bg);
 }
 
 .reader-shell {
@@ -139,7 +245,7 @@ select:focus-visible {
   justify-content: space-between;
   gap: 12px;
   border-bottom: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
 }
 
 .comic-toggle {
@@ -151,7 +257,7 @@ select:focus-visible {
   padding: 10px 14px;
   border: 0;
   border-radius: 0;
-  background: #fff;
+  background: var(--paper);
   text-align: left;
 }
 
@@ -223,7 +329,7 @@ select:focus-visible {
   display: block;
   width: 100%;
   height: auto;
-  background: #edf0f2;
+  background: var(--image-bg);
   cursor: zoom-in;
 }
 
@@ -233,7 +339,7 @@ select:focus-visible {
 
 .comic-details {
   border-top: 1px solid var(--line);
-  background: #fbfbfc;
+  background: var(--detail-bg);
 }
 
 .detail-row {
@@ -285,7 +391,7 @@ select:focus-visible {
   height: 620px;
   border: 0;
   border-top: 1px solid var(--line);
-  background: #fff;
+  background: var(--paper);
 }
 
 .sentinel {
@@ -304,7 +410,7 @@ select:focus-visible {
   gap: 12px;
   padding: 12px 10px;
   border-left: 1px solid var(--line);
-  background: #ffffff;
+  background: var(--paper);
   box-shadow: -10px 0 30px rgba(18, 26, 33, 0.08);
 }
 
@@ -342,7 +448,7 @@ select:focus-visible {
   position: relative;
   min-height: 180px;
   border-radius: 8px;
-  background: linear-gradient(90deg, transparent 0 47%, #c7ced5 47% 53%, transparent 53% 100%);
+  background: linear-gradient(90deg, transparent 0 47%, var(--track) 47% 53%, transparent 53% 100%);
   touch-action: none;
 }
 
@@ -386,8 +492,8 @@ select:focus-visible {
   padding: 5px 6px;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
-  background: var(--ink);
-  color: #fff;
+  background: var(--bubble-bg);
+  color: var(--bubble-ink);
   font-size: 0.72rem;
   opacity: 0;
   pointer-events: none;
@@ -417,7 +523,7 @@ select:focus-visible {
   min-height: 34px;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
-  background: #fff;
+  background: var(--button-bg);
   color: var(--ink);
 }
 
@@ -431,7 +537,7 @@ select:focus-visible {
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: var(--paper);
   box-shadow: var(--shadow);
 }
 
@@ -441,31 +547,66 @@ select:focus-visible {
 
 @media (max-width: 780px) {
   .topbar {
-    min-height: 64px;
+    flex-wrap: wrap;
+    min-height: 104px;
     padding: 8px 88px 8px 12px;
+    row-gap: 6px;
   }
 
-  .brand-mark {
-    width: 38px;
-    height: 38px;
+  .brand {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .brand-logo {
+    width: min(180px, 52vw);
+    min-width: 150px;
+  }
+
+  .brand-copy {
+    min-width: 0;
   }
 
   h1 {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+
+  .brand-byline {
+    font-size: 0.72rem;
   }
 
   .brand p {
+    margin-top: 2px;
     max-width: 42vw;
+    font-size: 0.74rem;
   }
 
   .top-actions {
+    width: calc(100vw - 104px);
+    max-width: calc(100vw - 104px);
+    flex: 0 1 calc(100vw - 104px);
+    flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 4px;
+    overflow: hidden;
   }
 
   .top-actions button {
+    min-width: 0;
     min-height: 32px;
     padding: 0 8px;
     font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  #resumeButton {
+    max-width: 104px;
+  }
+
+  .theme-toggle {
+    width: 42px;
+    min-width: 42px;
+    flex: 0 0 42px;
   }
 
   .comic-header {
@@ -551,36 +692,79 @@ select:focus-visible {
   .topbar {
     min-height: 50px;
     padding: 6px 154px 6px 10px;
+    flex-wrap: nowrap;
   }
 
   .brand {
     gap: 8px;
+    width: auto;
   }
 
-  .brand-mark {
-    width: 34px;
-    height: 34px;
-    font-size: 0.78rem;
+  .brand-logo {
+    width: clamp(145px, 21vw, 190px);
+    min-width: 140px;
+  }
+
+  .brand-copy {
+    display: none;
   }
 
   h1 {
-    font-size: 0.88rem;
+    font-size: 0.78rem;
+  }
+
+  .brand-byline {
+    display: none;
   }
 
   .brand p {
     margin-top: 2px;
-    max-width: 34vw;
-    font-size: 0.72rem;
+    max-width: 12vw;
+    font-size: 0.68rem;
   }
 
   .top-actions {
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 4px;
+    overflow: visible;
   }
 
   .top-actions button {
     min-height: 30px;
     padding: 0 8px;
     font-size: 0.76rem;
+  }
+
+  #resumeButton {
+    max-width: none;
+  }
+
+  .theme-toggle {
+    width: 38px;
+    min-width: 38px;
+  }
+
+  .theme-toggle-track {
+    width: 28px;
+    height: 16px;
+  }
+
+  .theme-toggle-thumb {
+    width: 12px;
+    height: 12px;
+  }
+
+  .theme-toggle-thumb::after {
+    top: 2px;
+    left: 2px;
+  }
+
+  html[data-theme="dark"] .theme-toggle-thumb {
+    transform: translateX(12px);
   }
 
   .reader-shell {
@@ -647,7 +831,7 @@ select:focus-visible {
 
   .timeline-track {
     min-height: 132px;
-    background: linear-gradient(90deg, transparent 0 42%, #c7ced5 42% 58%, transparent 58% 100%);
+    background: linear-gradient(90deg, transparent 0 42%, var(--track) 42% 58%, transparent 58% 100%);
   }
 
   .timeline-progress {
