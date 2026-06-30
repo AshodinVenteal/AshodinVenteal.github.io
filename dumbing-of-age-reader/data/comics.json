@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-29T19:04:19.378Z",
+  "generatedAt": "2026-06-30T12:32:36.423Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5485,
+  "count": 5486,
   "comics": [
     {
       "id": 5,
@@ -65796,7 +65796,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-27-sinceseptember.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 108,
+      "comments": 109,
       "hoverText": "clark kent can't secretly be maturity, he's wearing glasses, and maturity doesn't wear glasses"
     },
     {
@@ -65808,7 +65808,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-28-woodburn.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 157,
+      "comments": 158,
       "hoverText": "let's check in on jason and ruth, see how they're do-- oh no!"
     },
     {
@@ -65820,8 +65820,20 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-29-bendingoverbackwards.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 133,
+      "comments": 159,
       "hoverText": "jason's so limber"
+    },
+    {
+      "id": 20603,
+      "title": "Minimum",
+      "slug": "minimum-2",
+      "link": "https://www.dumbingofage.com/comic/minimum-2/",
+      "publishedAt": "2026-06-30T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-30-minimum.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i think these two lovebirds are gonna make it",
+      "comments": 73
     }
   ]
 }
