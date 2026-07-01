@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-30T12:32:36.423Z",
+  "generatedAt": "2026-07-01T11:35:05.472Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5486,
+  "count": 5487,
   "comics": [
     {
       "id": 5,
@@ -65184,7 +65184,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/04/2026-05-07-proud.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 57,
+      "comments": 58,
       "hoverText": "don't croon out loud, just keep it inside, learn how to hide your singing"
     },
     {
@@ -65820,7 +65820,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-29-bendingoverbackwards.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 159,
+      "comments": 166,
       "hoverText": "jason's so limber"
     },
     {
@@ -65833,7 +65833,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i think these two lovebirds are gonna make it",
-      "comments": 73
+      "comments": 117
+    },
+    {
+      "id": 20604,
+      "title": "Lyingest",
+      "slug": "lyingest",
+      "link": "https://www.dumbingofage.com/comic/lyingest/",
+      "publishedAt": "2026-07-01T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-01-lyingest.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "GOTTEM",
+      "comments": 37
     }
   ]
 }
