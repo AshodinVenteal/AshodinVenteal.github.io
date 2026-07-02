@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mina ModAPI Enemy Spawn Example</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101215;
+      --panel: #191d22;
+      --text: #edf0f4;
+      --muted: #aab3bf;
+      --line: #313844;
+      --accent: #77d1c2;
+      --code: #0b0d10;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    p {
+      max-width: 68ch;
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    section {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    pre {
+      overflow-x: auto;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--code);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .files {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .files a {
+      display: block;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Mina ModAPI Enemy Spawn Example</h1>
+    <p>
+      A tiny code-mod example showing the shortest useful path from
+      <code>MinaMod_Init</code> to spawning an entity through Mina's public ModAPI.
+    </p>
+
+    <section>
+      <h2>The Important Line</h2>
+      <pre><code>Mina-&gt;SpawnEntity(ENTITYTYPE_TEST_TRAINING_DUMMY);</code></pre>
+      <p>
+        The generated mod installs a <code>FixedUpdate</code> hook and calls this
+        when <code>N</code> is pressed in-game.
+      </p>
+    </section>
+
+    <section>
+      <h2>Files</h2>
+      <ul class="files">
+        <li><a href="create_modapi_enemy_spawn_example.py">Python generator</a></li>
+        <li><a href="EnemySpawnExample/src/mod.cpp">Minimal C++ mod</a></li>
+        <li><a href="EnemySpawnExample/mod.yc">Mod manifest</a></li>
+        <li><a href="EnemySpawnExample/build.ps1">Build script</a></li>
+        <li><a href="EnemySpawnExample/README.md">README</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Build</h2>
+      <pre><code>python create_modapi_enemy_spawn_example.py
+cd EnemySpawnExample
+powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1</code></pre>
+    </section>
+
+    <section>
+      <h2>Install</h2>
+      <pre><code>%APPDATA%\Yacht Club Games\Mina the Hollower\mods\EnemySpawnExample</code></pre>
+      <p>
+        Copy <code>mod.yc</code> and the built <code>mod.dll</code> there, then
+        launch Mina with <code>-mod -mod-allow-code</code>.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

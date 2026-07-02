@@ -1,0 +1,10 @@
+[YCD Version: 1]
+MinaModDef
+{
+	id: "enemy_spawn_example",
+	name: "Enemy Spawn Example",
+	modVersion: 1,
+	minGameVersion: 148667,
+	maxGameVersion: 999999,
+	loadPriority: 10,
+};
