@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-01T11:35:05.472Z",
+  "generatedAt": "2026-07-02T11:51:06.572Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5487,
+  "count": 5488,
   "comics": [
     {
       "id": 5,
@@ -65808,7 +65808,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-28-woodburn.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 158,
+      "comments": 159,
       "hoverText": "let's check in on jason and ruth, see how they're do-- oh no!"
     },
     {
@@ -65820,7 +65820,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-29-bendingoverbackwards.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 166,
+      "comments": 167,
       "hoverText": "jason's so limber"
     },
     {
@@ -65833,7 +65833,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i think these two lovebirds are gonna make it",
-      "comments": 117
+      "comments": 119
     },
     {
       "id": 20604,
@@ -65845,7 +65845,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "GOTTEM",
-      "comments": 37
+      "comments": 61
+    },
+    {
+      "id": 20610,
+      "title": "Called",
+      "slug": "called",
+      "link": "https://www.dumbingofage.com/comic/called/",
+      "publishedAt": "2026-07-02T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-02-called.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "the sound of everybody digging through walkypedia for a karen",
+      "comments": 52
     }
   ]
 }
