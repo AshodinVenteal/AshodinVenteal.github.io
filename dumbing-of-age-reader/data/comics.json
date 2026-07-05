@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-02T11:51:06.572Z",
+  "generatedAt": "2026-07-05T19:14:56.520Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5488,
+  "count": 5491,
   "comics": [
     {
       "id": 5,
@@ -65628,7 +65628,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-13-oneoff.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 74,
+      "comments": 75,
       "hoverText": "he's pretty hot"
     },
     {
@@ -65664,7 +65664,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-16-believablyunbelievable.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 163,
+      "comments": 164,
       "hoverText": "previously, on dumbing of age: unbangable trauma"
     },
     {
@@ -65700,7 +65700,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-19-entrusted.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 92,
+      "comments": 93,
       "hoverText": "will everyone please put on pants"
     },
     {
@@ -65845,7 +65845,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "GOTTEM",
-      "comments": 61
+      "comments": 63
     },
     {
       "id": 20610,
@@ -65857,7 +65857,43 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the sound of everybody digging through walkypedia for a karen",
-      "comments": 52
+      "comments": 87
+    },
+    {
+      "id": 20611,
+      "title": "Karen",
+      "slug": "karen-2",
+      "link": "https://www.dumbingofage.com/comic/karen-2/",
+      "publishedAt": "2026-07-03T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-03-karen.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "or any Koopmen",
+      "comments": 81
+    },
+    {
+      "id": 20612,
+      "title": "Expound",
+      "slug": "expound",
+      "link": "https://www.dumbingofage.com/comic/expound/",
+      "publishedAt": "2026-07-04T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-04-expound.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "DON'T RATE MOMS",
+      "comments": 113
+    },
+    {
+      "id": 20616,
+      "title": "Rebel out",
+      "slug": "rebelout",
+      "link": "https://www.dumbingofage.com/comic/rebelout/",
+      "publishedAt": "2026-07-05T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-05-rebelout.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "the way you're not really trying to kill me is fakey",
+      "comments": 64
     }
   ]
 }
