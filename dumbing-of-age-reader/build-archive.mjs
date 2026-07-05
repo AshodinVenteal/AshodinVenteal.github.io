@@ -20,8 +20,10 @@ const detailFrom = args.has("detail-from") ? Date.parse(`${args.get("detail-from
 const detailLimit = parseLimit(args.get("detail-limit"), detailFrom ? Infinity : 30);
 const forceDetails = args.has("force-details");
 const onlyDetails = args.has("only-details");
+const fullFeed = args.has("full-feed");
 const detailConcurrency = Math.max(1, Number(args.get("detail-concurrency") ?? 2));
 const saveEvery = Math.max(0, Number(args.get("save-every") ?? 250));
+const stopAfterKnownPages = Math.max(1, Number(args.get("stop-after-known-pages") ?? 5));
 
 await main();
 
@@ -33,6 +35,7 @@ async function main() {
     const comics = [];
     let page = 1;
     let feedComplete = true;
+    let knownPageStreak = 0;
 
     while (page <= maxPages) {
       let xml;
@@ -54,9 +57,21 @@ async function main() {
       if (!items.length) break;
 
       comics.push(...items);
+      if (!fullFeed && existingBySlug.size) {
+        const hasNewComic = items.some((comic) => !existingBySlug.has(comic.slug));
+        knownPageStreak = hasNewComic ? 0 : knownPageStreak + 1;
+      }
+
       if (page === 1 || page % 25 === 0) {
         process.stdout.write(`Fetched page ${page}: ${comics.length} comics so far\n`);
       }
+      if (knownPageStreak >= stopAfterKnownPages) {
+        feedComplete = false;
+        process.stdout.write(`Stopping after ${knownPageStreak} already-indexed feed pages at page ${page}.\n`);
+        process.stdout.write("Keeping existing archived comics beyond the fetched pages.\n");
+        break;
+      }
+
       page += 1;
       await sleep(FETCH_DELAY_MS);
     }
