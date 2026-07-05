@@ -5,9 +5,10 @@ const FEED_BASE = "https://www.dumbingofage.com/comic/feed/";
 const OUT_FILE = path.resolve("data/comics.json");
 const USER_AGENT = "AshodinVenteal DoA reader archive builder (+https://ashodinventeal.github.io/)";
 const FETCH_DELAY_MS = 130;
-const MAX_RETRIES = 8;
+const FETCH_TIMEOUT_MS = 15000;
+const MAX_RETRIES = 5;
 const RETRY_BASE_DELAY_MS = 1000;
-const RETRY_MAX_DELAY_MS = 45000;
+const RETRY_MAX_DELAY_MS = 15000;
 
 const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, value = "true"] = arg.replace(/^--/, "").split("=");
@@ -174,12 +175,20 @@ async function fetchText(url, context = {}) {
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
     try {
-      const response = await fetch(url, {
-        headers: {
-          "User-Agent": USER_AGENT,
-          "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
-        },
-      });
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+      let response;
+      try {
+        response = await fetch(url, {
+          signal: controller.signal,
+          headers: {
+            "User-Agent": USER_AGENT,
+            "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+          },
+        });
+      } finally {
+        clearTimeout(timeout);
+      }
 
       if (response.status === 404) return null;
       if (!response.ok) {
@@ -188,7 +197,10 @@ async function fetchText(url, context = {}) {
         throw error;
       }
       return response.text();
-    } catch (error) {
+    } catch (caught) {
+      const error = caught.name === "AbortError"
+        ? new Error(`${context.page ? `Feed page ${context.page}` : url} timed out after ${FETCH_TIMEOUT_MS / 1000}s`)
+        : caught;
       lastError = error;
       if (attempt < MAX_RETRIES) {
         const delay = error.retryAfter ?? retryDelayMs(attempt);
@@ -326,10 +338,10 @@ function retryAfterMs(value) {
   if (!value) return null;
 
   const seconds = Number(value);
-  if (Number.isFinite(seconds)) return Math.max(0, seconds * 1000);
+  if (Number.isFinite(seconds)) return Math.min(RETRY_MAX_DELAY_MS, Math.max(0, seconds * 1000));
 
   const date = Date.parse(value);
-  return Number.isFinite(date) ? Math.max(0, date - Date.now()) : null;
+  return Number.isFinite(date) ? Math.min(RETRY_MAX_DELAY_MS, Math.max(0, date - Date.now())) : null;
 }
 
 function retryDelayMs(attempt) {
