@@ -5,7 +5,9 @@ const FEED_BASE = "https://www.dumbingofage.com/comic/feed/";
 const OUT_FILE = path.resolve("data/comics.json");
 const USER_AGENT = "AshodinVenteal DoA reader archive builder (+https://ashodinventeal.github.io/)";
 const FETCH_DELAY_MS = 130;
-const MAX_RETRIES = 5;
+const MAX_RETRIES = 8;
+const RETRY_BASE_DELAY_MS = 1000;
+const RETRY_MAX_DELAY_MS = 45000;
 
 const args = new Map(process.argv.slice(2).map((arg) => {
   const [key, value = "true"] = arg.replace(/^--/, "").split("=");
@@ -29,9 +31,22 @@ async function main() {
   if (!onlyDetails) {
     const comics = [];
     let page = 1;
+    let feedComplete = true;
 
     while (page <= maxPages) {
-      const xml = await fetchFeedPage(page);
+      let xml;
+      try {
+        xml = await fetchFeedPage(page);
+      } catch (error) {
+        if (existingBySlug.size && page > 1) {
+          feedComplete = false;
+          process.stderr.write(`Stopping feed crawl at page ${page}: ${error.message}\n`);
+          process.stderr.write("Keeping existing archived comics beyond the fetched pages.\n");
+          break;
+        }
+        throw error;
+      }
+
       if (!xml) break;
 
       const items = parseItems(xml).map(parseComicItem).filter(Boolean);
@@ -46,7 +61,17 @@ async function main() {
     }
 
     comics.sort((a, b) => Date.parse(a.publishedAt) - Date.parse(b.publishedAt));
-    uniqueComics = dedupeBySlug(comics).map((comic) => mergeExistingComic(existingBySlug.get(comic.slug), comic));
+    const fetchedComics = dedupeBySlug(comics).map((comic) => mergeExistingComic(existingBySlug.get(comic.slug), comic));
+
+    if (feedComplete || !existingBySlug.size) {
+      uniqueComics = fetchedComics;
+    } else {
+      const mergedBySlug = new Map(existingBySlug);
+      for (const comic of fetchedComics) {
+        mergedBySlug.set(comic.slug, comic);
+      }
+      uniqueComics = [...mergedBySlug.values()];
+    }
   }
 
   uniqueComics.sort((a, b) => Date.parse(a.publishedAt) - Date.parse(b.publishedAt));
@@ -157,12 +182,18 @@ async function fetchText(url, context = {}) {
       });
 
       if (response.status === 404) return null;
-      if (!response.ok) throw new Error(`${context.page ? `Feed page ${context.page}` : url} failed with ${response.status}`);
+      if (!response.ok) {
+        const error = new Error(`${context.page ? `Feed page ${context.page}` : url} failed with ${response.status}`);
+        error.retryAfter = retryAfterMs(response.headers.get("retry-after"));
+        throw error;
+      }
       return response.text();
     } catch (error) {
       lastError = error;
       if (attempt < MAX_RETRIES) {
-        await sleep(500 * attempt);
+        const delay = error.retryAfter ?? retryDelayMs(attempt);
+        process.stderr.write(`${error.message}; retrying in ${Math.round(delay / 1000)}s (${attempt}/${MAX_RETRIES})\n`);
+        await sleep(delay);
       }
     }
   }
@@ -289,4 +320,19 @@ function escapeRegExp(value) {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function retryAfterMs(value) {
+  if (!value) return null;
+
+  const seconds = Number(value);
+  if (Number.isFinite(seconds)) return Math.max(0, seconds * 1000);
+
+  const date = Date.parse(value);
+  return Number.isFinite(date) ? Math.max(0, date - Date.now()) : null;
+}
+
+function retryDelayMs(attempt) {
+  const exponential = Math.min(RETRY_MAX_DELAY_MS, RETRY_BASE_DELAY_MS * 2 ** (attempt - 1));
+  return exponential + Math.floor(Math.random() * 500);
 }
