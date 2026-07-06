@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-05T19:24:18.701Z",
+  "generatedAt": "2026-07-06T14:03:55.236Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5491,
+  "count": 5492,
   "comics": [
     {
       "id": 5,
@@ -65857,7 +65857,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the sound of everybody digging through walkypedia for a karen",
-      "comments": 87
+      "comments": 89
     },
     {
       "id": 20611,
@@ -65881,7 +65881,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "DON'T RATE MOMS",
-      "comments": 113
+      "comments": 115
     },
     {
       "id": 20616,
@@ -65893,7 +65893,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the way you're not really trying to kill me is fakey",
-      "comments": 64
+      "comments": 81
+    },
+    {
+      "id": 20617,
+      "title": "Couples things",
+      "slug": "couplesthings",
+      "link": "https://www.dumbingofage.com/comic/couplesthings/",
+      "publishedAt": "2026-07-06T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-06-couplesthings.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "maggie read this one and said 'oh man they're so obnoxious i LOVE them'",
+      "comments": 116
     }
   ]
 }
