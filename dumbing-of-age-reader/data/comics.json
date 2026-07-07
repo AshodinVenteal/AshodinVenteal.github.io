@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-06T14:03:55.236Z",
+  "generatedAt": "2026-07-07T12:40:37.025Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5492,
+  "count": 5493,
   "comics": [
     {
       "id": 5,
@@ -65881,7 +65881,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "DON'T RATE MOMS",
-      "comments": 115
+      "comments": 116
     },
     {
       "id": 20616,
@@ -65893,7 +65893,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the way you're not really trying to kill me is fakey",
-      "comments": 81
+      "comments": 85
     },
     {
       "id": 20617,
@@ -65905,7 +65905,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "maggie read this one and said 'oh man they're so obnoxious i LOVE them'",
-      "comments": 116
+      "comments": 161
+    },
+    {
+      "id": 20618,
+      "title": "Weird memes",
+      "slug": "weirdmemes",
+      "link": "https://www.dumbingofage.com/comic/weirdmemes/",
+      "publishedAt": "2026-07-07T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-07-weirdmemes.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "STONKS",
+      "comments": 54
     }
   ]
 }
