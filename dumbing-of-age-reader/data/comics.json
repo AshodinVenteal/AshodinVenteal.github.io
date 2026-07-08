@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-07T12:40:37.025Z",
+  "generatedAt": "2026-07-08T11:58:48.869Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5493,
+  "count": 5494,
   "comics": [
     {
       "id": 5,
@@ -65881,7 +65881,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "DON'T RATE MOMS",
-      "comments": 116
+      "comments": 117
     },
     {
       "id": 20616,
@@ -65905,7 +65905,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "maggie read this one and said 'oh man they're so obnoxious i LOVE them'",
-      "comments": 161
+      "comments": 165
     },
     {
       "id": 20618,
@@ -65917,7 +65917,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "STONKS",
-      "comments": 54
+      "comments": 84
+    },
+    {
+      "id": 20619,
+      "title": "Wright Quad",
+      "slug": "wright-quad",
+      "link": "https://www.dumbingofage.com/comic/wright-quad/",
+      "publishedAt": "2026-07-08T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-08-wrightquad.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "had to recolor so many shirts in preview panels for these two",
+      "comments": 57
     }
   ]
 }
