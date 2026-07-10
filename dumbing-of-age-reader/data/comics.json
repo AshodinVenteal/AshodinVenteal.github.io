@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-08T11:58:48.869Z",
+  "generatedAt": "2026-07-10T12:37:34.706Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5494,
+  "count": 5496,
   "comics": [
     {
       "id": 5,
@@ -65929,7 +65929,31 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "had to recolor so many shirts in preview panels for these two",
-      "comments": 57
+      "comments": 80
+    },
+    {
+      "id": 20627,
+      "title": "Yapper",
+      "slug": "yapper",
+      "link": "https://www.dumbingofage.com/comic/yapper/",
+      "publishedAt": "2026-07-09T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-07-09-yapper.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "good ol' slamber",
+      "comments": 68
+    },
+    {
+      "id": 20628,
+      "title": "Pleasant and relatable",
+      "slug": "pleasantandrelatable",
+      "link": "https://www.dumbingofage.com/comic/pleasantandrelatable/",
+      "publishedAt": "2026-07-10T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-10-pleasantandrelatable.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "bryan and jim? In MY dumbing of age? it's... well it's still not very likely, over all",
+      "comments": 78
     }
   ]
 }
