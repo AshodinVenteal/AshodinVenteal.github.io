@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-10T12:37:34.706Z",
+  "generatedAt": "2026-07-11T11:19:23.184Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5496,
+  "count": 5497,
   "comics": [
     {
       "id": 5,
@@ -65905,7 +65905,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "maggie read this one and said 'oh man they're so obnoxious i LOVE them'",
-      "comments": 165
+      "comments": 166
     },
     {
       "id": 20618,
@@ -65941,7 +65941,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "good ol' slamber",
-      "comments": 68
+      "comments": 70
     },
     {
       "id": 20628,
@@ -65953,7 +65953,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "bryan and jim? In MY dumbing of age? it's... well it's still not very likely, over all",
-      "comments": 78
+      "comments": 138
+    },
+    {
+      "id": 20629,
+      "title": "Broken your heart",
+      "slug": "brokenyourheart",
+      "link": "https://www.dumbingofage.com/comic/brokenyourheart/",
+      "publishedAt": "2026-07-11T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-11-brokenyourheart.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "please, dina needs social input, we're begging you",
+      "comments": 58
     }
   ]
 }
