@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-11T11:19:23.184Z",
+  "generatedAt": "2026-07-12T11:32:06.916Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5497,
+  "count": 5498,
   "comics": [
     {
       "id": 5,
@@ -65941,7 +65941,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "good ol' slamber",
-      "comments": 70
+      "comments": 71
     },
     {
       "id": 20628,
@@ -65953,7 +65953,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "bryan and jim? In MY dumbing of age? it's... well it's still not very likely, over all",
-      "comments": 138
+      "comments": 140
     },
     {
       "id": 20629,
@@ -65965,7 +65965,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "please, dina needs social input, we're begging you",
-      "comments": 58
+      "comments": 96
+    },
+    {
+      "id": 20630,
+      "title": "All about",
+      "slug": "allabout",
+      "link": "https://www.dumbingofage.com/comic/allabout/",
+      "publishedAt": "2026-07-12T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-12-allabout.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "it was me, mommo!",
+      "comments": 81
     }
   ]
 }
