@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-12T11:32:06.916Z",
+  "generatedAt": "2026-07-13T12:42:21.984Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5498,
+  "count": 5499,
   "comics": [
     {
       "id": 5,
@@ -65965,7 +65965,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "please, dina needs social input, we're begging you",
-      "comments": 96
+      "comments": 98
     },
     {
       "id": 20630,
@@ -65977,7 +65977,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it was me, mommo!",
-      "comments": 81
+      "comments": 143
+    },
+    {
+      "id": 20631,
+      "title": "There, there",
+      "slug": "therethere",
+      "link": "https://www.dumbingofage.com/comic/therethere/",
+      "publishedAt": "2026-07-13T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-13-therethere.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "mommy",
+      "comments": 116
     }
   ]
 }
