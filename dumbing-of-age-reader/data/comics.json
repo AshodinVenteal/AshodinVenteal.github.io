@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-14T11:44:45.562Z",
+  "generatedAt": "2026-07-15T11:49:10.323Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5500,
+  "count": 5501,
   "comics": [
     {
       "id": 5,
@@ -65977,7 +65977,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it was me, mommo!",
-      "comments": 144
+      "comments": 145
     },
     {
       "id": 20631,
@@ -65989,7 +65989,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "mommy",
-      "comments": 184
+      "comments": 190
     },
     {
       "id": 20637,
@@ -66001,7 +66001,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "protip: you can abruptly leave a conversation at any time!",
-      "comments": 51
+      "comments": 69
+    },
+    {
+      "id": 20638,
+      "title": "Every couple seconds",
+      "slug": "everycoupleseconds",
+      "link": "https://www.dumbingofage.com/comic/everycoupleseconds/",
+      "publishedAt": "2026-07-15T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-15-everycoupleseconds.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "do you think when ruth gets those, she groans wearily",
+      "comments": 79
     }
   ]
 }
