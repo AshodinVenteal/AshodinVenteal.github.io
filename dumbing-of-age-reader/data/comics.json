@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-15T11:49:10.323Z",
+  "generatedAt": "2026-07-16T11:55:25.956Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5501,
+  "count": 5502,
   "comics": [
     {
       "id": 5,
@@ -66001,7 +66001,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "protip: you can abruptly leave a conversation at any time!",
-      "comments": 69
+      "comments": 70
     },
     {
       "id": 20638,
@@ -66013,7 +66013,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do you think when ruth gets those, she groans wearily",
-      "comments": 79
+      "comments": 128
+    },
+    {
+      "id": 20639,
+      "title": "Tearful",
+      "slug": "tearful",
+      "link": "https://www.dumbingofage.com/comic/tearful/",
+      "publishedAt": "2026-07-16T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-16-tearful.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "not a great time to run away to bulmeria right now",
+      "comments": 60
     }
   ]
 }
