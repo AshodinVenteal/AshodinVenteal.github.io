@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-16T11:55:25.956Z",
+  "generatedAt": "2026-07-17T11:40:59.895Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5502,
+  "count": 5503,
   "comics": [
     {
       "id": 5,
@@ -65977,7 +65977,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it was me, mommo!",
-      "comments": 145
+      "comments": 146
     },
     {
       "id": 20631,
@@ -66025,7 +66025,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not a great time to run away to bulmeria right now",
-      "comments": 60
+      "comments": 127
+    },
+    {
+      "id": 20640,
+      "title": "Joe Momma",
+      "slug": "joemomma",
+      "link": "https://www.dumbingofage.com/comic/joemomma/",
+      "publishedAt": "2026-07-17T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-17-joemomma-1.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "now that mike's gone, sarah has to tell all the joe momma jokes",
+      "comments": 51
     }
   ]
 }
