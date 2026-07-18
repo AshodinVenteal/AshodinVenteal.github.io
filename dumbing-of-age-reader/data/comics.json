@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-17T11:40:59.895Z",
+  "generatedAt": "2026-07-18T11:19:25.120Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5503,
+  "count": 5504,
   "comics": [
     {
       "id": 5,
@@ -66025,7 +66025,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not a great time to run away to bulmeria right now",
-      "comments": 127
+      "comments": 129
     },
     {
       "id": 20640,
@@ -66037,7 +66037,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "now that mike's gone, sarah has to tell all the joe momma jokes",
-      "comments": 51
+      "comments": 79
+    },
+    {
+      "id": 20646,
+      "title": "Non-hussy",
+      "slug": "nonhussy",
+      "link": "https://www.dumbingofage.com/comic/nonhussy/",
+      "publishedAt": "2026-07-18T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-18-nonhussy.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "wonder woman, created by a polycule and living on an island of only women, still somehow less gay than velma",
+      "comments": 85
     }
   ]
 }
