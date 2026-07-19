@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-18T11:19:25.120Z",
+  "generatedAt": "2026-07-19T11:30:34.473Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5504,
+  "count": 5505,
   "comics": [
     {
       "id": 5,
@@ -66037,7 +66037,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "now that mike's gone, sarah has to tell all the joe momma jokes",
-      "comments": 79
+      "comments": 80
     },
     {
       "id": 20646,
@@ -66049,7 +66049,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "wonder woman, created by a polycule and living on an island of only women, still somehow less gay than velma",
-      "comments": 85
+      "comments": 134
+    },
+    {
+      "id": 20647,
+      "title": "Briscoe",
+      "slug": "briscoe-2",
+      "link": "https://www.dumbingofage.com/comic/briscoe-2/",
+      "publishedAt": "2026-07-19T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-19-briscoe.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "I already named a strip 'briscoe'???? when???",
+      "comments": 96
     }
   ]
 }
