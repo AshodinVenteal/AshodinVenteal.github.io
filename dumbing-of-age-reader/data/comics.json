@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-19T11:30:34.473Z",
+  "generatedAt": "2026-07-20T12:27:34.677Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5505,
+  "count": 5506,
   "comics": [
     {
       "id": 5,
@@ -66061,7 +66061,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "I already named a strip 'briscoe'???? when???",
-      "comments": 96
+      "comments": 190
+    },
+    {
+      "id": 20648,
+      "title": "Mid-search",
+      "slug": "midsearch",
+      "link": "https://www.dumbingofage.com/comic/midsearch/",
+      "publishedAt": "2026-07-20T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-20-midsearch.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "lifehack: just say something can't be that easy, then narrative requires it to be that easy",
+      "comments": 61
     }
   ]
 }
