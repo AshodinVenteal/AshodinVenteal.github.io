@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-20T12:27:34.677Z",
+  "generatedAt": "2026-07-21T12:01:36.607Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5506,
+  "count": 5507,
   "comics": [
     {
       "id": 5,
@@ -65989,7 +65989,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "mommy",
-      "comments": 190
+      "comments": 189
     },
     {
       "id": 20637,
@@ -66001,7 +66001,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "protip: you can abruptly leave a conversation at any time!",
-      "comments": 70
+      "comments": 71
     },
     {
       "id": 20638,
@@ -66025,7 +66025,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not a great time to run away to bulmeria right now",
-      "comments": 129
+      "comments": 130
     },
     {
       "id": 20640,
@@ -66061,7 +66061,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "I already named a strip 'briscoe'???? when???",
-      "comments": 190
+      "comments": 196
     },
     {
       "id": 20648,
@@ -66073,7 +66073,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "lifehack: just say something can't be that easy, then narrative requires it to be that easy",
-      "comments": 61
+      "comments": 120
+    },
+    {
+      "id": 20649,
+      "title": "Noon class",
+      "slug": "noonclass",
+      "link": "https://www.dumbingofage.com/comic/noonclass/",
+      "publishedAt": "2026-07-21T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-21-noonclass.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "reason: they felt like it",
+      "comments": 108
     }
   ]
 }
