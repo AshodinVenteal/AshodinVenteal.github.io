@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-21T12:01:36.607Z",
+  "generatedAt": "2026-07-22T12:04:39.066Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5507,
+  "count": 5508,
   "comics": [
     {
       "id": 5,
@@ -66061,7 +66061,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "I already named a strip 'briscoe'???? when???",
-      "comments": 196
+      "comments": 197
     },
     {
       "id": 20648,
@@ -66073,7 +66073,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "lifehack: just say something can't be that easy, then narrative requires it to be that easy",
-      "comments": 120
+      "comments": 124
     },
     {
       "id": 20649,
@@ -66085,7 +66085,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "reason: they felt like it",
-      "comments": 108
+      "comments": 171
+    },
+    {
+      "id": 20654,
+      "title": "Assist me",
+      "slug": "assistme",
+      "link": "https://www.dumbingofage.com/comic/assistme/",
+      "publishedAt": "2026-07-22T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-22-assistme.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "also responds to 'you'",
+      "comments": 35
     }
   ]
 }
