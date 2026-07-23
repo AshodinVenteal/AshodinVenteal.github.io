@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-22T12:04:39.066Z",
+  "generatedAt": "2026-07-23T12:03:43.286Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5508,
+  "count": 5509,
   "comics": [
     {
       "id": 5,
@@ -66073,7 +66073,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "lifehack: just say something can't be that easy, then narrative requires it to be that easy",
-      "comments": 124
+      "comments": 126
     },
     {
       "id": 20649,
@@ -66085,7 +66085,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "reason: they felt like it",
-      "comments": 171
+      "comments": 180
     },
     {
       "id": 20654,
@@ -66097,7 +66097,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "also responds to 'you'",
-      "comments": 35
+      "comments": 69
+    },
+    {
+      "id": 20655,
+      "title": "Look, everyone!",
+      "slug": "lookeveryone",
+      "link": "https://www.dumbingofage.com/comic/lookeveryone/",
+      "publishedAt": "2026-07-23T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-23-lookeveryone.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "joyce is speaking the logo, but dorothy's still tagged dorothy",
+      "comments": 109
     }
   ]
 }
