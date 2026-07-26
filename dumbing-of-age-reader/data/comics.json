@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-25T11:35:33.535Z",
+  "generatedAt": "2026-07-26T11:37:12.938Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5511,
+  "count": 5512,
   "comics": [
     {
       "id": 5,
@@ -66121,7 +66121,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "but you're gonna pick up what cookie monster sounds like through cultural osmosis",
-      "comments": 131
+      "comments": 133
     },
     {
       "id": 20657,
@@ -66133,7 +66133,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "DOG!!!!!!!!!",
-      "comments": 54
+      "comments": 81
+    },
+    {
+      "id": 20658,
+      "title": "Right mindset",
+      "slug": "rightmindset",
+      "link": "https://www.dumbingofage.com/comic/rightmindset/",
+      "publishedAt": "2026-07-26T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-26-rightmindset.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "no no take us back to the dog!!!",
+      "comments": 37
     }
   ]
 }
