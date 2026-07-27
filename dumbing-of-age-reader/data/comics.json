@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-26T11:37:12.938Z",
+  "generatedAt": "2026-07-27T13:23:28.151Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5512,
+  "count": 5513,
   "comics": [
     {
       "id": 5,
@@ -66109,7 +66109,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "joyce is speaking the logo, but dorothy's still tagged dorothy",
-      "comments": 174
+      "comments": 175
     },
     {
       "id": 20656,
@@ -66121,7 +66121,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "but you're gonna pick up what cookie monster sounds like through cultural osmosis",
-      "comments": 133
+      "comments": 134
     },
     {
       "id": 20657,
@@ -66133,7 +66133,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "DOG!!!!!!!!!",
-      "comments": 81
+      "comments": 84
     },
     {
       "id": 20658,
@@ -66145,7 +66145,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "no no take us back to the dog!!!",
-      "comments": 37
+      "comments": 69
+    },
+    {
+      "id": 20664,
+      "title": "Puzzle pieces",
+      "slug": "puzzlepieces",
+      "link": "https://www.dumbingofage.com/comic/puzzlepieces/",
+      "publishedAt": "2026-07-27T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-27-puzzlepieces.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "throw some lucy in there and walky's got a girlfriend turducken",
+      "comments": 89
     }
   ]
 }
