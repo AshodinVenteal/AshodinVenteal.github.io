@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-27T13:23:28.151Z",
+  "generatedAt": "2026-07-28T12:14:37.770Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5513,
+  "count": 5514,
   "comics": [
     {
       "id": 5,
@@ -66157,7 +66157,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "throw some lucy in there and walky's got a girlfriend turducken",
-      "comments": 89
+      "comments": 120
+    },
+    {
+      "id": 20665,
+      "title": "Greenlight",
+      "slug": "greenlight",
+      "link": "https://www.dumbingofage.com/comic/greenlight/",
+      "publishedAt": "2026-07-28T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-28-greenlight.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "now i just need a strip titled 'lancer'",
+      "comments": 63
     }
   ]
 }
