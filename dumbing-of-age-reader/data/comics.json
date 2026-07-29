@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-28T12:14:37.770Z",
+  "generatedAt": "2026-07-29T12:22:01.895Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5514,
+  "count": 5515,
   "comics": [
     {
       "id": 5,
@@ -66157,7 +66157,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "throw some lucy in there and walky's got a girlfriend turducken",
-      "comments": 120
+      "comments": 121
     },
     {
       "id": 20665,
@@ -66169,6 +66169,18 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "now i just need a strip titled 'lancer'",
+      "comments": 99
+    },
+    {
+      "id": 20666,
+      "title": "Abandoning",
+      "slug": "abandoning",
+      "link": "https://www.dumbingofage.com/comic/abandoning/",
+      "publishedAt": "2026-07-29T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-29-abandoning.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "KEEP UP, AMAZI-GIRL, C'MON",
       "comments": 63
     }
   ]
