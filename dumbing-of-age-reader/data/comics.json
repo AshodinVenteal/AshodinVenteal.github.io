@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T12:22:01.895Z",
+  "generatedAt": "2026-07-30T12:05:04.018Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5515,
+  "count": 5516,
   "comics": [
     {
       "id": 5,
@@ -66169,7 +66169,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "now i just need a strip titled 'lancer'",
-      "comments": 99
+      "comments": 101
     },
     {
       "id": 20666,
@@ -66181,7 +66181,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "KEEP UP, AMAZI-GIRL, C'MON",
-      "comments": 63
+      "comments": 105
+    },
+    {
+      "id": 20667,
+      "title": "Find something",
+      "slug": "findsomething",
+      "link": "https://www.dumbingofage.com/comic/findsomething/",
+      "publishedAt": "2026-07-30T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-30-findsomething.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "freeze police? but what if they get cold???",
+      "comments": 91
     }
   ]
 }
