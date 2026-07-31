@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T12:05:04.018Z",
+  "generatedAt": "2026-07-31T12:17:47.412Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5516,
+  "count": 5517,
   "comics": [
     {
       "id": 5,
@@ -66181,7 +66181,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "KEEP UP, AMAZI-GIRL, C'MON",
-      "comments": 105
+      "comments": 108
     },
     {
       "id": 20667,
@@ -66193,7 +66193,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "freeze police? but what if they get cold???",
-      "comments": 91
+      "comments": 144
+    },
+    {
+      "id": 20673,
+      "title": "Rewatch",
+      "slug": "rewatch-2",
+      "link": "https://www.dumbingofage.com/comic/rewatch-2/",
+      "publishedAt": "2026-07-31T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-07-31-rewatch.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "drunker sounds nice",
+      "comments": 50
     }
   ]
 }
