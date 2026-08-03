@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-02T11:35:36.274Z",
+  "generatedAt": "2026-08-03T13:20:17.285Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5519,
+  "count": 5520,
   "comics": [
     {
       "id": 5,
@@ -66217,7 +66217,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "just buttloads of grousing",
-      "comments": 65
+      "comments": 66
     },
     {
       "id": 20675,
@@ -66229,7 +66229,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'and everyone smelled real nice and not like feet'",
-      "comments": 18
+      "comments": 63
+    },
+    {
+      "id": 20676,
+      "title": "Intimacy blocker",
+      "slug": "intimacyblocker",
+      "link": "https://www.dumbingofage.com/comic/intimacyblocker/",
+      "publishedAt": "2026-08-03T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-08-03-intimacyblocker.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "the blockerrrrrrrrrrr",
+      "comments": 28
     }
   ]
 }
