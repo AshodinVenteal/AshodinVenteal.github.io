@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-03T13:20:17.285Z",
+  "generatedAt": "2026-08-05T12:18:53.303Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5520,
+  "count": 5522,
   "comics": [
     {
       "id": 5,
@@ -66217,7 +66217,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "just buttloads of grousing",
-      "comments": 66
+      "comments": 67
     },
     {
       "id": 20675,
@@ -66229,7 +66229,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'and everyone smelled real nice and not like feet'",
-      "comments": 63
+      "comments": 62
     },
     {
       "id": 20676,
@@ -66241,7 +66241,31 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the blockerrrrrrrrrrr",
-      "comments": 28
+      "comments": 65
+    },
+    {
+      "id": 20677,
+      "title": "Soccer",
+      "slug": "soccer",
+      "link": "https://www.dumbingofage.com/comic/soccer/",
+      "publishedAt": "2026-08-04T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-08-04-soccer.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "how dare you",
+      "comments": 73
+    },
+    {
+      "id": 20684,
+      "title": "Coast",
+      "slug": "coast",
+      "link": "https://www.dumbingofage.com/comic/coast/",
+      "publishedAt": "2026-08-05T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/07/2026-08-05-coast.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "the hovertext for this used to be 'GAY WRATH MONTH' cuz it was for july 1 but then new material pushed it all the way into august, sorry",
+      "comments": 30
     }
   ]
 }
