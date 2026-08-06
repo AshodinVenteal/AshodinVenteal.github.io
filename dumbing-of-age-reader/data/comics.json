@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T12:18:53.303Z",
+  "generatedAt": "2026-08-06T12:22:36.756Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5522,
+  "count": 5523,
   "comics": [
     {
       "id": 5,
@@ -66265,7 +66265,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the hovertext for this used to be 'GAY WRATH MONTH' cuz it was for july 1 but then new material pushed it all the way into august, sorry",
-      "comments": 30
+      "comments": 88
+    },
+    {
+      "id": 20686,
+      "title": "Correct room",
+      "slug": "correctroom",
+      "link": "https://www.dumbingofage.com/comic/correctroom/",
+      "publishedAt": "2026-08-06T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-06-correctroom.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "charlie's just never hyperfocused on that crack up there before",
+      "comments": 45
     }
   ]
 }
