@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-06T12:22:36.756Z",
+  "generatedAt": "2026-08-07T11:07:49.267Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5523,
+  "count": 5524,
   "comics": [
     {
       "id": 5,
@@ -66217,7 +66217,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "just buttloads of grousing",
-      "comments": 67
+      "comments": 68
     },
     {
       "id": 20675,
@@ -66265,7 +66265,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the hovertext for this used to be 'GAY WRATH MONTH' cuz it was for july 1 but then new material pushed it all the way into august, sorry",
-      "comments": 88
+      "comments": 92
     },
     {
       "id": 20686,
@@ -66277,6 +66277,18 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie's just never hyperfocused on that crack up there before",
+      "comments": 53
+    },
+    {
+      "id": 20687,
+      "title": "Ordeal",
+      "slug": "ordeal",
+      "link": "https://www.dumbingofage.com/comic/ordeal/",
+      "publishedAt": "2026-08-07T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-07-ordeal.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "it's true, search it, carla's never been in a strip with robin",
       "comments": 45
     }
   ]
