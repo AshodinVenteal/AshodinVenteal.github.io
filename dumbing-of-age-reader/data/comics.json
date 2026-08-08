@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T11:07:49.267Z",
+  "generatedAt": "2026-08-08T10:50:55.132Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5524,
+  "count": 5525,
   "comics": [
     {
       "id": 5,
@@ -66265,7 +66265,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the hovertext for this used to be 'GAY WRATH MONTH' cuz it was for july 1 but then new material pushed it all the way into august, sorry",
-      "comments": 92
+      "comments": 91
     },
     {
       "id": 20686,
@@ -66277,7 +66277,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie's just never hyperfocused on that crack up there before",
-      "comments": 53
+      "comments": 54
     },
     {
       "id": 20687,
@@ -66289,7 +66289,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it's true, search it, carla's never been in a strip with robin",
-      "comments": 45
+      "comments": 63
+    },
+    {
+      "id": 20688,
+      "title": "Outlaws",
+      "slug": "outlaws",
+      "link": "https://www.dumbingofage.com/comic/outlaws/",
+      "publishedAt": "2026-08-08T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-08-outlaws.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "do crimes, be gay",
+      "comments": 78
     }
   ]
 }
