@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-08T10:50:55.132Z",
+  "generatedAt": "2026-08-09T10:52:23.933Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5525,
+  "count": 5526,
   "comics": [
     {
       "id": 5,
@@ -66277,7 +66277,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie's just never hyperfocused on that crack up there before",
-      "comments": 54
+      "comments": 55
     },
     {
       "id": 20687,
@@ -66301,7 +66301,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do crimes, be gay",
-      "comments": 78
+      "comments": 184
+    },
+    {
+      "id": 20689,
+      "title": "Sludge",
+      "slug": "sludge",
+      "link": "https://www.dumbingofage.com/comic/sludge/",
+      "publishedAt": "2026-08-09T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-09-sludge.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "not to be confused with slag or snarl",
+      "comments": 35
     }
   ]
 }
