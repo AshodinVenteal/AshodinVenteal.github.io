@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T10:52:23.933Z",
+  "generatedAt": "2026-08-10T11:20:39.335Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5526,
+  "count": 5527,
   "comics": [
     {
       "id": 5,
@@ -66301,7 +66301,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do crimes, be gay",
-      "comments": 184
+      "comments": 186
     },
     {
       "id": 20689,
@@ -66313,7 +66313,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not to be confused with slag or snarl",
-      "comments": 35
+      "comments": 98
+    },
+    {
+      "id": 20694,
+      "title": "Corpse",
+      "slug": "corpse",
+      "link": "https://www.dumbingofage.com/comic/corpse/",
+      "publishedAt": "2026-08-10T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-10-corpse.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "dumbing of age book 16: i'm stating it hilariously, so it's fine",
+      "comments": 40
     }
   ]
 }
