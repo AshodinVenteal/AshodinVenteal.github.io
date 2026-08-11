@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-10T11:20:39.335Z",
+  "generatedAt": "2026-08-11T11:04:43.649Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5527,
+  "count": 5528,
   "comics": [
     {
       "id": 5,
@@ -65881,7 +65881,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "DON'T RATE MOMS",
-      "comments": 117
+      "comments": 116
     },
     {
       "id": 20616,
@@ -65905,7 +65905,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "maggie read this one and said 'oh man they're so obnoxious i LOVE them'",
-      "comments": 166
+      "comments": 165
     },
     {
       "id": 20618,
@@ -65917,7 +65917,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "STONKS",
-      "comments": 84
+      "comments": 83
     },
     {
       "id": 20619,
@@ -65941,7 +65941,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "good ol' slamber",
-      "comments": 71
+      "comments": 70
     },
     {
       "id": 20628,
@@ -65965,7 +65965,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "please, dina needs social input, we're begging you",
-      "comments": 98
+      "comments": 97
     },
     {
       "id": 20630,
@@ -66013,7 +66013,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do you think when ruth gets those, she groans wearily",
-      "comments": 128
+      "comments": 127
     },
     {
       "id": 20639,
@@ -66025,7 +66025,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not a great time to run away to bulmeria right now",
-      "comments": 130
+      "comments": 128
     },
     {
       "id": 20640,
@@ -66073,7 +66073,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "lifehack: just say something can't be that easy, then narrative requires it to be that easy",
-      "comments": 126
+      "comments": 125
     },
     {
       "id": 20649,
@@ -66121,7 +66121,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "but you're gonna pick up what cookie monster sounds like through cultural osmosis",
-      "comments": 134
+      "comments": 133
     },
     {
       "id": 20657,
@@ -66301,7 +66301,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do crimes, be gay",
-      "comments": 186
+      "comments": 187
     },
     {
       "id": 20689,
@@ -66313,7 +66313,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not to be confused with slag or snarl",
-      "comments": 98
+      "comments": 101
     },
     {
       "id": 20694,
@@ -66325,7 +66325,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 16: i'm stating it hilariously, so it's fine",
-      "comments": 40
+      "comments": 91
+    },
+    {
+      "id": 20695,
+      "title": "Turn down",
+      "slug": "turndown",
+      "link": "https://www.dumbingofage.com/comic/turndown/",
+      "publishedAt": "2026-08-11T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-11-turndown.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "hee hee 'bono'",
+      "comments": 41
     }
   ]
 }
