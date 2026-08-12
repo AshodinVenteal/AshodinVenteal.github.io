@@ -762,6 +762,7 @@ function updateTimelineForIndex(index, options = {}) {
   const percent = `${timelinePercent(index)}%`;
 
   applySegmentStyle(els.timelinePanel, comic);
+  els.timelinePanel.style.setProperty("--timeline-current", percent);
   els.timelineThumb.style.top = percent;
   els.timelineProgress.style.height = percent;
   els.timelineBubble.style.top = percent;

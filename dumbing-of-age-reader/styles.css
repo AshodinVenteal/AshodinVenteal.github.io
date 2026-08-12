@@ -662,7 +662,37 @@ html[data-theme="dark"] .comic-chip {
   pointer-events: none;
 }
 
+.timeline-mini-rail::before,
+.timeline-mini-rail::after {
+  position: absolute;
+  z-index: 2;
+  content: "";
+}
+
+.timeline-mini-rail::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--timeline-current, 0%);
+  border-radius: 999px 999px 3px 3px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.12));
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+}
+
+.timeline-mini-rail::after {
+  left: 50%;
+  top: var(--timeline-current, 0%);
+  width: 24px;
+  height: 14px;
+  border: 2px solid var(--paper);
+  border-radius: 999px;
+  background: var(--segment-accent);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.34), 0 0 0 2px color-mix(in srgb, var(--segment-accent) 30%, transparent);
+  transform: translate(-50%, -50%);
+}
+
 .timeline-mini-rail .timeline-segment {
+  z-index: 1;
   left: 0;
   width: 100%;
   border-radius: 0;
