@@ -484,7 +484,7 @@ html[data-theme="dark"] .comic-chip {
   align-items: center;
   gap: 10px;
   flex: 0 0 auto;
-  padding-right: 14px;
+  padding-right: 44px;
 }
 
 .comic-meta {
@@ -1145,7 +1145,7 @@ html[data-theme="dark"] .comic-chip {
     flex-direction: column;
     justify-content: center;
     gap: 4px;
-    padding: 6px 8px 6px 0;
+    padding: 6px 18px 6px 0;
   }
 
   .comment-count,
@@ -1381,7 +1381,7 @@ html[data-theme="dark"] .comic-chip {
   .comic-actions {
     flex-direction: row;
     gap: 6px;
-    padding-right: 10px;
+    padding-right: 30px;
   }
 
   .timeline-panel {
