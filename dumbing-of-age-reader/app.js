@@ -178,6 +178,20 @@ function bindEvents() {
 
   els.timelineTrack.addEventListener("pointerdown", onTimelinePointerDown);
   els.timelineTrack.addEventListener("keydown", onTimelineKeyDown);
+  els.timelinePanel.addEventListener("pointerdown", () => els.timelinePanel.classList.add("is-peeking"));
+  els.timelinePanel.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      els.timelinePanel.classList.remove("is-peeking");
+      return;
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      els.timelinePanel.classList.add("is-peeking");
+    }
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (!els.timelinePanel.contains(event.target)) els.timelinePanel.classList.remove("is-peeking");
+  }, true);
   window.addEventListener("scroll", requestVisibleUpdate, { passive: true });
   window.addEventListener("resize", () => updateTimelineForIndex(currentIndex));
 

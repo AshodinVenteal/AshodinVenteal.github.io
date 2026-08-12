@@ -644,6 +644,11 @@ html[data-theme="dark"] .comic-chip {
   transition: transform 180ms ease, opacity 180ms ease, box-shadow 180ms ease;
 }
 
+.timeline-panel:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--segment-accent) 44%, transparent);
+  outline-offset: -2px;
+}
+
 .timeline-mini-rail {
   position: absolute;
   top: 12px;
@@ -889,7 +894,8 @@ html[data-theme="dark"] .comic-chip {
   }
 
   .timeline-panel:hover,
-  .timeline-panel:focus-within,
+  .timeline-panel:has(:focus-visible),
+  .timeline-panel.is-peeking,
   .timeline-panel.is-dragging {
     transform: translateX(0);
     opacity: 1;
@@ -897,13 +903,15 @@ html[data-theme="dark"] .comic-chip {
   }
 
   .timeline-panel:hover .timeline-mini-rail,
-  .timeline-panel:focus-within .timeline-mini-rail,
+  .timeline-panel:has(:focus-visible) .timeline-mini-rail,
+  .timeline-panel.is-peeking .timeline-mini-rail,
   .timeline-panel.is-dragging .timeline-mini-rail {
     opacity: 0;
   }
 
   .timeline-panel:hover > :not(.timeline-mini-rail),
-  .timeline-panel:focus-within > :not(.timeline-mini-rail),
+  .timeline-panel:has(:focus-visible) > :not(.timeline-mini-rail),
+  .timeline-panel.is-peeking > :not(.timeline-mini-rail),
   .timeline-panel.is-dragging > :not(.timeline-mini-rail) {
     opacity: 1;
     pointer-events: auto;
@@ -1110,7 +1118,7 @@ html[data-theme="dark"] .comic-chip {
 @media (max-width: 980px) and (orientation: landscape) and (max-height: 560px) {
   .topbar {
     min-height: 50px;
-    padding: 6px 144px 6px 10px;
+    padding: 6px 42px 6px 10px;
     flex-wrap: nowrap;
   }
 
@@ -1204,7 +1212,7 @@ html[data-theme="dark"] .comic-chip {
   }
 
   .reader-shell {
-    width: calc(100vw - 158px);
+    width: calc(100vw - 44px);
     margin-left: 8px;
     padding-top: 10px;
   }
@@ -1238,11 +1246,60 @@ html[data-theme="dark"] .comic-chip {
   }
 
   .timeline-panel {
-    right: 8px;
+    right: 0;
     width: 132px;
     grid-template-rows: auto minmax(132px, 1fr) auto;
     gap: 7px;
     padding: 8px;
+    transform: translateX(calc(100% - 28px));
+    opacity: 0.88;
+    box-shadow: -8px 0 24px rgba(18, 26, 33, 0.1);
+  }
+
+  .timeline-mini-rail {
+    display: block;
+    top: 8px;
+    bottom: 8px;
+    left: 5px;
+  }
+
+  .timeline-panel > :not(.timeline-mini-rail) {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease;
+  }
+
+  .timeline-panel::before {
+    position: absolute;
+    top: 0;
+    left: -18px;
+    width: 18px;
+    height: 100%;
+    content: "";
+  }
+
+  .timeline-panel:hover,
+  .timeline-panel:has(:focus-visible),
+  .timeline-panel.is-peeking,
+  .timeline-panel.is-dragging {
+    transform: translateX(0);
+    opacity: 1;
+    box-shadow: -16px 0 34px rgba(18, 26, 33, 0.16);
+  }
+
+  .timeline-panel:hover .timeline-mini-rail,
+  .timeline-panel:has(:focus-visible) .timeline-mini-rail,
+  .timeline-panel.is-peeking .timeline-mini-rail,
+  .timeline-panel.is-dragging .timeline-mini-rail {
+    opacity: 0;
+  }
+
+  .timeline-panel:hover > :not(.timeline-mini-rail),
+  .timeline-panel:has(:focus-visible) > :not(.timeline-mini-rail),
+  .timeline-panel.is-peeking > :not(.timeline-mini-rail),
+  .timeline-panel.is-dragging > :not(.timeline-mini-rail) {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .timeline-readout {
