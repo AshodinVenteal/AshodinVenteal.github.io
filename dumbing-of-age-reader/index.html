@@ -55,6 +55,22 @@
           <div id="favoritesList" class="favorites-list"></div>
         </div>
       </details>
+      <details id="syncMenu" class="sync-menu">
+        <summary>Sync</summary>
+        <div class="sync-panel">
+          <div class="sync-panel-header">
+            <strong>Sync key</strong>
+            <span id="syncStatus" role="status"></span>
+          </div>
+          <textarea id="syncKeyField" rows="4" spellcheck="false" placeholder="Paste sync key or link"></textarea>
+          <div class="sync-actions">
+            <button id="createSyncKeyButton" type="button">Create Key</button>
+            <button id="copySyncKeyButton" type="button" disabled>Copy Key</button>
+            <button id="copySyncLinkButton" type="button" disabled>Copy Link</button>
+            <button id="importSyncKeyButton" type="button">Import</button>
+          </div>
+        </div>
+      </details>
       <button id="latestButton" type="button">Latest</button>
     </div>
   </header>

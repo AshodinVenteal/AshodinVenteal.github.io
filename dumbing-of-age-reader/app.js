@@ -7,6 +7,8 @@ const LAST_VIEWED_STORAGE_KEY = "doa-reader-current-index";
 const BOOKMARK_SLUG_KEY = "doa-reader-bookmark-slug";
 const BOOKMARK_INDEX_KEY = "doa-reader-bookmark-index";
 const FAVORITES_KEY = "doa-reader-favorite-slugs";
+const SYNC_URL_PARAM = "sync";
+const SYNC_PREFIX = "doa-sync:";
 
 const els = {
   feed: document.querySelector("#comicFeed"),
@@ -20,6 +22,13 @@ const els = {
   favoritesSummary: document.querySelector("#favoritesSummary"),
   favoritesList: document.querySelector("#favoritesList"),
   clearFavoritesButton: document.querySelector("#clearFavoritesButton"),
+  syncMenu: document.querySelector("#syncMenu"),
+  syncKeyField: document.querySelector("#syncKeyField"),
+  syncStatus: document.querySelector("#syncStatus"),
+  createSyncKeyButton: document.querySelector("#createSyncKeyButton"),
+  copySyncKeyButton: document.querySelector("#copySyncKeyButton"),
+  copySyncLinkButton: document.querySelector("#copySyncLinkButton"),
+  importSyncKeyButton: document.querySelector("#importSyncKeyButton"),
   latestButton: document.querySelector("#latestButton"),
   timelineTrack: document.querySelector("#timelineTrack"),
   timelineTicks: document.querySelector("#timelineTicks"),
@@ -42,6 +51,7 @@ let currentIndex = 0;
 let dragIndex = 0;
 let userIsDragging = false;
 let suppressSelectUpdates = false;
+let syncStatusTimer = 0;
 
 const monthFormatter = new Intl.DateTimeFormat(undefined, { month: "short", timeZone: "UTC" });
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -73,8 +83,10 @@ async function boot() {
     bindEvents();
     updateBookmarkUi();
     updateFavoritesUi();
+    updateSyncButtons();
 
-    const requestedIndex = getRequestedIndex();
+    const syncedIndex = importSyncFromUrl();
+    const requestedIndex = syncedIndex ?? getRequestedIndex();
     startAt(requestedIndex, { scrollToTop: true, replaceUrl: false });
     els.archiveStatus.textContent = `${archive.length.toLocaleString()} comics indexed`;
   } catch (error) {
@@ -143,6 +155,11 @@ function bindEvents() {
     setFavoriteSlugs([]);
     updateFavoritesUi();
   });
+  els.createSyncKeyButton.addEventListener("click", createSyncKey);
+  els.copySyncKeyButton.addEventListener("click", () => copySyncText(els.syncKeyField.value, "Key copied"));
+  els.copySyncLinkButton.addEventListener("click", () => copySyncText(createSyncLink(), "Link copied"));
+  els.importSyncKeyButton.addEventListener("click", () => importSyncText(els.syncKeyField.value));
+  els.syncKeyField.addEventListener("input", updateSyncButtons);
 
   els.jumpButton.addEventListener("click", () => jumpToSelectedDate());
   els.yearSelect.addEventListener("change", () => {
@@ -307,6 +324,211 @@ function chip(label, variant = "") {
   return element;
 }
 
+function createSyncKey() {
+  const key = encodeSyncPayload(createSyncPayload());
+  els.syncKeyField.value = key;
+  updateSyncButtons();
+  setSyncStatus("Key ready");
+}
+
+function createSyncPayload() {
+  const bookmarkIndex = getBookmarkedIndex();
+  const lastViewedIndex = getSavedLastViewedIndex();
+  return {
+    type: "doa-reader-sync",
+    version: 1,
+    savedAt: new Date().toISOString(),
+    bookmark: bookmarkIndex === null ? null : archive[bookmarkIndex].slug,
+    bookmarkIndex,
+    lastViewed: archive[lastViewedIndex]?.slug || null,
+    lastViewedIndex,
+    favorites: getFavoriteSlugs(),
+    theme: getTheme(),
+  };
+}
+
+function importSyncFromUrl() {
+  const url = new URL(window.location.href);
+  const key = url.searchParams.get(SYNC_URL_PARAM);
+  if (!key) return null;
+
+  try {
+    const targetIndex = applySyncPayload(decodeSyncPayload(key));
+    els.syncKeyField.value = key;
+    updateSyncButtons();
+    setSyncStatus("Synced");
+    url.searchParams.delete(SYNC_URL_PARAM);
+    history.replaceState(null, "", url);
+    return targetIndex;
+  } catch (error) {
+    console.warn(error);
+    setSyncStatus("Invalid key", "error");
+    return null;
+  }
+}
+
+function importSyncText(value) {
+  try {
+    const targetIndex = applySyncPayload(decodeSyncPayload(value));
+    updateSyncButtons();
+    setSyncStatus("Synced");
+    if (targetIndex !== null) startAt(targetIndex, { scrollToTop: true });
+  } catch (error) {
+    console.warn(error);
+    setSyncStatus("Invalid key", "error");
+  }
+}
+
+function applySyncPayload(payload) {
+  if (!payload || payload.type !== "doa-reader-sync" || payload.version !== 1) {
+    throw new Error("Unsupported sync payload");
+  }
+
+  const importedFavorites = Array.isArray(payload.favorites) ? payload.favorites : [];
+  setFavoriteSlugs([...importedFavorites, ...getFavoriteSlugs()].filter((slug) => findComicIndexBySlugOrIndex(slug) !== null));
+
+  const bookmarkIndex = findComicIndexBySlugOrIndex(payload.bookmark, payload.bookmarkIndex);
+  if (bookmarkIndex !== null) {
+    const comic = archive[bookmarkIndex];
+    localStorage.setItem(BOOKMARK_SLUG_KEY, comic.slug);
+    localStorage.setItem(BOOKMARK_INDEX_KEY, String(bookmarkIndex));
+  }
+
+  if (payload.theme === "light" || payload.theme === "dark") {
+    setTheme(payload.theme);
+  }
+
+  const lastViewedIndex = findComicIndexBySlugOrIndex(payload.lastViewed, payload.lastViewedIndex);
+  if (lastViewedIndex !== null) {
+    localStorage.setItem(LAST_VIEWED_STORAGE_KEY, String(lastViewedIndex));
+  }
+
+  updateBookmarkUi();
+  updateFavoritesUi();
+  return lastViewedIndex ?? bookmarkIndex;
+}
+
+function encodeSyncPayload(payload) {
+  const bytes = new TextEncoder().encode(JSON.stringify(payload));
+  return `${SYNC_PREFIX}${bytesToBase64(bytes).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "")}`;
+}
+
+function decodeSyncPayload(value) {
+  const key = extractSyncKey(value);
+  const base64 = key.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(key.length / 4) * 4, "=");
+  return JSON.parse(new TextDecoder().decode(base64ToBytes(base64)));
+}
+
+function extractSyncKey(value) {
+  const text = String(value || "").trim();
+  if (!text) throw new Error("Missing sync key");
+
+  try {
+    const url = new URL(text);
+    const fromUrl = url.searchParams.get(SYNC_URL_PARAM);
+    if (fromUrl) return extractSyncKey(fromUrl);
+  } catch {
+    // Plain sync keys are expected here.
+  }
+
+  return text.replace(new RegExp(`^${SYNC_PREFIX}`, "i"), "").replace(/\s+/g, "");
+}
+
+function bytesToBase64(bytes) {
+  let binary = "";
+  for (let index = 0; index < bytes.length; index += 0x8000) {
+    binary += String.fromCharCode(...bytes.subarray(index, index + 0x8000));
+  }
+  return btoa(binary);
+}
+
+function base64ToBytes(base64) {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let index = 0; index < binary.length; index += 1) {
+    bytes[index] = binary.charCodeAt(index);
+  }
+  return bytes;
+}
+
+function createSyncLink() {
+  const key = els.syncKeyField.value.trim() || encodeSyncPayload(createSyncPayload());
+  const url = new URL(window.location.href);
+  url.searchParams.set(SYNC_URL_PARAM, extractSyncKey(key));
+  url.searchParams.delete("comic");
+  url.searchParams.delete("from");
+  return url.toString();
+}
+
+async function copySyncText(value, message) {
+  const text = value.trim();
+  if (!text) {
+    setSyncStatus("No key", "error");
+    return;
+  }
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const scratch = document.createElement("textarea");
+      scratch.value = text;
+      scratch.setAttribute("readonly", "");
+      scratch.className = "clipboard-scratch";
+      document.body.append(scratch);
+      scratch.select();
+      document.execCommand("copy");
+      scratch.remove();
+    }
+    setSyncStatus(message);
+  } catch (error) {
+    console.warn(error);
+    setSyncStatus("Copy failed", "error");
+  }
+}
+
+function updateSyncButtons() {
+  const hasKey = Boolean(els.syncKeyField.value.trim());
+  els.copySyncKeyButton.disabled = !hasKey;
+  els.copySyncLinkButton.disabled = !hasKey;
+}
+
+function setSyncStatus(message, state = "") {
+  window.clearTimeout(syncStatusTimer);
+  els.syncStatus.textContent = message;
+  els.syncStatus.dataset.state = state;
+  if (message) {
+    syncStatusTimer = window.setTimeout(() => {
+      els.syncStatus.textContent = "";
+      els.syncStatus.dataset.state = "";
+    }, 5200);
+  }
+}
+
+function getSavedLastViewedIndex() {
+  const savedValue = localStorage.getItem(LAST_VIEWED_STORAGE_KEY);
+  const savedIndex = savedValue === null ? currentIndex : Number(savedValue);
+  return Number.isFinite(savedIndex) ? clampIndex(savedIndex) : clampIndex(currentIndex);
+}
+
+function findComicIndexBySlugOrIndex(slug, fallbackIndex = null) {
+  if (typeof slug === "string" && slug) {
+    const bySlug = archive.findIndex((comic) => comic.slug === slug);
+    if (bySlug >= 0) return bySlug;
+  }
+
+  if (fallbackIndex === null || fallbackIndex === undefined || fallbackIndex === "") {
+    return null;
+  }
+
+  const byIndex = Number(fallbackIndex);
+  if (Number.isFinite(byIndex) && archive[clampIndex(byIndex)]) {
+    return clampIndex(byIndex);
+  }
+
+  return null;
+}
+
 function setBookmark(index) {
   const comic = archive[clampIndex(index)];
   localStorage.setItem(BOOKMARK_SLUG_KEY, comic.slug);
@@ -337,7 +559,7 @@ function getFavoriteSlugs() {
 }
 
 function setFavoriteSlugs(slugs) {
-  const unique = [...new Set(slugs)].slice(0, 200);
+  const unique = [...new Set(slugs.filter((slug) => typeof slug === "string" && slug))].slice(0, 200);
   localStorage.setItem(FAVORITES_KEY, JSON.stringify(unique));
 }
 
