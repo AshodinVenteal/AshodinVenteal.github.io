@@ -250,7 +250,11 @@ function createSegmentBanner(comic) {
 
   const title = document.createElement("strong");
   title.className = "segment-title";
-  title.textContent = `${comic.book.name}: ${comic.storyline.name}`;
+  title.textContent = comic.storyline.name;
+
+  const bookTitle = document.createElement("span");
+  bookTitle.className = "segment-book-title";
+  bookTitle.textContent = comic.book.fullTitle;
 
   const meta = document.createElement("span");
   meta.className = "segment-meta";
@@ -263,7 +267,7 @@ function createSegmentBanner(comic) {
   if (!comic.book.starts && !comic.storyline.starts) chips.append(chip("Segment context"));
   if (comic.authorEvent) chips.append(chip(comic.authorEvent.label, "event"));
 
-  banner.append(kicker, title, meta, chips);
+  banner.append(kicker, title, bookTitle, meta, chips);
   return banner;
 }
 
@@ -840,7 +844,7 @@ function createTimelineSegment(comic, start, end) {
   segment.className = "timeline-segment";
   segment.style.top = `${start}%`;
   segment.style.height = `${Math.max(end - start, 0.45)}%`;
-  segment.title = `${comic.book.label} · ${comic.book.name}: ${comic.storyline.name}`;
+  segment.title = `${comic.book.label} · ${comic.book.fullTitle}: ${comic.storyline.name}`;
   applySegmentStyle(segment, comic);
   return segment;
 }
