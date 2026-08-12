@@ -42,6 +42,7 @@ const els = {
   currentYear: document.querySelector("#currentYear"),
   currentDate: document.querySelector("#currentDate"),
   currentTitle: document.querySelector("#currentTitle"),
+  storylineSelect: document.querySelector("#storylineSelect"),
   yearSelect: document.querySelector("#yearSelect"),
   monthSelect: document.querySelector("#monthSelect"),
   daySelect: document.querySelector("#daySelect"),
@@ -56,6 +57,8 @@ let dragIndex = 0;
 let userIsDragging = false;
 let suppressSelectUpdates = false;
 let syncStatusTimer = 0;
+let storylineStarts = [];
+let storylineStartByGlobalNumber = new Map();
 
 const monthFormatter = new Intl.DateTimeFormat(undefined, { month: "short", timeZone: "UTC" });
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -82,7 +85,9 @@ async function boot() {
     if (!archive.length) throw new Error("Archive is empty");
 
     buildDateIndex();
+    buildStorylineIndex();
     renderTimelineTicks();
+    populateStorylineSelect();
     populateYearSelect();
     bindEvents();
     updateBookmarkUi();
@@ -165,6 +170,10 @@ function bindEvents() {
   els.importSyncKeyButton.addEventListener("click", () => importSyncText(els.syncKeyField.value));
   els.syncKeyField.addEventListener("input", updateSyncButtons);
 
+  els.storylineSelect.addEventListener("change", () => {
+    if (suppressSelectUpdates) return;
+    startAt(Number(els.storylineSelect.value), { scrollToTop: true });
+  });
   els.jumpButton.addEventListener("click", () => jumpToSelectedDate());
   els.yearSelect.addEventListener("change", () => {
     if (suppressSelectUpdates) return;
@@ -790,6 +799,7 @@ function renderTimelineTicks() {
 
   const segmentFragment = document.createDocumentFragment();
   const miniSegmentFragment = document.createDocumentFragment();
+  const miniBookFragment = document.createDocumentFragment();
   const segmentStarts = archive
     .map((comic, index) => ({ comic, index }))
     .filter(({ comic, index }) => index === 0 || isSegmentBoundary(comic));
@@ -801,8 +811,14 @@ function renderTimelineTicks() {
     segmentFragment.append(createTimelineSegment(comic, start, end));
     miniSegmentFragment.append(createTimelineSegment(comic, start, end));
   }
+
+  const bookBoundaries = getBookBoundaryMarkers();
+  for (const boundary of bookBoundaries) {
+    miniBookFragment.append(createMiniBookBoundary(boundary));
+  }
+
   els.timelineSegments.append(segmentFragment);
-  els.timelineMiniRail.append(miniSegmentFragment);
+  els.timelineMiniRail.append(miniSegmentFragment, miniBookFragment);
 
   const years = [...new Set(archive.map((comic) => comic.year))];
   const tickFragment = document.createDocumentFragment();
@@ -817,6 +833,12 @@ function renderTimelineTicks() {
   els.timelineTicks.append(tickFragment);
 
   const milestoneFragment = document.createDocumentFragment();
+  const bookMarkerFragment = document.createDocumentFragment();
+
+  for (const boundary of bookBoundaries) {
+    bookMarkerFragment.append(createTimelineBookBoundary(boundary));
+  }
+
   archive.forEach((comic, index) => {
     if (!comic.authorEvent) return;
     const marker = document.createElement("button");
@@ -836,7 +858,7 @@ function renderTimelineTicks() {
     });
     milestoneFragment.append(marker);
   });
-  els.timelineMilestones.append(milestoneFragment);
+  els.timelineMilestones.append(bookMarkerFragment, milestoneFragment);
 }
 
 function createTimelineSegment(comic, start, end) {
@@ -849,11 +871,93 @@ function createTimelineSegment(comic, start, end) {
   return segment;
 }
 
+function getBookBoundaryMarkers() {
+  const starts = archive
+    .map((comic, index) => ({ comic, index }))
+    .filter(({ comic, index }) => index === 0 || comic.book?.starts);
+  const markers = [];
+
+  for (const [bookIndex, start] of starts.entries()) {
+    markers.push({
+      type: "start",
+      index: start.index,
+      comic: start.comic,
+      bookLabel: start.comic.book.label,
+      bookTitle: start.comic.book.fullTitle,
+    });
+
+    const nextStart = starts[bookIndex + 1];
+    if (!nextStart) continue;
+
+    const endIndex = nextStart.index - 1;
+    const endComic = archive[endIndex];
+    if (!endComic) continue;
+
+    markers.push({
+      type: "end",
+      index: endIndex,
+      comic: endComic,
+      bookLabel: start.comic.book.label,
+      bookTitle: start.comic.book.fullTitle,
+    });
+  }
+
+  return markers;
+}
+
+function createTimelineBookBoundary(boundary) {
+  const marker = document.createElement("button");
+  const label = document.createElement("span");
+  const isStart = boundary.type === "start";
+  marker.className = `timeline-book-marker is-book-${boundary.type}`;
+  marker.type = "button";
+  marker.style.top = `${timelinePercent(boundary.index)}%`;
+  marker.title = `${boundary.bookLabel} ${isStart ? "starts" : "ends"}: ${boundary.bookTitle} - ${formatComicDate(boundary.comic)}`;
+  marker.setAttribute("aria-label", marker.title);
+  label.textContent = `${boundary.bookLabel} ${isStart ? "starts" : "ends"}`;
+  marker.append(label);
+  applySegmentStyle(marker, boundary.comic);
+  marker.addEventListener("pointerdown", (event) => event.stopPropagation());
+  marker.addEventListener("click", (event) => {
+    event.stopPropagation();
+    startAt(boundary.index, { scrollToTop: true });
+  });
+  return marker;
+}
+
+function createMiniBookBoundary(boundary) {
+  const marker = document.createElement("span");
+  marker.className = `timeline-book-notch is-book-${boundary.type}`;
+  marker.style.top = `${timelinePercent(boundary.index)}%`;
+  applySegmentStyle(marker, boundary.comic);
+  return marker;
+}
+
 function buildDateIndex() {
   dateIndex = new Map();
   for (const comic of archive) {
     if (!dateIndex.has(comic.dateKey)) dateIndex.set(comic.dateKey, comic.index);
   }
+}
+
+function buildStorylineIndex() {
+  storylineStarts = [];
+  storylineStartByGlobalNumber = new Map();
+
+  archive.forEach((comic, index) => {
+    if (index !== 0 && !comic.storyline?.starts) return;
+    storylineStarts.push({ comic, index });
+    storylineStartByGlobalNumber.set(comic.storyline.globalNumber, index);
+  });
+}
+
+function populateStorylineSelect() {
+  els.storylineSelect.replaceChildren(...storylineStarts.map(({ comic, index }) => {
+    const label = `${comic.book.label} · ${comic.storyline.label} · ${comic.storyline.name}`;
+    const element = option(String(index), label);
+    element.title = `${comic.book.fullTitle}: ${comic.storyline.name}`;
+    return element;
+  }));
 }
 
 function populateYearSelect() {
@@ -887,7 +991,15 @@ function updateDateSelects(comic) {
   els.monthSelect.value = String(comic.month).padStart(2, "0");
   populateDaySelect(comic.year, comic.month);
   els.daySelect.value = String(comic.day).padStart(2, "0");
+  updateStorylineSelect(comic);
   suppressSelectUpdates = false;
+}
+
+function updateStorylineSelect(comic) {
+  const startIndex = storylineStartByGlobalNumber.get(comic.storyline?.globalNumber);
+  if (startIndex !== undefined) {
+    els.storylineSelect.value = String(startIndex);
+  }
 }
 
 function jumpToSelectedDate() {
