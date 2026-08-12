@@ -45,6 +45,16 @@
       </button>
       <button id="firstButton" type="button">First</button>
       <button id="resumeButton" type="button">Resume Bookmark</button>
+      <details id="favoritesMenu" class="favorites-menu">
+        <summary id="favoritesSummary">Favorites</summary>
+        <div class="favorites-panel">
+          <div class="favorites-panel-header">
+            <strong>Favorite strips</strong>
+            <button id="clearFavoritesButton" type="button">Clear</button>
+          </div>
+          <div id="favoritesList" class="favorites-list"></div>
+        </div>
+      </details>
       <button id="latestButton" type="button">Latest</button>
     </div>
   </header>
@@ -96,6 +106,7 @@
         </button>
         <div class="comic-actions">
           <span class="comment-count"></span>
+          <button class="favorite-button" type="button" aria-pressed="false" aria-label="Favorite this comic"></button>
           <button class="bookmark-button" type="button" aria-pressed="false" aria-label="Bookmark this comic"></button>
         </div>
       </div>

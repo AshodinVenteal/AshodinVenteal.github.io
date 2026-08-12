@@ -1,9 +1,12 @@
+import { applySegmentStyle, decorateArchive, isSegmentBoundary } from "./metadata.js";
+
 const DATA_URL = new URL("./data/comics.json", import.meta.url);
 const BATCH_SIZE = 14;
 const THEME_STORAGE_KEY = "doa-reader-theme";
 const LAST_VIEWED_STORAGE_KEY = "doa-reader-current-index";
 const BOOKMARK_SLUG_KEY = "doa-reader-bookmark-slug";
 const BOOKMARK_INDEX_KEY = "doa-reader-bookmark-index";
+const FAVORITES_KEY = "doa-reader-favorite-slugs";
 
 const els = {
   feed: document.querySelector("#comicFeed"),
@@ -13,6 +16,10 @@ const els = {
   themeButton: document.querySelector("#themeButton"),
   firstButton: document.querySelector("#firstButton"),
   resumeButton: document.querySelector("#resumeButton"),
+  favoritesMenu: document.querySelector("#favoritesMenu"),
+  favoritesSummary: document.querySelector("#favoritesSummary"),
+  favoritesList: document.querySelector("#favoritesList"),
+  clearFavoritesButton: document.querySelector("#clearFavoritesButton"),
   latestButton: document.querySelector("#latestButton"),
   timelineTrack: document.querySelector("#timelineTrack"),
   timelineTicks: document.querySelector("#timelineTicks"),
@@ -53,10 +60,10 @@ async function boot() {
     const response = await fetch(DATA_URL, { cache: "no-store" });
     if (!response.ok) throw new Error(`Archive request failed: ${response.status}`);
     const payload = await response.json();
-    archive = payload.comics
+    archive = decorateArchive(payload.comics
       .map(normalizeComic)
       .filter((comic) => comic.image)
-      .sort((a, b) => a.timestamp - b.timestamp);
+      .sort((a, b) => a.timestamp - b.timestamp));
 
     if (!archive.length) throw new Error("Archive is empty");
 
@@ -65,6 +72,7 @@ async function boot() {
     populateYearSelect();
     bindEvents();
     updateBookmarkUi();
+    updateFavoritesUi();
 
     const requestedIndex = getRequestedIndex();
     startAt(requestedIndex, { scrollToTop: true, replaceUrl: false });
@@ -131,6 +139,10 @@ function bindEvents() {
       startAt(bookmarkedIndex, { scrollToTop: true });
     }
   });
+  els.clearFavoritesButton.addEventListener("click", () => {
+    setFavoriteSlugs([]);
+    updateFavoritesUi();
+  });
 
   els.jumpButton.addEventListener("click", () => jumpToSelectedDate());
   els.yearSelect.addEventListener("change", () => {
@@ -178,8 +190,13 @@ function appendNextBatch() {
   if (!archive.length || renderedUntil >= archive.length) return;
   const fragment = document.createDocumentFragment();
   const end = Math.min(renderedUntil + BATCH_SIZE, archive.length);
+  const feedWasEmpty = !els.feed.childElementCount;
 
   for (let index = renderedUntil; index < end; index += 1) {
+    const comic = archive[index];
+    if (isSegmentBoundary(comic) || (feedWasEmpty && index === currentIndex)) {
+      fragment.append(createSegmentBanner(comic));
+    }
     fragment.append(createComicCard(archive[index], index));
   }
 
@@ -187,18 +204,49 @@ function appendNextBatch() {
   els.feed.append(fragment);
 }
 
+function createSegmentBanner(comic) {
+  const banner = document.createElement("section");
+  banner.className = "segment-banner";
+  applySegmentStyle(banner, comic);
+
+  const kicker = document.createElement("span");
+  kicker.className = "segment-kicker";
+  kicker.textContent = `${comic.book.label} · ${comic.storyline.label}`;
+
+  const title = document.createElement("strong");
+  title.className = "segment-title";
+  title.textContent = `${comic.book.name}: ${comic.storyline.name}`;
+
+  const meta = document.createElement("span");
+  meta.className = "segment-meta";
+  meta.textContent = comic.storyline.starts ? `Begins ${formatComicDate(comic)}` : `Showing from ${formatComicDate(comic)}`;
+
+  const chips = document.createElement("span");
+  chips.className = "segment-chips";
+  if (comic.book.starts) chips.append(chip("Book shift"));
+  if (comic.storyline.starts) chips.append(chip("Storyline shift"));
+  if (!comic.book.starts && !comic.storyline.starts) chips.append(chip("Segment context"));
+  if (comic.authorEvent) chips.append(chip(comic.authorEvent.label, "event"));
+
+  banner.append(kicker, title, meta, chips);
+  return banner;
+}
+
 function createComicCard(comic, index) {
   const node = els.template.content.firstElementChild.cloneNode(true);
   node.dataset.index = String(index);
+  applySegmentStyle(node, comic);
 
   const toggle = node.querySelector(".comic-toggle");
   const image = node.querySelector(".comic-image");
   const details = node.querySelector(".comic-details");
   const detailRow = node.querySelector(".detail-row");
   const iframe = node.querySelector(".comments-frame");
+  const meta = node.querySelector(".comic-meta");
 
   node.querySelector(".comic-title").textContent = comic.title;
   node.querySelector(".comic-date").textContent = formatComicDate(comic);
+  meta.append(createComicChips(comic));
   node.querySelector(".comment-count").textContent = `${comic.comments.toLocaleString()} comments`;
   node.querySelector(".detail-posted").textContent = formatComicDate(comic);
   node.querySelector(".detail-comments").textContent = comic.comments.toLocaleString();
@@ -213,6 +261,9 @@ function createComicCard(comic, index) {
 
   const sourceLink = node.querySelector(".source-link");
   sourceLink.href = comic.link;
+
+  const favoriteButton = node.querySelector(".favorite-button");
+  favoriteButton.addEventListener("click", () => toggleFavorite(index));
 
   const bookmarkButton = node.querySelector(".bookmark-button");
   bookmarkButton.addEventListener("click", () => setBookmark(index));
@@ -236,8 +287,24 @@ function createComicCard(comic, index) {
 
   toggle.addEventListener("click", expand);
   image.addEventListener("click", expand);
+  updateFavoriteButton(favoriteButton, index);
   updateBookmarkButton(bookmarkButton, index);
   return node;
+}
+
+function createComicChips(comic) {
+  const chips = document.createElement("span");
+  chips.className = "comic-chips";
+  chips.append(chip(comic.book.label), chip(comic.storyline.name));
+  if (comic.authorEvent) chips.append(chip(comic.authorEvent.label, "event"));
+  return chips;
+}
+
+function chip(label, variant = "") {
+  const element = document.createElement("span");
+  element.className = variant ? `comic-chip comic-chip-${variant}` : "comic-chip";
+  element.textContent = label;
+  return element;
 }
 
 function setBookmark(index) {
@@ -245,6 +312,38 @@ function setBookmark(index) {
   localStorage.setItem(BOOKMARK_SLUG_KEY, comic.slug);
   localStorage.setItem(BOOKMARK_INDEX_KEY, String(comic.index));
   updateBookmarkUi();
+}
+
+function toggleFavorite(index) {
+  const comic = archive[clampIndex(index)];
+  const slugs = getFavoriteSlugs();
+  const existingIndex = slugs.indexOf(comic.slug);
+  if (existingIndex >= 0) {
+    slugs.splice(existingIndex, 1);
+  } else {
+    slugs.unshift(comic.slug);
+  }
+  setFavoriteSlugs(slugs);
+  updateFavoritesUi();
+}
+
+function getFavoriteSlugs() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]");
+    return Array.isArray(parsed) ? parsed.filter((slug) => typeof slug === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+function setFavoriteSlugs(slugs) {
+  const unique = [...new Set(slugs)].slice(0, 200);
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify(unique));
+}
+
+function getFavoriteComics() {
+  const bySlug = new Map(archive.map((comic) => [comic.slug, comic]));
+  return getFavoriteSlugs().map((slug) => bySlug.get(slug)).filter(Boolean);
 }
 
 function getBookmarkedIndex() {
@@ -278,6 +377,50 @@ function updateBookmarkUi() {
     const card = button.closest(".comic-card");
     updateBookmarkButton(button, Number(card?.dataset.index));
   });
+}
+
+function updateFavoritesUi() {
+  const favorites = getFavoriteComics();
+  els.favoritesSummary.textContent = `Favorites (${favorites.length})`;
+  els.clearFavoritesButton.disabled = !favorites.length;
+  els.favoritesList.textContent = "";
+
+  if (!favorites.length) {
+    const empty = document.createElement("span");
+    empty.className = "favorites-empty";
+    empty.textContent = "No favorites saved yet.";
+    els.favoritesList.append(empty);
+  } else {
+    const fragment = document.createDocumentFragment();
+    for (const comic of favorites) {
+      const item = document.createElement("button");
+      item.className = "favorite-jump";
+      item.type = "button";
+      item.dataset.slug = comic.slug;
+      item.innerHTML = `<strong>${escapeHtml(comic.title)}</strong><span>${escapeHtml(formatComicDate(comic))} · ${escapeHtml(comic.book.label)}</span>`;
+      item.addEventListener("click", () => {
+        els.favoritesMenu.open = false;
+        const index = archive.findIndex((entry) => entry.slug === comic.slug);
+        if (index >= 0) startAt(index, { scrollToTop: true });
+      });
+      fragment.append(item);
+    }
+    els.favoritesList.append(fragment);
+  }
+
+  document.querySelectorAll(".favorite-button").forEach((button) => {
+    const card = button.closest(".comic-card");
+    updateFavoriteButton(button, Number(card?.dataset.index));
+  });
+}
+
+function updateFavoriteButton(button, index) {
+  const comic = archive[clampIndex(index)];
+  const isFavorite = getFavoriteSlugs().includes(comic.slug);
+  button.classList.toggle("is-favorite", isFavorite);
+  button.setAttribute("aria-pressed", String(isFavorite));
+  button.setAttribute("aria-label", isFavorite ? "Remove from favorites" : "Favorite this comic");
+  button.title = isFavorite ? "Remove from favorites" : "Add to favorites";
 }
 
 function updateBookmarkButton(button, index) {
