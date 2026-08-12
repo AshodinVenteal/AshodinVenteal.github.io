@@ -76,7 +76,7 @@ select {
   justify-content: space-between;
   gap: 16px;
   min-height: 74px;
-  padding: 10px 154px 10px 22px;
+  padding: 10px 48px 10px 22px;
   border-bottom: 1px solid var(--line);
   background: var(--chrome);
   backdrop-filter: blur(12px);
@@ -369,8 +369,8 @@ html[data-theme="dark"] .theme-toggle-thumb::after {
 }
 
 .reader-shell {
-  width: min(1040px, calc(100% - 170px));
-  margin: 0 auto 64px 18px;
+  width: min(1440px, calc(100vw - 48px));
+  margin: 0 auto 64px;
   padding: 24px 0 0;
 }
 
@@ -382,7 +382,7 @@ html[data-theme="dark"] .theme-toggle-thumb::after {
 .segment-banner {
   display: grid;
   gap: 5px;
-  width: min(100%, 1032px);
+  width: 100%;
   padding: 14px 16px;
   border: 1px solid color-mix(in srgb, var(--segment-accent) 48%, var(--line));
   border-left: 8px solid var(--segment-accent);
@@ -439,7 +439,7 @@ html[data-theme="dark"] .comic-chip {
 
 .comic-card {
   overflow: clip;
-  width: min(100%, 1032px);
+  width: 100%;
   border: 1px solid var(--line);
   border-left: 5px solid var(--segment-accent);
   border-radius: 8px;
@@ -641,6 +641,27 @@ html[data-theme="dark"] .comic-chip {
   border-left: 1px solid var(--line);
   background: var(--paper);
   box-shadow: -10px 0 30px rgba(18, 26, 33, 0.08);
+  transition: transform 180ms ease, opacity 180ms ease, box-shadow 180ms ease;
+}
+
+.timeline-mini-rail {
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 5px;
+  display: none;
+  width: 18px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--track);
+  pointer-events: none;
+}
+
+.timeline-mini-rail .timeline-segment {
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+  opacity: 0.9;
 }
 
 .timeline-readout {
@@ -677,18 +698,45 @@ html[data-theme="dark"] .comic-chip {
   position: relative;
   min-height: 180px;
   border-radius: 8px;
-  background: linear-gradient(90deg, transparent 0 47%, var(--track) 47% 53%, transparent 53% 100%);
+  overflow: hidden;
+  background: linear-gradient(90deg, transparent 0 47%, rgba(0, 0, 0, 0.12) 47% 53%, transparent 53% 100%);
   touch-action: none;
+}
+
+.timeline-segments,
+.timeline-ticks,
+.timeline-milestones {
+  position: absolute;
+  inset: 0;
+}
+
+.timeline-segments,
+.timeline-ticks {
+  pointer-events: none;
+}
+
+.timeline-segment {
+  position: absolute;
+  left: calc(50% - 9px);
+  width: 18px;
+  min-height: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--segment-accent) 92%, #fff), var(--segment-accent)),
+    var(--segment-accent);
+  opacity: 0.72;
 }
 
 .timeline-progress {
   position: absolute;
-  left: calc(50% - 3px);
+  left: calc(50% - 4px);
   top: 0;
-  width: 6px;
+  width: 8px;
   height: 0;
   border-radius: 999px;
-  background: var(--teal);
+  background: var(--segment-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--segment-accent) 24%, transparent);
+  pointer-events: none;
 }
 
 .timeline-thumb {
@@ -698,8 +746,9 @@ html[data-theme="dark"] .comic-chip {
   height: 18px;
   border: 2px solid #fff;
   border-radius: 6px;
-  background: var(--red);
+  background: var(--segment-accent);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
   transform: translate(-50%, -50%);
 }
 
@@ -733,6 +782,59 @@ html[data-theme="dark"] .comic-chip {
   opacity: 1;
 }
 
+.timeline-milestone {
+  position: absolute;
+  left: calc(50% + 16px);
+  display: grid;
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  min-height: 18px;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.22);
+  transform: translate(-50%, -50%);
+}
+
+.timeline-milestone::before {
+  width: 9px;
+  height: 9px;
+  background: #fff;
+  clip-path: polygon(50% 0, 62% 34%, 98% 35%, 69% 56%, 79% 91%, 50% 70%, 21% 91%, 31% 56%, 2% 35%, 38% 34%);
+  content: "";
+}
+
+.timeline-milestone span {
+  position: absolute;
+  right: calc(100% + 7px);
+  display: none;
+  width: max-content;
+  max-width: 180px;
+  padding: 4px 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: var(--bubble-bg);
+  color: var(--bubble-ink);
+  font-size: 0.68rem;
+  line-height: 1.2;
+  white-space: normal;
+  pointer-events: none;
+}
+
+.timeline-milestone:hover,
+.timeline-milestone:focus-visible {
+  border-color: var(--segment-accent);
+  outline: 2px solid color-mix(in srgb, var(--segment-accent) 32%, transparent);
+}
+
+.timeline-milestone:hover span,
+.timeline-milestone:focus-visible span {
+  display: block;
+}
+
 .date-jump {
   display: grid;
   gap: 8px;
@@ -759,6 +861,53 @@ html[data-theme="dark"] .comic-chip {
 .date-jump button {
   background: var(--teal);
   color: #fff;
+}
+
+@media (min-width: 981px) {
+  .timeline-panel {
+    transform: translateX(calc(100% - 28px));
+    opacity: 0.82;
+  }
+
+  .timeline-mini-rail {
+    display: block;
+  }
+
+  .timeline-panel > :not(.timeline-mini-rail) {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease;
+  }
+
+  .timeline-panel::before {
+    position: absolute;
+    top: 0;
+    left: -18px;
+    width: 18px;
+    height: 100%;
+    content: "";
+  }
+
+  .timeline-panel:hover,
+  .timeline-panel:focus-within,
+  .timeline-panel.is-dragging {
+    transform: translateX(0);
+    opacity: 1;
+    box-shadow: -16px 0 34px rgba(18, 26, 33, 0.14);
+  }
+
+  .timeline-panel:hover .timeline-mini-rail,
+  .timeline-panel:focus-within .timeline-mini-rail,
+  .timeline-panel.is-dragging .timeline-mini-rail {
+    opacity: 0;
+  }
+
+  .timeline-panel:hover > :not(.timeline-mini-rail),
+  .timeline-panel:focus-within > :not(.timeline-mini-rail),
+  .timeline-panel.is-dragging > :not(.timeline-mini-rail) {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .empty-state,
@@ -903,6 +1052,25 @@ html[data-theme="dark"] .comic-chip {
     width: 74px;
     padding: 8px 6px;
     z-index: 100;
+    transform: none;
+    opacity: 1;
+  }
+
+  .timeline-segment {
+    left: calc(50% - 7px);
+    width: 14px;
+  }
+
+  .timeline-milestone {
+    left: calc(50% + 12px);
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    min-height: 16px;
+  }
+
+  .timeline-milestone span {
+    display: none;
   }
 
   .timeline-readout {
@@ -1099,7 +1267,7 @@ html[data-theme="dark"] .comic-chip {
 
   .timeline-track {
     min-height: 132px;
-    background: linear-gradient(90deg, transparent 0 42%, var(--track) 42% 58%, transparent 58% 100%);
+    background: linear-gradient(90deg, transparent 0 42%, rgba(0, 0, 0, 0.12) 42% 58%, transparent 58% 100%);
   }
 
   .timeline-progress {

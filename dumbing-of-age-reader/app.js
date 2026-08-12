@@ -30,8 +30,12 @@ const els = {
   copySyncLinkButton: document.querySelector("#copySyncLinkButton"),
   importSyncKeyButton: document.querySelector("#importSyncKeyButton"),
   latestButton: document.querySelector("#latestButton"),
+  timelinePanel: document.querySelector("#timelinePanel"),
+  timelineMiniRail: document.querySelector("#timelineMiniRail"),
   timelineTrack: document.querySelector("#timelineTrack"),
+  timelineSegments: document.querySelector("#timelineSegments"),
   timelineTicks: document.querySelector("#timelineTicks"),
+  timelineMilestones: document.querySelector("#timelineMilestones"),
   timelineProgress: document.querySelector("#timelineProgress"),
   timelineThumb: document.querySelector("#timelineThumb"),
   timelineBubble: document.querySelector("#timelineBubble"),
@@ -689,6 +693,7 @@ function getVisibleCardIndex() {
 
 function onTimelinePointerDown(event) {
   userIsDragging = true;
+  els.timelinePanel.classList.add("is-dragging");
   els.timelineTrack.classList.add("is-dragging");
   els.timelineTrack.setPointerCapture(event.pointerId);
   previewTimelineAt(event.clientY);
@@ -696,6 +701,7 @@ function onTimelinePointerDown(event) {
   const move = (moveEvent) => previewTimelineAt(moveEvent.clientY);
   const up = () => {
     userIsDragging = false;
+    els.timelinePanel.classList.remove("is-dragging");
     els.timelineTrack.classList.remove("is-dragging");
     els.timelineTrack.removeEventListener("pointermove", move);
     els.timelineTrack.removeEventListener("pointerup", up);
@@ -739,9 +745,9 @@ function onTimelineKeyDown(event) {
 function updateTimelineForIndex(index, options = {}) {
   if (!archive.length) return;
   const comic = archive[clampIndex(index)];
-  const ratio = archive.length === 1 ? 0 : index / (archive.length - 1);
-  const percent = `${ratio * 100}%`;
+  const percent = `${timelinePercent(index)}%`;
 
+  applySegmentStyle(els.timelinePanel, comic);
   els.timelineThumb.style.top = percent;
   els.timelineProgress.style.height = percent;
   els.timelineBubble.style.top = percent;
@@ -758,18 +764,70 @@ function updateTimelineForIndex(index, options = {}) {
 }
 
 function renderTimelineTicks() {
+  els.timelineMiniRail.textContent = "";
+  els.timelineSegments.textContent = "";
   els.timelineTicks.textContent = "";
+  els.timelineMilestones.textContent = "";
+
+  const segmentFragment = document.createDocumentFragment();
+  const miniSegmentFragment = document.createDocumentFragment();
+  const segmentStarts = archive
+    .map((comic, index) => ({ comic, index }))
+    .filter(({ comic, index }) => index === 0 || isSegmentBoundary(comic));
+
+  for (const [segmentIndex, { comic, index }] of segmentStarts.entries()) {
+    const nextIndex = segmentStarts[segmentIndex + 1]?.index ?? archive.length - 1;
+    const start = timelinePercent(index);
+    const end = segmentIndex === segmentStarts.length - 1 ? 100 : timelinePercent(nextIndex);
+    segmentFragment.append(createTimelineSegment(comic, start, end));
+    miniSegmentFragment.append(createTimelineSegment(comic, start, end));
+  }
+  els.timelineSegments.append(segmentFragment);
+  els.timelineMiniRail.append(miniSegmentFragment);
+
   const years = [...new Set(archive.map((comic) => comic.year))];
-  const fragment = document.createDocumentFragment();
+  const tickFragment = document.createDocumentFragment();
   for (const year of years) {
     const firstIndex = archive.findIndex((comic) => comic.year === year);
     const tick = document.createElement("div");
     tick.className = "timeline-tick";
-    tick.style.top = `${(firstIndex / (archive.length - 1)) * 100}%`;
+    tick.style.top = `${timelinePercent(firstIndex)}%`;
     tick.textContent = String(year);
-    fragment.append(tick);
+    tickFragment.append(tick);
   }
-  els.timelineTicks.append(fragment);
+  els.timelineTicks.append(tickFragment);
+
+  const milestoneFragment = document.createDocumentFragment();
+  archive.forEach((comic, index) => {
+    if (!comic.authorEvent) return;
+    const marker = document.createElement("button");
+    const label = document.createElement("span");
+    marker.className = "timeline-milestone";
+    marker.type = "button";
+    marker.style.top = `${timelinePercent(index)}%`;
+    marker.title = `${comic.authorEvent.label}: ${comic.title} - ${formatComicDate(comic)}`;
+    marker.setAttribute("aria-label", marker.title);
+    applySegmentStyle(marker, comic);
+    label.textContent = comic.authorEvent.label;
+    marker.append(label);
+    marker.addEventListener("pointerdown", (event) => event.stopPropagation());
+    marker.addEventListener("click", (event) => {
+      event.stopPropagation();
+      startAt(index, { scrollToTop: true });
+    });
+    milestoneFragment.append(marker);
+  });
+  els.timelineMilestones.append(milestoneFragment);
+}
+
+function createTimelineSegment(comic, start, end) {
+  const segment = document.createElement("span");
+  segment.className = "timeline-segment";
+  segment.style.top = `${start}%`;
+  segment.style.height = `${Math.max(end - start, 0.45)}%`;
+  segment.title = `${comic.book.label} · ${comic.book.name}: ${comic.storyline.name}`;
+  applySegmentStyle(segment, comic);
+  return segment;
 }
 
 function buildDateIndex() {
@@ -859,6 +917,10 @@ function option(value, label) {
 
 function formatComicDate(comic) {
   return dateFormatter.format(new Date(comic.timestamp));
+}
+
+function timelinePercent(index) {
+  return archive.length <= 1 ? 0 : (clampIndex(index) / (archive.length - 1)) * 100;
 }
 
 function clampIndex(index) {
