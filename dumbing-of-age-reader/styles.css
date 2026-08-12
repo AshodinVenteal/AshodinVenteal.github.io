@@ -639,7 +639,7 @@ html[data-theme="dark"] .comic-chip {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 100;
+  z-index: 240;
   display: grid;
   width: 136px;
   height: 100vh;
@@ -765,7 +765,7 @@ html[data-theme="dark"] .comic-chip {
   position: relative;
   min-height: 180px;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: visible;
   background: linear-gradient(90deg, transparent 0 47%, rgba(0, 0, 0, 0.12) 47% 53%, transparent 53% 100%);
   touch-action: none;
 }
@@ -779,7 +779,14 @@ html[data-theme="dark"] .comic-chip {
 
 .timeline-segments,
 .timeline-ticks {
+  overflow: hidden;
+  border-radius: inherit;
   pointer-events: none;
+}
+
+.timeline-milestones {
+  z-index: 12;
+  overflow: visible;
 }
 
 .timeline-segment {
@@ -833,6 +840,7 @@ html[data-theme="dark"] .comic-chip {
 .timeline-bubble {
   position: absolute;
   right: 8px;
+  z-index: 20;
   min-width: 92px;
   padding: 5px 6px;
   border: 1px solid var(--line-strong);
@@ -883,6 +891,7 @@ html[data-theme="dark"] .comic-chip {
 .timeline-book-marker span {
   position: absolute;
   right: calc(100% + 6px);
+  z-index: 30;
   display: none;
   width: max-content;
   max-width: 180px;
@@ -937,6 +946,7 @@ html[data-theme="dark"] .comic-chip {
 .timeline-milestone span {
   position: absolute;
   right: calc(100% + 7px);
+  z-index: 30;
   display: none;
   width: max-content;
   max-width: 180px;
@@ -1181,7 +1191,7 @@ html[data-theme="dark"] .comic-chip {
   .timeline-panel {
     width: 74px;
     padding: 8px 6px;
-    z-index: 100;
+    z-index: 240;
     transform: none;
     opacity: 1;
   }
@@ -1218,6 +1228,13 @@ html[data-theme="dark"] .comic-chip {
 
   .timeline-milestone span {
     display: none;
+  }
+
+  .timeline-book-marker:hover span,
+  .timeline-book-marker:focus-visible span,
+  .timeline-milestone:hover span,
+  .timeline-milestone:focus-visible span {
+    display: block;
   }
 
   .timeline-readout {
@@ -1408,6 +1425,11 @@ html[data-theme="dark"] .comic-chip {
 
   .timeline-book-marker span {
     display: none;
+  }
+
+  .timeline-book-marker:hover span,
+  .timeline-book-marker:focus-visible span {
+    display: block;
   }
 
   .timeline-panel > :not(.timeline-mini-rail) {
