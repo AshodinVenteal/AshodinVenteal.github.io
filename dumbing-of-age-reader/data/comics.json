@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-11T11:04:43.649Z",
+  "generatedAt": "2026-08-12T11:10:46.162Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5528,
+  "count": 5529,
   "comics": [
     {
       "id": 5,
@@ -65857,7 +65857,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the sound of everybody digging through walkypedia for a karen",
-      "comments": 89
+      "comments": 88
     },
     {
       "id": 20611,
@@ -65989,7 +65989,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "mommy",
-      "comments": 189
+      "comments": 185
     },
     {
       "id": 20637,
@@ -66013,7 +66013,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do you think when ruth gets those, she groans wearily",
-      "comments": 127
+      "comments": 126
     },
     {
       "id": 20639,
@@ -66085,7 +66085,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "reason: they felt like it",
-      "comments": 181
+      "comments": 180
     },
     {
       "id": 20654,
@@ -66157,7 +66157,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "throw some lucy in there and walky's got a girlfriend turducken",
-      "comments": 121
+      "comments": 120
     },
     {
       "id": 20665,
@@ -66241,7 +66241,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the blockerrrrrrrrrrr",
-      "comments": 65
+      "comments": 64
     },
     {
       "id": 20677,
@@ -66265,7 +66265,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the hovertext for this used to be 'GAY WRATH MONTH' cuz it was for july 1 but then new material pushed it all the way into august, sorry",
-      "comments": 91
+      "comments": 90
     },
     {
       "id": 20686,
@@ -66301,7 +66301,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do crimes, be gay",
-      "comments": 187
+      "comments": 186
     },
     {
       "id": 20689,
@@ -66313,7 +66313,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not to be confused with slag or snarl",
-      "comments": 101
+      "comments": 98
     },
     {
       "id": 20694,
@@ -66325,7 +66325,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 16: i'm stating it hilariously, so it's fine",
-      "comments": 91
+      "comments": 90
     },
     {
       "id": 20695,
@@ -66337,7 +66337,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hee hee 'bono'",
-      "comments": 41
+      "comments": 77
+    },
+    {
+      "id": 20696,
+      "title": "Okay so",
+      "slug": "okayso",
+      "link": "https://www.dumbingofage.com/comic/okayso/",
+      "publishedAt": "2026-08-12T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-12-okayso.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "finally remembered that ceiling crack",
+      "comments": 16
     }
   ]
 }
