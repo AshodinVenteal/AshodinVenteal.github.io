@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T14:50:29.287Z",
+  "generatedAt": "2026-08-13T11:11:54.773Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5529,
+  "count": 5530,
   "comics": [
     {
       "id": 5,
@@ -66301,7 +66301,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do crimes, be gay",
-      "comments": 186
+      "comments": 185
     },
     {
       "id": 20689,
@@ -66349,7 +66349,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "finally remembered that ceiling crack",
-      "comments": 29
+      "comments": 55
+    },
+    {
+      "id": 20697,
+      "title": "Second cousin",
+      "slug": "secondcousin",
+      "link": "https://www.dumbingofage.com/comic/secondcousin/",
+      "publishedAt": "2026-08-13T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-13-secondcousin.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "don't tell her",
+      "comments": 53
     }
   ]
 }
