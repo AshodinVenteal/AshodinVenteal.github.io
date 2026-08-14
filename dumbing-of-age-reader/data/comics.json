@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T11:11:54.773Z",
+  "generatedAt": "2026-08-14T11:08:00.812Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5530,
+  "count": 5531,
   "comics": [
     {
       "id": 5,
@@ -65784,7 +65784,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-26-twomoreminutes.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 79,
+      "comments": 76,
       "hoverText": "and so are you"
     },
     {
@@ -66193,7 +66193,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "freeze police? but what if they get cold???",
-      "comments": 147
+      "comments": 146
     },
     {
       "id": 20673,
@@ -66325,7 +66325,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 16: i'm stating it hilariously, so it's fine",
-      "comments": 90
+      "comments": 89
     },
     {
       "id": 20695,
@@ -66361,7 +66361,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "don't tell her",
-      "comments": 53
+      "comments": 128
+    },
+    {
+      "id": 20698,
+      "title": "Your friend",
+      "slug": "yourfriend",
+      "link": "https://www.dumbingofage.com/comic/yourfriend/",
+      "publishedAt": "2026-08-14T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-14-yourfriend.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "this keeps happening!!! why",
+      "comments": 16
     }
   ]
 }
