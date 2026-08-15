@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T11:08:00.812Z",
+  "generatedAt": "2026-08-15T10:38:44.314Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5531,
+  "count": 5532,
   "comics": [
     {
       "id": 5,
@@ -66337,7 +66337,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hee hee 'bono'",
-      "comments": 77
+      "comments": 78
     },
     {
       "id": 20696,
@@ -66373,7 +66373,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "this keeps happening!!! why",
-      "comments": 16
+      "comments": 46
+    },
+    {
+      "id": 20704,
+      "title": "Emotional vulnerability",
+      "slug": "emotionalvulnerability",
+      "link": "https://www.dumbingofage.com/comic/emotionalvulnerability/",
+      "publishedAt": "2026-08-15T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-15-emotionalvulnerability.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i'm a big boy man",
+      "comments": 22
     }
   ]
 }
