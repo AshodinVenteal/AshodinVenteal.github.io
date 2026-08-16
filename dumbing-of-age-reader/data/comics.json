@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T10:38:44.314Z",
+  "generatedAt": "2026-08-16T10:39:23.315Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5532,
+  "count": 5533,
   "comics": [
     {
       "id": 5,
@@ -66373,7 +66373,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "this keeps happening!!! why",
-      "comments": 46
+      "comments": 47
     },
     {
       "id": 20704,
@@ -66385,7 +66385,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'm a big boy man",
-      "comments": 22
+      "comments": 71
+    },
+    {
+      "id": 20705,
+      "title": "Four, please",
+      "slug": "fourplease",
+      "link": "https://www.dumbingofage.com/comic/fourplease/",
+      "publishedAt": "2026-08-16T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-16-fourplease.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "oh right i'm rich",
+      "comments": 15
     }
   ]
 }
