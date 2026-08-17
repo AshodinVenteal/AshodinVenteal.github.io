@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T10:39:23.315Z",
+  "generatedAt": "2026-08-17T10:51:28.426Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5533,
+  "count": 5534,
   "comics": [
     {
       "id": 5,
@@ -66385,7 +66385,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'm a big boy man",
-      "comments": 71
+      "comments": 73
     },
     {
       "id": 20705,
@@ -66397,7 +66397,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "oh right i'm rich",
-      "comments": 15
+      "comments": 105
+    },
+    {
+      "id": 20706,
+      "title": "About",
+      "slug": "about",
+      "link": "https://www.dumbingofage.com/comic/about/",
+      "publishedAt": "2026-08-17T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-17-about.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "that's neato",
+      "comments": 35
     }
   ]
 }
