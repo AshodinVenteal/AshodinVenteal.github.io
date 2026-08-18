@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T10:51:28.426Z",
+  "generatedAt": "2026-08-18T10:46:13.782Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5534,
+  "count": 5535,
   "comics": [
     {
       "id": 5,
@@ -66085,7 +66085,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "reason: they felt like it",
-      "comments": 180
+      "comments": 179
     },
     {
       "id": 20654,
@@ -66277,7 +66277,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie's just never hyperfocused on that crack up there before",
-      "comments": 55
+      "comments": 54
     },
     {
       "id": 20687,
@@ -66301,7 +66301,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "do crimes, be gay",
-      "comments": 185
+      "comments": 184
     },
     {
       "id": 20689,
@@ -66397,7 +66397,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "oh right i'm rich",
-      "comments": 105
+      "comments": 107
     },
     {
       "id": 20706,
@@ -66409,7 +66409,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "that's neato",
-      "comments": 35
+      "comments": 103
+    },
+    {
+      "id": 20707,
+      "title": "Blameless",
+      "slug": "blameless-2",
+      "link": "https://www.dumbingofage.com/comic/blameless-2/",
+      "publishedAt": "2026-08-18T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-18-blameless.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "really thought i was nailing it",
+      "comments": 15
     }
   ]
 }
