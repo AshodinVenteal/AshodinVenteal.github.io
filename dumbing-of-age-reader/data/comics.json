@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-18T10:46:13.782Z",
+  "generatedAt": "2026-08-19T10:46:17.539Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5535,
+  "count": 5536,
   "comics": [
     {
       "id": 5,
@@ -65760,7 +65760,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-24-technicality.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 113,
+      "comments": 114,
       "hoverText": "my innate knowledge of who's in whose bed"
     },
     {
@@ -65784,7 +65784,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-26-twomoreminutes.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 76,
+      "comments": 77,
       "hoverText": "and so are you"
     },
     {
@@ -65820,7 +65820,7 @@
       "image": "https://www.dumbingofage.com/wp-content/uploads/2026/06/2026-06-29-bendingoverbackwards.png",
       "imageWidth": 1000,
       "imageHeight": 333,
-      "comments": 167,
+      "comments": 168,
       "hoverText": "jason's so limber"
     },
     {
@@ -65833,7 +65833,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i think these two lovebirds are gonna make it",
-      "comments": 119
+      "comments": 120
     },
     {
       "id": 20604,
@@ -66349,7 +66349,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "finally remembered that ceiling crack",
-      "comments": 55
+      "comments": 56
     },
     {
       "id": 20697,
@@ -66361,7 +66361,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "don't tell her",
-      "comments": 128
+      "comments": 130
     },
     {
       "id": 20698,
@@ -66409,7 +66409,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "that's neato",
-      "comments": 103
+      "comments": 105
     },
     {
       "id": 20707,
@@ -66421,7 +66421,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "really thought i was nailing it",
-      "comments": 15
+      "comments": 49
+    },
+    {
+      "id": 20712,
+      "title": "Push back",
+      "slug": "pushback",
+      "link": "https://www.dumbingofage.com/comic/pushback/",
+      "publishedAt": "2026-08-19T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-19-pushback.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i will stand in the blast radius with you",
+      "comments": 16
     }
   ]
 }
