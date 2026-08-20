@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-19T10:46:17.539Z",
+  "generatedAt": "2026-08-20T10:47:15.967Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5536,
+  "count": 5537,
   "comics": [
     {
       "id": 5,
@@ -66373,7 +66373,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "this keeps happening!!! why",
-      "comments": 47
+      "comments": 48
     },
     {
       "id": 20704,
@@ -66385,7 +66385,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'm a big boy man",
-      "comments": 73
+      "comments": 74
     },
     {
       "id": 20705,
@@ -66421,7 +66421,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "really thought i was nailing it",
-      "comments": 49
+      "comments": 52
     },
     {
       "id": 20712,
@@ -66433,7 +66433,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i will stand in the blast radius with you",
-      "comments": 16
+      "comments": 64
+    },
+    {
+      "id": 20713,
+      "title": "Pumpkin Redux",
+      "slug": "pumpkinredux",
+      "link": "https://www.dumbingofage.com/comic/pumpkinredux/",
+      "publishedAt": "2026-08-20T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-20-pumpkinredux.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "oh so we're getting down to it, then",
+      "comments": 38
     }
   ]
 }
