@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T10:47:15.967Z",
+  "generatedAt": "2026-08-21T10:47:18.963Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5537,
+  "count": 5538,
   "comics": [
     {
       "id": 5,
@@ -66265,7 +66265,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the hovertext for this used to be 'GAY WRATH MONTH' cuz it was for july 1 but then new material pushed it all the way into august, sorry",
-      "comments": 90
+      "comments": 91
     },
     {
       "id": 20686,
@@ -66433,7 +66433,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i will stand in the blast radius with you",
-      "comments": 64
+      "comments": 65
     },
     {
       "id": 20713,
@@ -66445,7 +66445,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "oh so we're getting down to it, then",
-      "comments": 38
+      "comments": 94
+    },
+    {
+      "id": 20717,
+      "title": "Stop",
+      "slug": "stop-4",
+      "link": "https://www.dumbingofage.com/comic/stop-4/",
+      "publishedAt": "2026-08-21T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-21-stop.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "not sure it's working",
+      "comments": 52
     }
   ]
 }
