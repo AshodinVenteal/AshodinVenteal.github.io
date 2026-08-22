@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T10:47:18.963Z",
+  "generatedAt": "2026-08-22T10:39:49.300Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5538,
+  "count": 5539,
   "comics": [
     {
       "id": 5,
@@ -66445,7 +66445,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "oh so we're getting down to it, then",
-      "comments": 94
+      "comments": 95
     },
     {
       "id": 20717,
@@ -66457,7 +66457,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not sure it's working",
-      "comments": 52
+      "comments": 148
+    },
+    {
+      "id": 20720,
+      "title": "Contracts",
+      "slug": "contracts",
+      "link": "https://www.dumbingofage.com/comic/contracts/",
+      "publishedAt": "2026-08-22T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-22-contracts.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "charlie's mind has definitely wandered towards seahorses or something in the meantime",
+      "comments": 37
     }
   ]
 }
