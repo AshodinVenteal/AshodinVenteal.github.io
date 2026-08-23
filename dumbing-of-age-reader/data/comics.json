@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T10:39:49.300Z",
+  "generatedAt": "2026-08-23T10:40:20.216Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5539,
+  "count": 5540,
   "comics": [
     {
       "id": 5,
@@ -66457,7 +66457,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "not sure it's working",
-      "comments": 148
+      "comments": 149
     },
     {
       "id": 20720,
@@ -66469,7 +66469,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie's mind has definitely wandered towards seahorses or something in the meantime",
-      "comments": 37
+      "comments": 124
+    },
+    {
+      "id": 20722,
+      "title": "In charge",
+      "slug": "incharge",
+      "link": "https://www.dumbingofage.com/comic/incharge/",
+      "publishedAt": "2026-08-23T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-23-incharge.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "oh phew they agree i thought they were fighting",
+      "comments": 84
     }
   ]
 }
