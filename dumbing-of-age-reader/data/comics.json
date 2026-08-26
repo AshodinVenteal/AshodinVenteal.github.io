@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T10:49:26.257Z",
+  "generatedAt": "2026-08-26T10:51:38.790Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5542,
+  "count": 5543,
   "comics": [
     {
       "id": 5,
@@ -66433,7 +66433,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i will stand in the blast radius with you",
-      "comments": 65
+      "comments": 66
     },
     {
       "id": 20713,
@@ -66493,7 +66493,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "and she didn't even have her phone!",
-      "comments": 93
+      "comments": 96
     },
     {
       "id": 20730,
@@ -66505,7 +66505,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "well consulting the tags would be cheating",
-      "comments": 40
+      "comments": 78
+    },
+    {
+      "id": 20746,
+      "title": "Ova",
+      "slug": "ova",
+      "link": "https://www.dumbingofage.com/comic/ova/",
+      "publishedAt": "2026-08-26T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-26-ova.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "whenever i see the word 'ova' i want to pronounce it exactly how johnny five exclaims 'NOVA!'",
+      "comments": 52
     }
   ]
 }
