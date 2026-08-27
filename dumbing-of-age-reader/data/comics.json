@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T10:51:38.790Z",
+  "generatedAt": "2026-08-27T20:30:26.280Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5543,
+  "count": 5544,
   "comics": [
     {
       "id": 5,
@@ -66505,7 +66505,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "well consulting the tags would be cheating",
-      "comments": 78
+      "comments": 80
     },
     {
       "id": 20746,
@@ -66517,7 +66517,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "whenever i see the word 'ova' i want to pronounce it exactly how johnny five exclaims 'NOVA!'",
-      "comments": 52
+      "comments": 75
+    },
+    {
+      "id": 20748,
+      "title": "Stepped up",
+      "slug": "steppedup",
+      "link": "https://www.dumbingofage.com/comic/steppedup/",
+      "publishedAt": "2026-08-27T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-27-steppedup.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "and they were pretty good ones!",
+      "comments": 59
     }
   ]
 }
