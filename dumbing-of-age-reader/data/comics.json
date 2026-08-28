@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-27T20:30:26.280Z",
+  "generatedAt": "2026-08-28T21:11:07.429Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5544,
+  "count": 5545,
   "comics": [
     {
       "id": 5,
@@ -66493,7 +66493,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "and she didn't even have her phone!",
-      "comments": 96
+      "comments": 97
     },
     {
       "id": 20730,
@@ -66505,7 +66505,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "well consulting the tags would be cheating",
-      "comments": 80
+      "comments": 83
     },
     {
       "id": 20746,
@@ -66529,7 +66529,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "and they were pretty good ones!",
-      "comments": 59
+      "comments": 67
+    },
+    {
+      "id": 20753,
+      "title": "Anatomical equilibrium",
+      "slug": "anatomicalequilibrium",
+      "link": "https://www.dumbingofage.com/comic/anatomicalequilibrium/",
+      "publishedAt": "2026-08-28T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-28-anatomicalequilibrium.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "pull 'em out if you got 'em",
+      "comments": 102
     }
   ]
 }
