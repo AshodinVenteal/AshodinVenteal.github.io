@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-28T21:11:07.429Z",
+  "generatedAt": "2026-08-29T15:04:02.298Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5545,
+  "count": 5546,
   "comics": [
     {
       "id": 5,
@@ -66361,7 +66361,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "don't tell her",
-      "comments": 130
+      "comments": 131
     },
     {
       "id": 20698,
@@ -66469,7 +66469,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie's mind has definitely wandered towards seahorses or something in the meantime",
-      "comments": 127
+      "comments": 128
     },
     {
       "id": 20722,
@@ -66517,7 +66517,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "whenever i see the word 'ova' i want to pronounce it exactly how johnny five exclaims 'NOVA!'",
-      "comments": 75
+      "comments": 76
     },
     {
       "id": 20748,
@@ -66541,7 +66541,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "pull 'em out if you got 'em",
-      "comments": 102
+      "comments": 117
+    },
+    {
+      "id": 20757,
+      "title": "Foremost expert",
+      "slug": "foremostexpert",
+      "link": "https://www.dumbingofage.com/comic/foremostexpert/",
+      "publishedAt": "2026-08-29T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-29-foremostexpert.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "don't tempt the fates like that",
+      "comments": 50
     }
   ]
 }
