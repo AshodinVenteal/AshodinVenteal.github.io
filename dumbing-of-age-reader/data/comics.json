@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-29T15:04:02.298Z",
+  "generatedAt": "2026-08-30T14:52:29.697Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5546,
+  "count": 5547,
   "comics": [
     {
       "id": 5,
@@ -66553,7 +66553,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "don't tempt the fates like that",
-      "comments": 50
+      "comments": 79
+    },
+    {
+      "id": 20758,
+      "title": "On Saturday",
+      "slug": "onsaturday",
+      "link": "https://www.dumbingofage.com/comic/onsaturday/",
+      "publishedAt": "2026-08-30T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-30-onsaturday.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "the rapture at some nebulous point in the very future? absolutely. the rapture this exact saturday? ridiculous",
+      "comments": 94
     }
   ]
 }
