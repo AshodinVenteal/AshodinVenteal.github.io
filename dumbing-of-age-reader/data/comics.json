@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-30T14:52:29.697Z",
+  "generatedAt": "2026-08-31T17:37:32.486Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5547,
+  "count": 5548,
   "comics": [
     {
       "id": 5,
@@ -66553,7 +66553,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "don't tempt the fates like that",
-      "comments": 79
+      "comments": 82
     },
     {
       "id": 20758,
@@ -66565,7 +66565,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the rapture at some nebulous point in the very future? absolutely. the rapture this exact saturday? ridiculous",
-      "comments": 94
+      "comments": 119
+    },
+    {
+      "id": 20759,
+      "title": "Tribulation",
+      "slug": "tribulation",
+      "link": "https://www.dumbingofage.com/comic/tribulation/",
+      "publishedAt": "2026-08-31T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-08-31-tribulation.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "seven years of tribbing seems exhausting",
+      "comments": 92
     }
   ]
 }
