@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-31T17:37:32.486Z",
+  "generatedAt": "2026-09-01T14:53:35.659Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5548,
+  "count": 5549,
   "comics": [
     {
       "id": 5,
@@ -66541,7 +66541,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "pull 'em out if you got 'em",
-      "comments": 117
+      "comments": 118
     },
     {
       "id": 20757,
@@ -66565,7 +66565,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the rapture at some nebulous point in the very future? absolutely. the rapture this exact saturday? ridiculous",
-      "comments": 119
+      "comments": 120
     },
     {
       "id": 20759,
@@ -66577,7 +66577,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "seven years of tribbing seems exhausting",
-      "comments": 92
+      "comments": 104
+    },
+    {
+      "id": 20760,
+      "title": "Tribbing",
+      "slug": "tribbing",
+      "link": "https://www.dumbingofage.com/comic/tribbing/",
+      "publishedAt": "2026-09-01T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-01-tribbing.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "asking my president for permission to speak",
+      "comments": 67
     }
   ]
 }
