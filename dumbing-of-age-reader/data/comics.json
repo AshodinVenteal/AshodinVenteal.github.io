@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-01T14:53:35.659Z",
+  "generatedAt": "2026-09-02T14:29:32.705Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5549,
+  "count": 5550,
   "comics": [
     {
       "id": 5,
@@ -66577,7 +66577,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "seven years of tribbing seems exhausting",
-      "comments": 104
+      "comments": 105
     },
     {
       "id": 20760,
@@ -66589,7 +66589,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "asking my president for permission to speak",
-      "comments": 67
+      "comments": 94
+    },
+    {
+      "id": 20761,
+      "title": "Opsec",
+      "slug": "opsec",
+      "link": "https://www.dumbingofage.com/comic/opsec/",
+      "publishedAt": "2026-09-02T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-02-opsec.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "my amazi-girl is PERFECTLY REAL",
+      "comments": 68
     }
   ]
 }
