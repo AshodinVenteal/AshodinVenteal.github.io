@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-02T14:29:32.705Z",
+  "generatedAt": "2026-09-03T14:34:47.465Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5550,
+  "count": 5551,
   "comics": [
     {
       "id": 5,
@@ -66577,7 +66577,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "seven years of tribbing seems exhausting",
-      "comments": 105
+      "comments": 106
     },
     {
       "id": 20760,
@@ -66589,7 +66589,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "asking my president for permission to speak",
-      "comments": 94
+      "comments": 95
     },
     {
       "id": 20761,
@@ -66601,7 +66601,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "my amazi-girl is PERFECTLY REAL",
-      "comments": 68
+      "comments": 87
+    },
+    {
+      "id": 20762,
+      "title": "Tired and angry",
+      "slug": "tiredandangry",
+      "link": "https://www.dumbingofage.com/comic/tiredandangry/",
+      "publishedAt": "2026-09-03T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-03-tiredandangry.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i will not be your convenient plot patch!!!",
+      "comments": 61
     }
   ]
 }
