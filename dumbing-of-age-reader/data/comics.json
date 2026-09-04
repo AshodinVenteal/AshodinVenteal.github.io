@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-03T14:34:47.465Z",
+  "generatedAt": "2026-09-04T14:21:52.032Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5551,
+  "count": 5552,
   "comics": [
     {
       "id": 5,
@@ -66601,7 +66601,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "my amazi-girl is PERFECTLY REAL",
-      "comments": 87
+      "comments": 88
     },
     {
       "id": 20762,
@@ -66613,7 +66613,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i will not be your convenient plot patch!!!",
-      "comments": 61
+      "comments": 74
+    },
+    {
+      "id": 20773,
+      "title": "Hair dye diversion",
+      "slug": "hairdyediversion",
+      "link": "https://www.dumbingofage.com/comic/hairdyediversion/",
+      "publishedAt": "2026-09-04T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-04-hairdyediversion.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "END OF BOOK SIXTEEN",
+      "comments": 129
     }
   ]
 }
