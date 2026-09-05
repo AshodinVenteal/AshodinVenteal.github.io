@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-04T14:21:52.032Z",
+  "generatedAt": "2026-09-05T13:27:38.313Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5552,
+  "count": 5553,
   "comics": [
     {
       "id": 5,
@@ -66625,7 +66625,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "END OF BOOK SIXTEEN",
-      "comments": 129
+      "comments": 163
+    },
+    {
+      "id": 20781,
+      "title": "Stole this backpack",
+      "slug": "stolethisbackpack",
+      "link": "https://www.dumbingofage.com/comic/stolethisbackpack/",
+      "publishedAt": "2026-09-05T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-05-stolethisbackpack.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "can dorothy throw a punch??? find out in: book 17!",
+      "comments": 59
     }
   ]
 }
