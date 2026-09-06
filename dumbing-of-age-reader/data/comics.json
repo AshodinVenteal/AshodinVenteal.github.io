@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-05T13:27:38.313Z",
+  "generatedAt": "2026-09-06T13:40:58.685Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5553,
+  "count": 5554,
   "comics": [
     {
       "id": 5,
@@ -66625,7 +66625,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "END OF BOOK SIXTEEN",
-      "comments": 163
+      "comments": 164
     },
     {
       "id": 20781,
@@ -66637,7 +66637,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "can dorothy throw a punch??? find out in: book 17!",
-      "comments": 59
+      "comments": 75
+    },
+    {
+      "id": 20788,
+      "title": "Just a backpack",
+      "slug": "justabackpack",
+      "link": "https://www.dumbingofage.com/comic/justabackpack/",
+      "publishedAt": "2026-09-06T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-06-justabackpack.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "amazinglyloquacious-girl",
+      "comments": 57
     }
   ]
 }
