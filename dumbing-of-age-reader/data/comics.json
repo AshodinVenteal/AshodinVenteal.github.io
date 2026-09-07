@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-06T13:40:58.685Z",
+  "generatedAt": "2026-09-07T15:51:12.783Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5554,
+  "count": 5555,
   "comics": [
     {
       "id": 5,
@@ -66637,7 +66637,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "can dorothy throw a punch??? find out in: book 17!",
-      "comments": 75
+      "comments": 76
     },
     {
       "id": 20788,
@@ -66649,7 +66649,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "amazinglyloquacious-girl",
-      "comments": 57
+      "comments": 68
+    },
+    {
+      "id": 20789,
+      "title": "Fifty thousand",
+      "slug": "fiftythousand",
+      "link": "https://www.dumbingofage.com/comic/fiftythousand/",
+      "publishedAt": "2026-09-07T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-07-fiftythousand.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "ceiling asher is watching you pee",
+      "comments": 45
     }
   ]
 }
