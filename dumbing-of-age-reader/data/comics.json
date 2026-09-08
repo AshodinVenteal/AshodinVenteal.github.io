@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-07T15:51:12.783Z",
+  "generatedAt": "2026-09-08T14:32:16.186Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5555,
+  "count": 5556,
   "comics": [
     {
       "id": 5,
@@ -66649,7 +66649,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "amazinglyloquacious-girl",
-      "comments": 68
+      "comments": 70
     },
     {
       "id": 20789,
@@ -66661,7 +66661,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "ceiling asher is watching you pee",
-      "comments": 45
+      "comments": 58
+    },
+    {
+      "id": 20790,
+      "title": "You look well",
+      "slug": "youlookwell",
+      "link": "https://www.dumbingofage.com/comic/youlookwell/",
+      "publishedAt": "2026-09-08T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-08-youlookwell.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "tis just a flesh wound",
+      "comments": 64
     }
   ]
 }
