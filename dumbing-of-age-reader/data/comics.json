@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-08T14:32:16.186Z",
+  "generatedAt": "2026-09-09T14:36:06.794Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5556,
+  "count": 5557,
   "comics": [
     {
       "id": 5,
@@ -66661,7 +66661,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "ceiling asher is watching you pee",
-      "comments": 58
+      "comments": 59
     },
     {
       "id": 20790,
@@ -66673,7 +66673,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "tis just a flesh wound",
-      "comments": 64
+      "comments": 82
+    },
+    {
+      "id": 20795,
+      "title": "On their way",
+      "slug": "ontheirway",
+      "link": "https://www.dumbingofage.com/comic/ontheirway/",
+      "publishedAt": "2026-09-09T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/08/2026-09-09-ontheirway.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "*opens backpack* don't know what i expected",
+      "comments": 43
     }
   ]
 }
