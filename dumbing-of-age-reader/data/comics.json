@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-09T14:36:06.794Z",
+  "generatedAt": "2026-09-10T14:26:09.609Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5557,
+  "count": 5558,
   "comics": [
     {
       "id": 5,
@@ -66685,7 +66685,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "*opens backpack* don't know what i expected",
-      "comments": 43
+      "comments": 53
+    },
+    {
+      "id": 20797,
+      "title": "Sixteen",
+      "slug": "sebbenteen",
+      "link": "https://www.dumbingofage.com/comic/sebbenteen/",
+      "publishedAt": "2026-09-10T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-10-sixenteen.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "oh no sixteen is too many years for a webcomic, pack it all up, throw it in the garbage",
+      "comments": 82
     }
   ]
 }
