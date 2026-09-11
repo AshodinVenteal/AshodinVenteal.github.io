@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-10T14:26:09.609Z",
+  "generatedAt": "2026-09-11T14:26:26.974Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5558,
+  "count": 5559,
   "comics": [
     {
       "id": 5,
@@ -66697,7 +66697,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "oh no sixteen is too many years for a webcomic, pack it all up, throw it in the garbage",
-      "comments": 82
+      "comments": 100
+    },
+    {
+      "id": 20806,
+      "title": "Loudly passionate",
+      "slug": "loudlypassionate",
+      "link": "https://www.dumbingofage.com/comic/loudlypassionate/",
+      "publishedAt": "2026-09-11T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-11-loudlypassionate.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i dunno, she'd probably only be best at it if she had unbitten fingernails",
+      "comments": 42
     }
   ]
 }
