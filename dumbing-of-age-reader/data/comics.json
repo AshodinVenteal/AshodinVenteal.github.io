@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-11T14:26:26.974Z",
+  "generatedAt": "2026-09-12T13:37:00.118Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5559,
+  "count": 5560,
   "comics": [
     {
       "id": 5,
@@ -66709,7 +66709,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i dunno, she'd probably only be best at it if she had unbitten fingernails",
-      "comments": 42
+      "comments": 57
+    },
+    {
+      "id": 20807,
+      "title": "Drug flight",
+      "slug": "drugflight",
+      "link": "https://www.dumbingofage.com/comic/drugflight/",
+      "publishedAt": "2026-09-12T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-12-drugflight.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "no, amber's not about to have an oxycontin addiction storyline",
+      "comments": 44
     }
   ]
 }
