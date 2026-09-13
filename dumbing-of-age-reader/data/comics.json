@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-12T13:37:00.118Z",
+  "generatedAt": "2026-09-13T14:23:33.641Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5560,
+  "count": 5561,
   "comics": [
     {
       "id": 5,
@@ -66721,7 +66721,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "no, amber's not about to have an oxycontin addiction storyline",
-      "comments": 44
+      "comments": 61
+    },
+    {
+      "id": 20808,
+      "title": "Dimetrodon",
+      "slug": "dimetrodon",
+      "link": "https://www.dumbingofage.com/comic/dimetrodon/",
+      "publishedAt": "2026-09-13T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-13-dimetrodon.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "hey, when i *wrote* this once upon katamari damacy gag, it was timely",
+      "comments": 50
     }
   ]
 }
