@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-13T14:23:33.641Z",
+  "generatedAt": "2026-09-14T16:22:15.003Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5561,
+  "count": 5562,
   "comics": [
     {
       "id": 5,
@@ -66697,7 +66697,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "oh no sixteen is too many years for a webcomic, pack it all up, throw it in the garbage",
-      "comments": 100
+      "comments": 101
     },
     {
       "id": 20806,
@@ -66733,7 +66733,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hey, when i *wrote* this once upon katamari damacy gag, it was timely",
-      "comments": 50
+      "comments": 68
+    },
+    {
+      "id": 20813,
+      "title": "Another repair form",
+      "slug": "anotherrepairform",
+      "link": "https://www.dumbingofage.com/comic/anotherrepairform/",
+      "publishedAt": "2026-09-14T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-14-anotherrepairform.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "who will break into my room to be with me now, nobody, that's who",
+      "comments": 72
     }
   ]
 }
