@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-14T16:22:15.003Z",
+  "generatedAt": "2026-09-15T15:00:49.183Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5562,
+  "count": 5563,
   "comics": [
     {
       "id": 5,
@@ -66733,7 +66733,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hey, when i *wrote* this once upon katamari damacy gag, it was timely",
-      "comments": 68
+      "comments": 69
     },
     {
       "id": 20813,
@@ -66745,7 +66745,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "who will break into my room to be with me now, nobody, that's who",
-      "comments": 72
+      "comments": 81
+    },
+    {
+      "id": 20816,
+      "title": "Sidequest",
+      "slug": "sidequest",
+      "link": "https://www.dumbingofage.com/comic/sidequest/",
+      "publishedAt": "2026-09-15T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-15-sidequest.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "if you do all the romantic sidequests, you're comedically overpowered for the romantic final boss",
+      "comments": 51
     }
   ]
 }
