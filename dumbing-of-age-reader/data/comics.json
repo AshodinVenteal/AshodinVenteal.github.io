@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-15T15:00:49.183Z",
+  "generatedAt": "2026-09-16T14:58:50.290Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5563,
+  "count": 5564,
   "comics": [
     {
       "id": 5,
@@ -66709,7 +66709,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i dunno, she'd probably only be best at it if she had unbitten fingernails",
-      "comments": 57
+      "comments": 58
     },
     {
       "id": 20807,
@@ -66757,7 +66757,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "if you do all the romantic sidequests, you're comedically overpowered for the romantic final boss",
-      "comments": 51
+      "comments": 74
+    },
+    {
+      "id": 20817,
+      "title": "Names",
+      "slug": "names-3",
+      "link": "https://www.dumbingofage.com/comic/names-3/",
+      "publishedAt": "2026-09-16T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-16-names.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "sometimes you gotta introduce yourself",
+      "comments": 78
     }
   ]
 }
