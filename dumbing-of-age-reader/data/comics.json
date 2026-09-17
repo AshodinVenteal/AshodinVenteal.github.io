@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-16T14:58:50.290Z",
+  "generatedAt": "2026-09-17T15:00:24.756Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5564,
+  "count": 5565,
   "comics": [
     {
       "id": 5,
@@ -66577,7 +66577,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "seven years of tribbing seems exhausting",
-      "comments": 106
+      "comments": 107
     },
     {
       "id": 20760,
@@ -66589,7 +66589,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "asking my president for permission to speak",
-      "comments": 95
+      "comments": 96
     },
     {
       "id": 20761,
@@ -66733,7 +66733,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hey, when i *wrote* this once upon katamari damacy gag, it was timely",
-      "comments": 69
+      "comments": 70
     },
     {
       "id": 20813,
@@ -66745,7 +66745,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "who will break into my room to be with me now, nobody, that's who",
-      "comments": 81
+      "comments": 82
     },
     {
       "id": 20816,
@@ -66769,7 +66769,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sometimes you gotta introduce yourself",
-      "comments": 78
+      "comments": 102
+    },
+    {
+      "id": 20818,
+      "title": "Brunch",
+      "slug": "brunch-2",
+      "link": "https://www.dumbingofage.com/comic/brunch-2/",
+      "publishedAt": "2026-09-17T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-17-brunch.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "the stakes have never been higher",
+      "comments": 30
     }
   ]
 }
