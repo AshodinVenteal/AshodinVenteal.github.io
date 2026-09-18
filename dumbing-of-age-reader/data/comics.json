@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-17T15:00:24.756Z",
+  "generatedAt": "2026-09-18T14:31:19.735Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5565,
+  "count": 5566,
   "comics": [
     {
       "id": 5,
@@ -66781,7 +66781,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the stakes have never been higher",
-      "comments": 30
+      "comments": 42
+    },
+    {
+      "id": 20826,
+      "title": "Swap",
+      "slug": "swap-2",
+      "link": "https://www.dumbingofage.com/comic/swap-2/",
+      "publishedAt": "2026-09-18T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-18-swap.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "(DON'T) BUY MY BOOK! (DON'T) BUY MY BOOK!",
+      "comments": 42
     }
   ]
 }
