@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-18T14:31:19.735Z",
+  "generatedAt": "2026-09-19T13:55:41.788Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5566,
+  "count": 5567,
   "comics": [
     {
       "id": 5,
@@ -66793,7 +66793,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "(DON'T) BUY MY BOOK! (DON'T) BUY MY BOOK!",
-      "comments": 42
+      "comments": 47
+    },
+    {
+      "id": 20827,
+      "title": "Consideration",
+      "slug": "consideration",
+      "link": "https://www.dumbingofage.com/comic/consideration/",
+      "publishedAt": "2026-09-19T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-19-consideration.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "gripping that mallet just a little tighter",
+      "comments": 53
     }
   ]
 }
