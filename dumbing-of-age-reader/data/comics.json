@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-19T13:55:41.788Z",
+  "generatedAt": "2026-09-20T14:14:07.215Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5567,
+  "count": 5568,
   "comics": [
     {
       "id": 5,
@@ -66745,7 +66745,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "who will break into my room to be with me now, nobody, that's who",
-      "comments": 82
+      "comments": 83
     },
     {
       "id": 20816,
@@ -66757,7 +66757,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "if you do all the romantic sidequests, you're comedically overpowered for the romantic final boss",
-      "comments": 74
+      "comments": 75
     },
     {
       "id": 20817,
@@ -66805,7 +66805,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "gripping that mallet just a little tighter",
-      "comments": 53
+      "comments": 66
+    },
+    {
+      "id": 20828,
+      "title": "Proof",
+      "slug": "proof-2",
+      "link": "https://www.dumbingofage.com/comic/proof-2/",
+      "publishedAt": "2026-09-20T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-20-proof.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i have a solid two hours of rapture infodumping at the ready, but it makes less sense now that it's no longer the nineties",
+      "comments": 69
     }
   ]
 }
