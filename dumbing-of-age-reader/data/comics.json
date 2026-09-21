@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T14:14:07.215Z",
+  "generatedAt": "2026-09-21T16:28:27.073Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5568,
+  "count": 5569,
   "comics": [
     {
       "id": 5,
@@ -66817,7 +66817,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i have a solid two hours of rapture infodumping at the ready, but it makes less sense now that it's no longer the nineties",
-      "comments": 69
+      "comments": 103
+    },
+    {
+      "id": 20829,
+      "title": "The worst",
+      "slug": "theworst",
+      "link": "https://www.dumbingofage.com/comic/theworst/",
+      "publishedAt": "2026-09-21T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/09/2026-09-21-theworst.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "shoves is/isn't loves, depending",
+      "comments": 64
     }
   ]
 }
