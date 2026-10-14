@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-13T17:35:54.246Z",
+  "generatedAt": "2026-10-14T15:08:55.924Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5591,
+  "count": 5592,
   "comics": [
     {
       "id": 5,
@@ -66421,7 +66421,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "really thought i was nailing it",
-      "comments": 51
+      "comments": 50
     },
     {
       "id": 20712,
@@ -66469,7 +66469,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie's mind has definitely wandered towards seahorses or something in the meantime",
-      "comments": 124
+      "comments": 123
     },
     {
       "id": 20722,
@@ -66589,7 +66589,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "asking my president for permission to speak",
-      "comments": 95
+      "comments": 94
     },
     {
       "id": 20761,
@@ -66625,7 +66625,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "END OF BOOK SIXTEEN",
-      "comments": 160
+      "comments": 159
     },
     {
       "id": 20781,
@@ -67009,7 +67009,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it'll... probably be okay...",
-      "comments": 177
+      "comments": 176
     },
     {
       "id": 20894,
@@ -67021,7 +67021,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 17: coward. FUCK ME.",
-      "comments": 126
+      "comments": 125
     },
     {
       "id": 20895,
@@ -67093,7 +67093,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "and i'm sure they meant / you can be president",
-      "comments": 67
+      "comments": 76
+    },
+    {
+      "id": 20913,
+      "title": "Good at things",
+      "slug": "goodatthings",
+      "link": "https://www.dumbingofage.com/comic/goodatthings/",
+      "publishedAt": "2026-10-14T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-14-goodatthings.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "interesting",
+      "comments": 71
     }
   ]
 }
