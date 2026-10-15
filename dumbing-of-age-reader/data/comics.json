@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-14T15:08:55.924Z",
+  "generatedAt": "2026-10-15T15:00:57.245Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5592,
+  "count": 5593,
   "comics": [
     {
       "id": 5,
@@ -67093,7 +67093,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "and i'm sure they meant / you can be president",
-      "comments": 76
+      "comments": 77
     },
     {
       "id": 20913,
@@ -67105,7 +67105,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "interesting",
-      "comments": 71
+      "comments": 95
+    },
+    {
+      "id": 20930,
+      "title": "Shifting foundation",
+      "slug": "shiftingfoundation",
+      "link": "https://www.dumbingofage.com/comic/shiftingfoundation/",
+      "publishedAt": "2026-10-15T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-15-shiftingfoundation.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "foreplay, wordplay, whichever",
+      "comments": 30
     }
   ]
 }
