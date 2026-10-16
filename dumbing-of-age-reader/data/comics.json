@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-15T15:00:57.245Z",
+  "generatedAt": "2026-10-16T14:51:18.226Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5593,
+  "count": 5594,
   "comics": [
     {
       "id": 5,
@@ -67117,7 +67117,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "foreplay, wordplay, whichever",
-      "comments": 30
+      "comments": 49
+    },
+    {
+      "id": 20932,
+      "title": "Stand idle",
+      "slug": "standidle",
+      "link": "https://www.dumbingofage.com/comic/standidle/",
+      "publishedAt": "2026-10-16T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-16-standidle.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "cut it out, TED",
+      "comments": 72
     }
   ]
 }
