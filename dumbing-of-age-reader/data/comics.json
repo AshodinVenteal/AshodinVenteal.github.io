@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-16T14:51:18.226Z",
+  "generatedAt": "2026-10-17T13:43:13.486Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5594,
+  "count": 5595,
   "comics": [
     {
       "id": 5,
@@ -67021,7 +67021,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 17: coward. FUCK ME.",
-      "comments": 125
+      "comments": 128
     },
     {
       "id": 20895,
@@ -67129,7 +67129,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "cut it out, TED",
-      "comments": 72
+      "comments": 100
+    },
+    {
+      "id": 20949,
+      "title": "Rude",
+      "slug": "rude-4",
+      "link": "https://www.dumbingofage.com/comic/rude-4/",
+      "publishedAt": "2026-10-17T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-17-rude.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "sarah's so glad she came to exermacise today",
+      "comments": 111
     }
   ]
 }
