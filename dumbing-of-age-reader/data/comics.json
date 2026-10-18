@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-17T13:43:13.486Z",
+  "generatedAt": "2026-10-18T14:01:30.194Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5595,
+  "count": 5596,
   "comics": [
     {
       "id": 5,
@@ -67117,7 +67117,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "foreplay, wordplay, whichever",
-      "comments": 49
+      "comments": 52
     },
     {
       "id": 20932,
@@ -67129,7 +67129,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "cut it out, TED",
-      "comments": 100
+      "comments": 101
     },
     {
       "id": 20949,
@@ -67141,7 +67141,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's so glad she came to exermacise today",
-      "comments": 111
+      "comments": 159
+    },
+    {
+      "id": 20950,
+      "title": "Apologize",
+      "slug": "apologize",
+      "link": "https://www.dumbingofage.com/comic/apologize/",
+      "publishedAt": "2026-10-18T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-18-apologize.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "dinah with an h is pronounced die-na, dina without an h is pronounced dee-nah",
+      "comments": 101
     }
   ]
 }
