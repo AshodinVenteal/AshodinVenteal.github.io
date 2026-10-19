@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-18T14:01:30.194Z",
+  "generatedAt": "2026-10-19T16:58:56.892Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5596,
+  "count": 5597,
   "comics": [
     {
       "id": 5,
@@ -67129,7 +67129,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "cut it out, TED",
-      "comments": 101
+      "comments": 103
     },
     {
       "id": 20949,
@@ -67141,7 +67141,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's so glad she came to exermacise today",
-      "comments": 159
+      "comments": 166
     },
     {
       "id": 20950,
@@ -67153,7 +67153,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dinah with an h is pronounced die-na, dina without an h is pronounced dee-nah",
-      "comments": 101
+      "comments": 151
+    },
+    {
+      "id": 20951,
+      "title": "Longtime",
+      "slug": "longtime-2",
+      "link": "https://www.dumbingofage.com/comic/longtime-2/",
+      "publishedAt": "2026-10-19T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-19-longtime.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "THEN GREASE ME UP WOMAN",
+      "comments": 52
     }
   ]
 }
