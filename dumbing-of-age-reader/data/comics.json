@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-19T16:58:56.892Z",
+  "generatedAt": "2026-10-20T15:05:50.504Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5597,
+  "count": 5598,
   "comics": [
     {
       "id": 5,
@@ -67153,7 +67153,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dinah with an h is pronounced die-na, dina without an h is pronounced dee-nah",
-      "comments": 151
+      "comments": 154
     },
     {
       "id": 20951,
@@ -67165,7 +67165,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "THEN GREASE ME UP WOMAN",
-      "comments": 52
+      "comments": 55
+    },
+    {
+      "id": 20955,
+      "title": "Hide stuff",
+      "slug": "hidestuff",
+      "link": "https://www.dumbingofage.com/comic/hidestuff/",
+      "publishedAt": "2026-10-20T04:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-20-hidestuff.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "it's new again! it's a timely reference!!!!!",
+      "comments": 56
     }
   ]
 }
