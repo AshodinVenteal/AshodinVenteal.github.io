@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Otherworld · Remote Battlestation</title><style>*{box-sizing:border-box}body{margin:0;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at top,#283d58,#0b1422 65%);color:#e8e5da;font:15px/1.6 system-ui,sans-serif;padding:20px}.gate{max-width:490px;width:100%;padding:32px;border:1px solid #998768;background:#132337;box-shadow:0 30px 80px #0005}h1{font:36px Georgia,serif;color:#eed6a4;margin:6px 0 20px}.eyebrow{font-size:10px;letter-spacing:3px;color:#c7b184}label{display:block;font-size:12px;color:#b6c4d3}input{width:100%;padding:12px;background:#0a1729;color:white;border:1px solid #687b94;margin:8px 0 15px;border-radius:3px}button{background:#dbc495;border:1px solid #e8d7b1;color:#182332;padding:11px 18px;cursor:pointer;font-weight:600}button:disabled{opacity:.5}small{color:#9aafc5}#status{font-size:12px;color:#c5d3dc}p{margin:12px 0}a{color:#d8c798}</style></head><body><main class="gate"><div class="eyebrow">FINAL FANTASY · OTHERWORLD</div><h1>Your world, wherever you are.</h1><p>This campaign snapshot is encrypted. Open your private access link or enter its access key below.</p><form id="unlock"><label for="key">Access key<input id="key" type="password" autocomplete="off" spellcheck="false" required></label><button id="open">Open battlestation</button></form><p id="status" role="status"></p><small>Campaign data updates when published from your PC. Mobile notes and edits save on this device.</small></main><script>
+const input=document.getElementById('key'),status=document.getElementById('status'),button=document.getElementById('open');
+const fragment=new URLSearchParams(location.hash.slice(1));if(fragment.get('key'))input.value=fragment.get('key');
+document.getElementById('unlock').onsubmit=async e=>{e.preventDefault();button.disabled=true;status.textContent='Downloading encrypted campaign snapshot…';try{
+ const raw=input.value.trim();if(!/^[A-Za-z0-9_-]{43}$/.test(raw))throw Error('Enter the complete access key from your private link.');
+ const response=await fetch('snapshot.bin',{cache:'no-store'});if(!response.ok)throw Error('Snapshot is not available yet. Retry after GitHub Pages finishes publishing.');
+ const data=new Uint8Array(await response.arrayBuffer());status.textContent='Unlocking your campaign…';
+ const bytes=Uint8Array.from(atob(raw.replace(/-/g,'+').replace(/_/g,'/')+'='),c=>c.charCodeAt(0));
+ const key=await crypto.subtle.importKey('raw',bytes,'AES-GCM',false,['decrypt']);
+ const decoded=await crypto.subtle.decrypt({name:'AES-GCM',iv:data.slice(0,12)},key,data.slice(12));
+ const bundle=JSON.parse(new TextDecoder().decode(decoded));
+ const pdf=Uint8Array.from(atob(bundle.pdf),c=>c.charCodeAt(0));const pdfUrl=URL.createObjectURL(new Blob([pdf],{type:'application/pdf'}));
+ const html=bundle.html.replaceAll('__OTHERWORLD_PDF_URL__',pdfUrl);
+ history.replaceState(null,'',location.pathname+location.search);
+ document.open();document.write(html);document.close();
+}catch(error){status.textContent=error.name==='OperationError'?'The key could not unlock this snapshot. Check your private access link.':error.message;button.disabled=false;}};
+if(input.value)document.getElementById('unlock').requestSubmit();
+</script></body></html>
