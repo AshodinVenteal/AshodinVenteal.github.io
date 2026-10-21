@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-20T15:05:50.504Z",
+  "generatedAt": "2026-10-21T15:13:58.154Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5598,
+  "count": 5599,
   "comics": [
     {
       "id": 5,
@@ -67081,7 +67081,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "no judgment",
-      "comments": 86
+      "comments": 87
     },
     {
       "id": 20907,
@@ -67141,7 +67141,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's so glad she came to exermacise today",
-      "comments": 166
+      "comments": 167
     },
     {
       "id": 20950,
@@ -67165,7 +67165,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "THEN GREASE ME UP WOMAN",
-      "comments": 55
+      "comments": 56
     },
     {
       "id": 20955,
@@ -67177,7 +67177,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it's new again! it's a timely reference!!!!!",
-      "comments": 56
+      "comments": 67
+    },
+    {
+      "id": 27545,
+      "title": "LLS",
+      "slug": "",
+      "link": "https://www.dumbingofage.com/comic/lls/?sid=27054",
+      "publishedAt": "2026-10-21T04:01:32.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/01/2026-10-21-lls.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "nobody can jump to conclusions anymore, amber, richard riehle died yesterday",
+      "comments": 66
     }
   ]
 }
