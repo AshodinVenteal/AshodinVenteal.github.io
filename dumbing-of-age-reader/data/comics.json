@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-21T15:13:58.154Z",
+  "generatedAt": "2026-10-23T15:04:24.854Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5599,
+  "count": 5601,
   "comics": [
     {
       "id": 5,
@@ -66577,7 +66577,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "seven years of tribbing seems exhausting",
-      "comments": 106
+      "comments": 104
     },
     {
       "id": 20760,
@@ -67105,7 +67105,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "interesting",
-      "comments": 95
+      "comments": 94
     },
     {
       "id": 20930,
@@ -67141,7 +67141,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's so glad she came to exermacise today",
-      "comments": 167
+      "comments": 168
     },
     {
       "id": 20950,
@@ -67153,7 +67153,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dinah with an h is pronounced die-na, dina without an h is pronounced dee-nah",
-      "comments": 154
+      "comments": 156
     },
     {
       "id": 20951,
@@ -67177,7 +67177,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it's new again! it's a timely reference!!!!!",
-      "comments": 67
+      "comments": 70
     },
     {
       "id": 27545,
@@ -67189,7 +67189,31 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "nobody can jump to conclusions anymore, amber, richard riehle died yesterday",
-      "comments": 66
+      "comments": 84
+    },
+    {
+      "id": 27577,
+      "title": "Catch-all",
+      "slug": "catch-all",
+      "link": "https://www.dumbingofage.com/comic/catch-all/",
+      "publishedAt": "2026-10-22T04:01:55.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-22-catchall.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "joe: wait if joyce has a type, then am i also somehow queer and depressed",
+      "comments": 96
+    },
+    {
+      "id": 27581,
+      "title": "Teetering",
+      "slug": "teetering",
+      "link": "https://www.dumbingofage.com/comic/teetering/",
+      "publishedAt": "2026-10-23T04:01:15.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-23-teetering.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "a nicer strip to run on my wife's birthday than last year's, to be sure",
+      "comments": 76
     }
   ]
 }
