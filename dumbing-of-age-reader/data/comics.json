@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-23T15:04:24.854Z",
+  "generatedAt": "2026-10-24T14:00:58.287Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5601,
+  "count": 5602,
   "comics": [
     {
       "id": 5,
@@ -67141,7 +67141,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's so glad she came to exermacise today",
-      "comments": 168
+      "comments": 170
     },
     {
       "id": 20950,
@@ -67177,7 +67177,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it's new again! it's a timely reference!!!!!",
-      "comments": 70
+      "comments": 71
     },
     {
       "id": 27545,
@@ -67201,7 +67201,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "joe: wait if joyce has a type, then am i also somehow queer and depressed",
-      "comments": 96
+      "comments": 97
     },
     {
       "id": 27581,
@@ -67213,7 +67213,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "a nicer strip to run on my wife's birthday than last year's, to be sure",
-      "comments": 76
+      "comments": 94
+    },
+    {
+      "id": 27584,
+      "title": "Not friends",
+      "slug": "not-friends",
+      "link": "https://www.dumbingofage.com/comic/not-friends/",
+      "publishedAt": "2026-10-24T04:01:55.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-24-notfriends.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "'because i've read our walkypedia articles'",
+      "comments": 40
     }
   ]
 }
