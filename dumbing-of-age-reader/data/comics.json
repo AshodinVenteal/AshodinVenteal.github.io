@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-24T14:00:58.287Z",
+  "generatedAt": "2026-10-25T14:22:19.015Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5602,
+  "count": 5603,
   "comics": [
     {
       "id": 5,
@@ -66577,7 +66577,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "seven years of tribbing seems exhausting",
-      "comments": 104
+      "comments": 103
     },
     {
       "id": 20760,
@@ -66733,7 +66733,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hey, when i *wrote* this once upon katamari damacy gag, it was timely",
-      "comments": 70
+      "comments": 69
     },
     {
       "id": 20813,
@@ -66997,7 +66997,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hello hex bar my old friend",
-      "comments": 53
+      "comments": 51
     },
     {
       "id": 20893,
@@ -67009,7 +67009,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it'll... probably be okay...",
-      "comments": 176
+      "comments": 175
     },
     {
       "id": 20894,
@@ -67129,7 +67129,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "cut it out, TED",
-      "comments": 103
+      "comments": 100
     },
     {
       "id": 20949,
@@ -67153,7 +67153,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dinah with an h is pronounced die-na, dina without an h is pronounced dee-nah",
-      "comments": 156
+      "comments": 151
     },
     {
       "id": 20951,
@@ -67177,7 +67177,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it's new again! it's a timely reference!!!!!",
-      "comments": 71
+      "comments": 72
     },
     {
       "id": 27545,
@@ -67213,7 +67213,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "a nicer strip to run on my wife's birthday than last year's, to be sure",
-      "comments": 94
+      "comments": 96
     },
     {
       "id": 27584,
@@ -67225,7 +67225,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'because i've read our walkypedia articles'",
-      "comments": 40
+      "comments": 64
+    },
+    {
+      "id": 27587,
+      "title": "Harass",
+      "slug": "harass",
+      "link": "https://www.dumbingofage.com/comic/harass/",
+      "publishedAt": "2026-10-25T04:01:40.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-25-harass.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "raidah's google calendar is up-and-down 'harass sarah'",
+      "comments": 91
     }
   ]
 }
