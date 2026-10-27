@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-26T16:47:48.412Z",
+  "generatedAt": "2026-10-27T15:53:26.143Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5604,
+  "count": 5605,
   "comics": [
     {
       "id": 5,
@@ -66625,7 +66625,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "END OF BOOK SIXTEEN",
-      "comments": 158
+      "comments": 156
     },
     {
       "id": 20781,
@@ -66985,7 +66985,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "don't wanna get an MUI",
-      "comments": 78
+      "comments": 76
     },
     {
       "id": 20892,
@@ -67105,7 +67105,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "interesting",
-      "comments": 94
+      "comments": 93
     },
     {
       "id": 20930,
@@ -67141,7 +67141,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's so glad she came to exermacise today",
-      "comments": 169
+      "comments": 168
     },
     {
       "id": 20950,
@@ -67213,7 +67213,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "a nicer strip to run on my wife's birthday than last year's, to be sure",
-      "comments": 95
+      "comments": 96
     },
     {
       "id": 27584,
@@ -67225,7 +67225,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'because i've read our walkypedia articles'",
-      "comments": 63
+      "comments": 62
     },
     {
       "id": 27587,
@@ -67237,7 +67237,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "raidah's google calendar is up-and-down 'harass sarah'",
-      "comments": 131
+      "comments": 132
     },
     {
       "id": 27590,
@@ -67249,7 +67249,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "shadow infrastructure is a great band name",
-      "comments": 133
+      "comments": 171
+    },
+    {
+      "id": 27593,
+      "title": "Actual friends",
+      "slug": "actual-friends",
+      "link": "https://www.dumbingofage.com/comic/actual-friends/",
+      "publishedAt": "2026-10-27T04:01:59.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-27-actualfriends.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i'll never make friends on purpose, NEVER!!!!!",
+      "comments": 73
     }
   ]
 }
