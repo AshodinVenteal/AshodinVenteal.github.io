@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-27T15:53:26.143Z",
+  "generatedAt": "2026-10-28T16:38:09.254Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5605,
+  "count": 5606,
   "comics": [
     {
       "id": 5,
@@ -66637,7 +66637,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "can dorothy throw a punch??? find out in: book 17!",
-      "comments": 73
+      "comments": 72
     },
     {
       "id": 20788,
@@ -67225,7 +67225,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'because i've read our walkypedia articles'",
-      "comments": 62
+      "comments": 61
     },
     {
       "id": 27587,
@@ -67237,7 +67237,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "raidah's google calendar is up-and-down 'harass sarah'",
-      "comments": 132
+      "comments": 126
     },
     {
       "id": 27590,
@@ -67249,7 +67249,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "shadow infrastructure is a great band name",
-      "comments": 171
+      "comments": 167
     },
     {
       "id": 27593,
@@ -67261,7 +67261,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'll never make friends on purpose, NEVER!!!!!",
-      "comments": 73
+      "comments": 89
+    },
+    {
+      "id": 27596,
+      "title": "Entrails",
+      "slug": "entrails",
+      "link": "https://www.dumbingofage.com/comic/entrails/",
+      "publishedAt": "2026-10-28T04:01:17.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-28-entrails.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "he means his penis",
+      "comments": 107
     }
   ]
 }
