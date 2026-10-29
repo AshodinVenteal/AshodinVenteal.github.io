@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-28T16:38:09.254Z",
+  "generatedAt": "2026-10-29T16:55:50.208Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5606,
+  "count": 5607,
   "comics": [
     {
       "id": 5,
@@ -66577,7 +66577,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "seven years of tribbing seems exhausting",
-      "comments": 103
+      "comments": 102
     },
     {
       "id": 20760,
@@ -66997,7 +66997,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "hello hex bar my old friend",
-      "comments": 51
+      "comments": 50
     },
     {
       "id": 20893,
@@ -67261,7 +67261,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'll never make friends on purpose, NEVER!!!!!",
-      "comments": 89
+      "comments": 90
     },
     {
       "id": 27596,
@@ -67273,7 +67273,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "he means his penis",
-      "comments": 107
+      "comments": 133
+    },
+    {
+      "id": 27639,
+      "title": "The Power",
+      "slug": "the-power",
+      "link": "https://www.dumbingofage.com/comic/the-power/",
+      "publishedAt": "2026-10-29T04:01:12.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-29-thepower.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "narrator: and it was",
+      "comments": 108
     }
   ]
 }
