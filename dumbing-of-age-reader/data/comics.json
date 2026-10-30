@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-29T16:55:50.208Z",
+  "generatedAt": "2026-10-30T16:42:28.386Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5607,
+  "count": 5608,
   "comics": [
     {
       "id": 5,
@@ -67069,7 +67069,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "how dare i be so predictable",
-      "comments": 63
+      "comments": 64
     },
     {
       "id": 20906,
@@ -67117,7 +67117,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "foreplay, wordplay, whichever",
-      "comments": 52
+      "comments": 53
     },
     {
       "id": 20932,
@@ -67129,7 +67129,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "cut it out, TED",
-      "comments": 99
+      "comments": 100
     },
     {
       "id": 20949,
@@ -67141,7 +67141,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's so glad she came to exermacise today",
-      "comments": 168
+      "comments": 170
     },
     {
       "id": 20950,
@@ -67153,7 +67153,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dinah with an h is pronounced die-na, dina without an h is pronounced dee-nah",
-      "comments": 150
+      "comments": 151
     },
     {
       "id": 20951,
@@ -67165,7 +67165,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "THEN GREASE ME UP WOMAN",
-      "comments": 56
+      "comments": 57
     },
     {
       "id": 20955,
@@ -67177,7 +67177,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "it's new again! it's a timely reference!!!!!",
-      "comments": 72
+      "comments": 73
     },
     {
       "id": 27545,
@@ -67189,7 +67189,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "nobody can jump to conclusions anymore, amber, richard riehle died yesterday",
-      "comments": 84
+      "comments": 85
     },
     {
       "id": 27577,
@@ -67213,7 +67213,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "a nicer strip to run on my wife's birthday than last year's, to be sure",
-      "comments": 96
+      "comments": 97
     },
     {
       "id": 27584,
@@ -67225,7 +67225,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'because i've read our walkypedia articles'",
-      "comments": 61
+      "comments": 63
     },
     {
       "id": 27587,
@@ -67273,7 +67273,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "he means his penis",
-      "comments": 133
+      "comments": 134
     },
     {
       "id": 27639,
@@ -67285,7 +67285,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "narrator: and it was",
-      "comments": 108
+      "comments": 136
+    },
+    {
+      "id": 27710,
+      "title": "Published",
+      "slug": "published-2",
+      "link": "https://www.dumbingofage.com/comic/published-2/",
+      "publishedAt": "2026-10-30T04:01:47.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-30-published.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "the worst defcon is the one in dark of the moon",
+      "comments": 118
     }
   ]
 }
