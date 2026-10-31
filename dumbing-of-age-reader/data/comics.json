@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-30T16:42:28.386Z",
+  "generatedAt": "2026-10-31T15:45:46.885Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5608,
+  "count": 5609,
   "comics": [
     {
       "id": 5,
@@ -67297,7 +67297,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the worst defcon is the one in dark of the moon",
-      "comments": 118
+      "comments": 146
+    },
+    {
+      "id": 27714,
+      "title": "Director",
+      "slug": "director",
+      "link": "https://www.dumbingofage.com/comic/director/",
+      "publishedAt": "2026-10-31T04:01:36.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-10-31-director.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "everyone's been saying 'dweebos' in this comic all this time, this isn't a retcon",
+      "comments": 35
     }
   ]
 }
