@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-31T15:45:46.885Z",
+  "generatedAt": "2026-11-01T16:49:59.765Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5609,
+  "count": 5610,
   "comics": [
     {
       "id": 5,
@@ -66853,7 +66853,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "you're so vain, you probably think this alt-text is about you",
-      "comments": 72
+      "comments": 73
     },
     {
       "id": 20832,
@@ -67297,7 +67297,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the worst defcon is the one in dark of the moon",
-      "comments": 146
+      "comments": 147
     },
     {
       "id": 27714,
@@ -67309,7 +67309,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "everyone's been saying 'dweebos' in this comic all this time, this isn't a retcon",
-      "comments": 35
+      "comments": 45
+    },
+    {
+      "id": 27717,
+      "title": "Honeymoon",
+      "slug": "honeymoon",
+      "link": "https://www.dumbingofage.com/comic/honeymoon/",
+      "publishedAt": "2026-11-01T04:01:49.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-11-01-honeymoon.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "SAAAAAAAAAAAAAAAAAAAAAAAUCE",
+      "comments": 61
     }
   ]
 }
