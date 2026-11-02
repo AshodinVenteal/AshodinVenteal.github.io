@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-01T16:49:59.765Z",
+  "generatedAt": "2026-11-02T20:21:32.543Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5610,
+  "count": 5611,
   "comics": [
     {
       "id": 5,
@@ -67297,7 +67297,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the worst defcon is the one in dark of the moon",
-      "comments": 147
+      "comments": 149
     },
     {
       "id": 27714,
@@ -67309,7 +67309,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "everyone's been saying 'dweebos' in this comic all this time, this isn't a retcon",
-      "comments": 45
+      "comments": 46
     },
     {
       "id": 27717,
@@ -67321,7 +67321,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "SAAAAAAAAAAAAAAAAAAAAAAAUCE",
-      "comments": 61
+      "comments": 70
+    },
+    {
+      "id": 27720,
+      "title": "Sorted",
+      "slug": "sorted-3",
+      "link": "https://www.dumbingofage.com/comic/sorted-3/",
+      "publishedAt": "2026-11-02T05:01:38.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/10/2026-11-02-sorted.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "sorted, sordid, whichever",
+      "comments": 65
     }
   ]
 }
