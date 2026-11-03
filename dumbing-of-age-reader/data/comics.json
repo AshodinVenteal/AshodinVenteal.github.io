@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-02T20:21:32.543Z",
+  "generatedAt": "2026-11-03T17:51:13.438Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5611,
+  "count": 5612,
   "comics": [
     {
       "id": 5,
@@ -67261,7 +67261,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'll never make friends on purpose, NEVER!!!!!",
-      "comments": 90
+      "comments": 91
     },
     {
       "id": 27596,
@@ -67285,7 +67285,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "narrator: and it was",
-      "comments": 136
+      "comments": 137
     },
     {
       "id": 27710,
@@ -67333,7 +67333,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sorted, sordid, whichever",
-      "comments": 65
+      "comments": 72
+    },
+    {
+      "id": 27722,
+      "title": "Literally impossible",
+      "slug": "literally-impossible",
+      "link": "https://www.dumbingofage.com/comic/literally-impossible/",
+      "publishedAt": "2026-11-03T05:01:31.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-03-literallyimpossible.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "wrote this comic in the morning and then that afternoon as i was inking it congress passed more money for ICE 'training'",
+      "comments": 50
     }
   ]
 }
