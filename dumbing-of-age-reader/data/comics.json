@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-03T17:51:13.438Z",
+  "generatedAt": "2026-11-04T17:59:10.780Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5612,
+  "count": 5613,
   "comics": [
     {
       "id": 5,
@@ -67333,7 +67333,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sorted, sordid, whichever",
-      "comments": 72
+      "comments": 74
     },
     {
       "id": 27722,
@@ -67345,7 +67345,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "wrote this comic in the morning and then that afternoon as i was inking it congress passed more money for ICE 'training'",
-      "comments": 50
+      "comments": 59
+    },
+    {
+      "id": 27725,
+      "title": "Apple juice",
+      "slug": "apple-juice",
+      "link": "https://www.dumbingofage.com/comic/apple-juice/",
+      "publishedAt": "2026-11-04T05:01:25.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-04-applejuice.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "i'll make your ass sense",
+      "comments": 41
     }
   ]
 }
