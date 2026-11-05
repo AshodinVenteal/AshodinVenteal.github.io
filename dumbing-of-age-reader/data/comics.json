@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-04T17:59:10.780Z",
+  "generatedAt": "2026-11-05T18:01:09.275Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5613,
+  "count": 5614,
   "comics": [
     {
       "id": 5,
@@ -67333,7 +67333,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sorted, sordid, whichever",
-      "comments": 74
+      "comments": 75
     },
     {
       "id": 27722,
@@ -67345,7 +67345,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "wrote this comic in the morning and then that afternoon as i was inking it congress passed more money for ICE 'training'",
-      "comments": 59
+      "comments": 63
     },
     {
       "id": 27725,
@@ -67357,7 +67357,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'll make your ass sense",
-      "comments": 41
+      "comments": 57
+    },
+    {
+      "id": 27738,
+      "title": "What else",
+      "slug": "what-else",
+      "link": "https://www.dumbingofage.com/comic/what-else/",
+      "publishedAt": "2026-11-05T05:01:51.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-05-whatelse.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "if i play this right, the entire audience will be Ruthing along with Ruth at the end there",
+      "comments": 42
     }
   ]
 }
