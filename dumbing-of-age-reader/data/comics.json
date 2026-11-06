@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-05T18:01:09.275Z",
+  "generatedAt": "2026-11-06T17:29:34.805Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5614,
+  "count": 5615,
   "comics": [
     {
       "id": 5,
@@ -67333,7 +67333,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sorted, sordid, whichever",
-      "comments": 75
+      "comments": 77
     },
     {
       "id": 27722,
@@ -67369,7 +67369,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "if i play this right, the entire audience will be Ruthing along with Ruth at the end there",
-      "comments": 42
+      "comments": 56
+    },
+    {
+      "id": 27741,
+      "title": "Drunker",
+      "slug": "drunker",
+      "link": "https://www.dumbingofage.com/comic/drunker/",
+      "publishedAt": "2026-11-06T05:01:47.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-06-drunker.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "just tweeted it out",
+      "comments": 49
     }
   ]
 }
