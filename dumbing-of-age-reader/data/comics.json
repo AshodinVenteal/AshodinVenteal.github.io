@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-06T17:29:34.805Z",
+  "generatedAt": "2026-11-07T16:26:07.456Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5615,
+  "count": 5616,
   "comics": [
     {
       "id": 5,
@@ -67369,7 +67369,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "if i play this right, the entire audience will be Ruthing along with Ruth at the end there",
-      "comments": 56
+      "comments": 57
     },
     {
       "id": 27741,
@@ -67381,7 +67381,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "just tweeted it out",
-      "comments": 49
+      "comments": 65
+    },
+    {
+      "id": 27744,
+      "title": "Scuttlebutt",
+      "slug": "scuttlebutt",
+      "link": "https://www.dumbingofage.com/comic/scuttlebutt/",
+      "publishedAt": "2026-11-07T05:01:48.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-07-scuttlebutt.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "scuttlebutt is a perfectly cromulent word",
+      "comments": 54
     }
   ]
 }
