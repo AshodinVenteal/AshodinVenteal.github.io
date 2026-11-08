@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-07T16:26:07.456Z",
+  "generatedAt": "2026-11-08T16:40:08.657Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5616,
+  "count": 5617,
   "comics": [
     {
       "id": 5,
@@ -67381,7 +67381,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "just tweeted it out",
-      "comments": 65
+      "comments": 66
     },
     {
       "id": 27744,
@@ -67393,7 +67393,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "scuttlebutt is a perfectly cromulent word",
-      "comments": 54
+      "comments": 59
+    },
+    {
+      "id": 27747,
+      "title": "Rest up",
+      "slug": "rest-up",
+      "link": "https://www.dumbingofage.com/comic/rest-up/",
+      "publishedAt": "2026-11-08T05:01:20.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-08-restup.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "desperately seeking a jackhammer",
+      "comments": 93
     }
   ]
 }
