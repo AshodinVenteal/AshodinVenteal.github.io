@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-10T17:49:55.062Z",
+  "generatedAt": "2026-11-11T17:53:47.258Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5619,
+  "count": 5620,
   "comics": [
     {
       "id": 5,
@@ -67249,7 +67249,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "shadow infrastructure is a great band name",
-      "comments": 167
+      "comments": 168
     },
     {
       "id": 27593,
@@ -67321,7 +67321,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "SAAAAAAAAAAAAAAAAAAAAAAAUCE",
-      "comments": 70
+      "comments": 71
     },
     {
       "id": 27720,
@@ -67333,7 +67333,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sorted, sordid, whichever",
-      "comments": 77
+      "comments": 79
     },
     {
       "id": 27722,
@@ -67345,7 +67345,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "wrote this comic in the morning and then that afternoon as i was inking it congress passed more money for ICE 'training'",
-      "comments": 63
+      "comments": 64
     },
     {
       "id": 27725,
@@ -67357,7 +67357,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "i'll make your ass sense",
-      "comments": 57
+      "comments": 58
     },
     {
       "id": 27738,
@@ -67393,7 +67393,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "scuttlebutt is a perfectly cromulent word",
-      "comments": 59
+      "comments": 60
     },
     {
       "id": 27747,
@@ -67417,7 +67417,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "of course joyce doesn't know who saddam hussein is, the south park movie came out 9 years before she was born",
-      "comments": 83
+      "comments": 84
     },
     {
       "id": 27760,
@@ -67429,7 +67429,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'... i didn't ask' 'IT'D BE WEIRDER IF YOU DID'",
-      "comments": 47
+      "comments": 54
+    },
+    {
+      "id": 27763,
+      "title": "Take coat!",
+      "slug": "take-coat",
+      "link": "https://www.dumbingofage.com/comic/take-coat/",
+      "publishedAt": "2026-11-11T05:01:33.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-11-takecoat.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "respect my gender's emotional aloofness!!!!!",
+      "comments": 72
     }
   ]
 }
