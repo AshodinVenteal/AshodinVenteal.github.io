@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-11T17:53:47.258Z",
+  "generatedAt": "2026-11-12T18:19:23.189Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5620,
+  "count": 5621,
   "comics": [
     {
       "id": 5,
@@ -67417,7 +67417,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "of course joyce doesn't know who saddam hussein is, the south park movie came out 9 years before she was born",
-      "comments": 84
+      "comments": 85
     },
     {
       "id": 27760,
@@ -67429,7 +67429,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "'... i didn't ask' 'IT'D BE WEIRDER IF YOU DID'",
-      "comments": 54
+      "comments": 55
     },
     {
       "id": 27763,
@@ -67441,7 +67441,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "respect my gender's emotional aloofness!!!!!",
-      "comments": 72
+      "comments": 90
+    },
+    {
+      "id": 27783,
+      "title": "Goddamn flowers",
+      "slug": "goddamn-flowers",
+      "link": "https://www.dumbingofage.com/comic/goddamn-flowers/",
+      "publishedAt": "2026-11-12T05:01:10.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-12-goddamnflowers.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "busy doomscrolling",
+      "comments": 38
     }
   ]
 }
