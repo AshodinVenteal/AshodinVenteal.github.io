@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-12T18:19:23.189Z",
+  "generatedAt": "2026-11-13T17:44:19.066Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5621,
+  "count": 5622,
   "comics": [
     {
       "id": 5,
@@ -67441,7 +67441,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "respect my gender's emotional aloofness!!!!!",
-      "comments": 90
+      "comments": 92
     },
     {
       "id": 27783,
@@ -67453,7 +67453,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "busy doomscrolling",
-      "comments": 38
+      "comments": 46
+    },
+    {
+      "id": 27790,
+      "title": "How long",
+      "slug": "how-long",
+      "link": "https://www.dumbingofage.com/comic/how-long/",
+      "publishedAt": "2026-11-13T05:01:17.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-13-howlong.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "she's a size six",
+      "comments": 71
     }
   ]
 }
