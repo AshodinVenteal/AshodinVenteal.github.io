@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-13T17:44:19.066Z",
+  "generatedAt": "2026-11-14T16:36:40.969Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5622,
+  "count": 5623,
   "comics": [
     {
       "id": 5,
@@ -67441,7 +67441,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "respect my gender's emotional aloofness!!!!!",
-      "comments": 92
+      "comments": 93
     },
     {
       "id": 27783,
@@ -67465,7 +67465,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "she's a size six",
-      "comments": 71
+      "comments": 87
+    },
+    {
+      "id": 27793,
+      "title": "The usual",
+      "slug": "the-usual",
+      "link": "https://www.dumbingofage.com/comic/the-usual/",
+      "publishedAt": "2026-11-14T05:01:24.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-14-theusual.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "so basically the opposite of solomon grundy",
+      "comments": 47
     }
   ]
 }
