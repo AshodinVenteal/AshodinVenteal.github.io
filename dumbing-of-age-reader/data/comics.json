@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-16T20:28:47.151Z",
+  "generatedAt": "2026-11-17T19:10:37.583Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5625,
+  "count": 5626,
   "comics": [
     {
       "id": 5,
@@ -67465,7 +67465,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "she's a size six",
-      "comments": 93
+      "comments": 94
     },
     {
       "id": 27793,
@@ -67477,7 +67477,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "so basically the opposite of solomon grundy",
-      "comments": 55
+      "comments": 56
     },
     {
       "id": 27796,
@@ -67501,7 +67501,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "on the to-do list",
-      "comments": 58
+      "comments": 67
+    },
+    {
+      "id": 27818,
+      "title": "Hurricane of Feels",
+      "slug": "hurricane-of-feels",
+      "link": "https://www.dumbingofage.com/comic/hurricane-of-feels/",
+      "publishedAt": "2026-11-17T05:01:01.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-17-hurricaneoffeels.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "dumbing of age book 17: SOUNDS LIKE THAT SUCKS!",
+      "comments": 47
     }
   ]
 }
