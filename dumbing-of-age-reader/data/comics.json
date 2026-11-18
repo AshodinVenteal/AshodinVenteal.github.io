@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-17T19:10:37.583Z",
+  "generatedAt": "2026-11-18T18:51:10.915Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5626,
+  "count": 5627,
   "comics": [
     {
       "id": 5,
@@ -67513,7 +67513,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 17: SOUNDS LIKE THAT SUCKS!",
-      "comments": 47
+      "comments": 63
+    },
+    {
+      "id": 27821,
+      "title": "Big, Spare",
+      "slug": "big-spare",
+      "link": "https://www.dumbingofage.com/comic/big-spare/",
+      "publishedAt": "2026-11-18T05:01:26.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-18-bigspare.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "dumbing of age book 17: spice is not stuff",
+      "comments": 51
     }
   ]
 }
