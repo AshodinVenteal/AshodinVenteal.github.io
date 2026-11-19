@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-18T18:51:10.915Z",
+  "generatedAt": "2026-11-19T18:58:58.611Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5627,
+  "count": 5628,
   "comics": [
     {
       "id": 5,
@@ -67369,7 +67369,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "if i play this right, the entire audience will be Ruthing along with Ruth at the end there",
-      "comments": 57
+      "comments": 58
     },
     {
       "id": 27741,
@@ -67465,7 +67465,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "she's a size six",
-      "comments": 94
+      "comments": 95
     },
     {
       "id": 27793,
@@ -67501,7 +67501,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "on the to-do list",
-      "comments": 67
+      "comments": 68
     },
     {
       "id": 27818,
@@ -67513,7 +67513,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 17: SOUNDS LIKE THAT SUCKS!",
-      "comments": 63
+      "comments": 66
     },
     {
       "id": 27821,
@@ -67525,7 +67525,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dumbing of age book 17: spice is not stuff",
-      "comments": 51
+      "comments": 73
+    },
+    {
+      "id": 27824,
+      "title": "Flecks",
+      "slug": "flecks",
+      "link": "https://www.dumbingofage.com/comic/flecks/",
+      "publishedAt": "2026-11-19T05:01:08.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-19-flecks.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "weird flecks but okay",
+      "comments": 71
     }
   ]
 }
