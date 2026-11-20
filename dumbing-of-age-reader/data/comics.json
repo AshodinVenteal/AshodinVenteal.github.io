@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-19T18:58:58.611Z",
+  "generatedAt": "2026-11-20T18:36:20.496Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5628,
+  "count": 5629,
   "comics": [
     {
       "id": 5,
@@ -67537,7 +67537,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "weird flecks but okay",
-      "comments": 71
+      "comments": 85
+    },
+    {
+      "id": 27827,
+      "title": "Underestimations",
+      "slug": "underestimations",
+      "link": "https://www.dumbingofage.com/comic/underestimations/",
+      "publishedAt": "2026-11-20T05:01:47.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-20-underestimations.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "dorothy has reached her final form",
+      "comments": 66
     }
   ]
 }
