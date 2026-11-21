@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-20T18:36:20.496Z",
+  "generatedAt": "2026-11-21T17:31:29.332Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5629,
+  "count": 5630,
   "comics": [
     {
       "id": 5,
@@ -67477,7 +67477,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "so basically the opposite of solomon grundy",
-      "comments": 56
+      "comments": 57
     },
     {
       "id": 27796,
@@ -67537,7 +67537,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "weird flecks but okay",
-      "comments": 85
+      "comments": 86
     },
     {
       "id": 27827,
@@ -67549,7 +67549,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dorothy has reached her final form",
-      "comments": 66
+      "comments": 73
+    },
+    {
+      "id": 27830,
+      "title": "Replacement pants",
+      "slug": "replacement-pants",
+      "link": "https://www.dumbingofage.com/comic/replacement-pants/",
+      "publishedAt": "2026-11-21T05:01:27.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-21-replacementpants.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "from replacement mike to replacement pants, amber's having a year",
+      "comments": 47
     }
   ]
 }
