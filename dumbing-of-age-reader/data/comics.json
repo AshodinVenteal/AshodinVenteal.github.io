@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-21T17:31:29.332Z",
+  "generatedAt": "2026-11-22T17:49:33.659Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5630,
+  "count": 5631,
   "comics": [
     {
       "id": 5,
@@ -67465,7 +67465,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "she's a size six",
-      "comments": 95
+      "comments": 96
     },
     {
       "id": 27793,
@@ -67561,7 +67561,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "from replacement mike to replacement pants, amber's having a year",
-      "comments": 47
+      "comments": 53
+    },
+    {
+      "id": 27833,
+      "title": "Swappin'",
+      "slug": "swappin",
+      "link": "https://www.dumbingofage.com/comic/swappin/",
+      "publishedAt": "2026-11-22T05:01:37.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-22-swappin.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "swappin swappin swappin swappin swappin swappin swappin swappin swappin swappin",
+      "comments": 41
     }
   ]
 }
