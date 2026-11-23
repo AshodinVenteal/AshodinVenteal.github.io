@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-22T17:49:33.659Z",
+  "generatedAt": "2026-11-23T22:02:33.764Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5631,
+  "count": 5632,
   "comics": [
     {
       "id": 5,
@@ -67465,7 +67465,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "she's a size six",
-      "comments": 96
+      "comments": 97
     },
     {
       "id": 27793,
@@ -67573,7 +67573,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "swappin swappin swappin swappin swappin swappin swappin swappin swappin swappin",
-      "comments": 41
+      "comments": 51
+    },
+    {
+      "id": 27864,
+      "title": "Dang Rapture",
+      "slug": "dang-rapture",
+      "link": "https://www.dumbingofage.com/comic/dang-rapture/",
+      "publishedAt": "2026-11-23T05:01:15.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-23-dangrapture.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "yes these two are still together, sorry",
+      "comments": 94
     }
   ]
 }
