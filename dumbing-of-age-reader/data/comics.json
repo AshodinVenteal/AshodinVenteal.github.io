@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-23T22:02:33.764Z",
+  "generatedAt": "2026-11-24T20:39:28.494Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5632,
+  "count": 5633,
   "comics": [
     {
       "id": 5,
@@ -67585,7 +67585,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "yes these two are still together, sorry",
-      "comments": 94
+      "comments": 110
+    },
+    {
+      "id": 27866,
+      "title": "The hint",
+      "slug": "the-hint",
+      "link": "https://www.dumbingofage.com/comic/the-hint/",
+      "publishedAt": "2026-11-24T05:01:11.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-24-thehint.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "charlie pays attention SOMETIMES",
+      "comments": 51
     }
   ]
 }
