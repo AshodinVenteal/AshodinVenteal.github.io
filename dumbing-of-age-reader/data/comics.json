@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-24T20:39:28.494Z",
+  "generatedAt": "2026-11-25T19:56:39.791Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5633,
+  "count": 5634,
   "comics": [
     {
       "id": 5,
@@ -67093,7 +67093,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "and i'm sure they meant / you can be president",
-      "comments": 76
+      "comments": 75
     },
     {
       "id": 20913,
@@ -67189,7 +67189,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "nobody can jump to conclusions anymore, amber, richard riehle died yesterday",
-      "comments": 85
+      "comments": 84
     },
     {
       "id": 27577,
@@ -67297,7 +67297,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "the worst defcon is the one in dark of the moon",
-      "comments": 149
+      "comments": 148
     },
     {
       "id": 27714,
@@ -67585,7 +67585,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "yes these two are still together, sorry",
-      "comments": 110
+      "comments": 113
     },
     {
       "id": 27866,
@@ -67597,7 +67597,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "charlie pays attention SOMETIMES",
-      "comments": 51
+      "comments": 69
+    },
+    {
+      "id": 27870,
+      "title": "Hyphenate",
+      "slug": "hyphenate",
+      "link": "https://www.dumbingofage.com/comic/hyphenate/",
+      "publishedAt": "2026-11-25T05:01:30.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-25-hyphenate.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "sarah's mostly mad at herself that her attempt at making fun of joyce has backfired into discourse",
+      "comments": 43
     }
   ]
 }
