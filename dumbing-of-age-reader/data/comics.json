@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-26T19:37:06.221Z",
+  "generatedAt": "2026-11-27T19:28:02.926Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5635,
+  "count": 5636,
   "comics": [
     {
       "id": 5,
@@ -67549,7 +67549,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "dorothy has reached her final form",
-      "comments": 73
+      "comments": 74
     },
     {
       "id": 27830,
@@ -67573,7 +67573,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "swappin swappin swappin swappin swappin swappin swappin swappin swappin swappin",
-      "comments": 51
+      "comments": 52
     },
     {
       "id": 27864,
@@ -67609,7 +67609,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's mostly mad at herself that her attempt at making fun of joyce has backfired into discourse",
-      "comments": 54
+      "comments": 55
     },
     {
       "id": 27874,
@@ -67621,7 +67621,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "...happy thanksgiving...?",
-      "comments": 83
+      "comments": 96
+    },
+    {
+      "id": 27877,
+      "title": "Edited out",
+      "slug": "edited-out",
+      "link": "https://www.dumbingofage.com/comic/edited-out/",
+      "publishedAt": "2026-11-27T05:01:00.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-27-editedout.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "ha HA! cookies on dowels",
+      "comments": 58
     }
   ]
 }
