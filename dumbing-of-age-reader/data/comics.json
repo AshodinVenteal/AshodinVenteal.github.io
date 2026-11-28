@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-27T19:28:02.926Z",
+  "generatedAt": "2026-11-28T18:15:09.970Z",
   "source": "https://www.dumbingofage.com/comic/feed/",
-  "count": 5636,
+  "count": 5637,
   "comics": [
     {
       "id": 5,
@@ -67609,7 +67609,7 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "sarah's mostly mad at herself that her attempt at making fun of joyce has backfired into discourse",
-      "comments": 55
+      "comments": 56
     },
     {
       "id": 27874,
@@ -67633,7 +67633,19 @@
       "imageWidth": 1000,
       "imageHeight": 333,
       "hoverText": "ha HA! cookies on dowels",
-      "comments": 58
+      "comments": 68
+    },
+    {
+      "id": 27880,
+      "title": "Too whimsical",
+      "slug": "too-whimsical",
+      "link": "https://www.dumbingofage.com/comic/too-whimsical/",
+      "publishedAt": "2026-11-28T05:01:04.000Z",
+      "image": "https://www.dumbingofage.com/wp-content/uploads/2026/11/2026-11-28-toowhimsical.png",
+      "imageWidth": 1000,
+      "imageHeight": 333,
+      "hoverText": "'the various greek words in the bible for the different kinds of love are actually quite useful!'",
+      "comments": 53
     }
   ]
 }
